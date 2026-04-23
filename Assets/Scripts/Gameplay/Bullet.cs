@@ -3,7 +3,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public Vector3 direction = Vector3.forward;
-    [SerializeField] float DamageToDeal = 1;
+    [SerializeField] ushort DamageToDeal = 1;
     [SerializeField] float speed = 10f;
     [SerializeField] float desTime = 0.1f;
 
@@ -14,20 +14,24 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject, 2);
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void Update()
     {
-        //GameObject otherObject = other.gameObject;
-
-        //if (otherObject.CompareTag("Enemy"))
-        //{
-        //    EnemyHealth enemyHealth = otherObject.GetComponent<EnemyHealth>();
-
-        //    if (enemyHealth != null)
-        //    {
-        //        enemyHealth.DamageEnemy(DamageToDeal);
-        //    }
-        //}
-
         Destroy(gameObject, desTime);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        GameObject otherObject = other.gameObject;
+
+        if (otherObject.CompareTag("Enemy"))
+        {
+            EnemyHealth enemyHealth = otherObject.GetComponent<EnemyHealth>();
+
+            if (enemyHealth != null)
+            {
+                enemyHealth.health -= DamageToDeal;
+            }
+        }
+        Destroy(gameObject);
     }
 }
