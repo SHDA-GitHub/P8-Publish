@@ -7,10 +7,7 @@ public class Player : MonoBehaviour
 {
     [Header("Movement Settings")]
     [SerializeField] private Transform playerCamera;
-    [SerializeField] private float jumpMultiplier = 5f;
     [SerializeField] private float speed = 5f;
-    [SerializeField] private float gravityMultiplier = 2.5f;
-    [SerializeField] private float fallMultiplier = 3.5f;
     private float originalSpeed;
     public bool onGround = true;
     private Vector3 movement;
@@ -21,6 +18,13 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float groundDistance = 0.2f;
     [SerializeField] private LayerMask groundMask;
+
+    [Header("Player Shoot")]
+    [SerializeField] float fireRate = 0f;
+    private float nextFireTime = 0f;
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private Transform firePoint;
+    [SerializeField] private bool isShooting = false;
 
     private InputSystem_Actions controls;
 
@@ -33,7 +37,10 @@ public class Player : MonoBehaviour
         controls.Player.Move.canceled += OnMoveCancel;
         controls.Player.Sprint.performed += OnSprint;
         controls.Player.Sprint.canceled += OnSprintCancel;
-        controls.Player.Jump.performed += OnJump;
+        controls.Player.Shoot.performed += OnShoot;
+        controls.Player.Shoot.canceled += OnShootCancel;
+        //controls.Player.Slash.performed += OnSlash;
+        //controls.Player.Jump.performed += OnJump;
 
         rb = GetComponent<Rigidbody>();
         originalSpeed = speed;
@@ -58,21 +65,34 @@ public class Player : MonoBehaviour
 
     public void OnSprint(InputAction.CallbackContext context)
     {
-            speed = originalSpeed * 1.5f;
+        speed = originalSpeed * 1.5f;
     }
 
     public void OnSprintCancel(InputAction.CallbackContext context)
     {
-            speed = originalSpeed;
+        speed = originalSpeed;
     }
 
-    public void OnJump(InputAction.CallbackContext context)
+    private void OnShoot(InputAction.CallbackContext context)
     {
-        if (onGround)
-        {
-            rb.AddForce(Vector3.up * rb.mass * jumpMultiplier, ForceMode.Impulse);
-            onGround = false;
-        }
+        isShooting = true;
+    }
+
+    private void OnShootCancel(InputAction.CallbackContext context)
+    {
+        isShooting = false;
+    }
+
+    private void Shooting()
+    {
+        Vector3 direction = firePoint.forward;
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+        bullet.GetComponent<Bullet>().direction = direction;
+    }
+
+    private bool AbleToShoot()
+    {
+        return isShooting;
     }
 
     void FixedUpdate()
@@ -99,13 +119,10 @@ public class Player : MonoBehaviour
         Quaternion targetRotation = Quaternion.LookRotation(movement, Vector3.up);
         rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRotation, Time.fixedDeltaTime * 10f));
 
-        if (rb.linearVelocity.y < 0)
+        if (Time.time >= nextFireTime && AbleToShoot())
         {
-            rb.linearVelocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.fixedDeltaTime;
-        }
-        else if (rb.linearVelocity.y > 0)
-        {
-            rb.linearVelocity += Vector3.up * Physics.gravity.y * (gravityMultiplier - 1) * Time.fixedDeltaTime;
+            Shooting();
+            nextFireTime = Time.time + fireRate;
         }
     }
 }
