@@ -1,7 +1,7 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
+using System.Collections;
+using Unity.VisualScripting;
 
 public class Player : MonoBehaviour
 {
@@ -26,6 +26,11 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform firePoint;
     [SerializeField] private bool isShooting = false;
 
+    [Header("Player Slash")]
+    [SerializeField] private GameObject slashCollider;
+    [SerializeField] private float slashCooldown = 1f;
+    [SerializeField] private bool slashActive = false;
+
     private InputSystem_Actions controls;
 
     private void Awake()
@@ -39,7 +44,7 @@ public class Player : MonoBehaviour
         controls.Player.Sprint.canceled += OnSprintCancel;
         controls.Player.Shoot.performed += OnShoot;
         controls.Player.Shoot.canceled += OnShootCancel;
-        //controls.Player.Slash.performed += OnSlash;
+        controls.Player.Slash.performed += OnSlash;
         //controls.Player.Jump.performed += OnJump;
 
         rb = GetComponent<Rigidbody>();
@@ -88,6 +93,23 @@ public class Player : MonoBehaviour
         Vector3 direction = firePoint.forward;
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
         bullet.GetComponent<Bullet>().direction = direction;
+    }
+
+    private void OnSlash(InputAction.CallbackContext context)
+    {
+        StartCoroutine(Slash());
+    }
+
+    IEnumerator Slash()
+    {
+        if (slashActive == false)
+        {
+            slashCollider.SetActive(true);
+            slashActive = true;
+            yield return new WaitForSeconds(slashCooldown);
+            slashCollider.SetActive(false);
+            slashActive = false;
+        }
     }
 
     private bool AbleToShoot()
