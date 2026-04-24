@@ -8,11 +8,12 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private byte spawnInterval;
 
     public List<GameObject> spawnedEnemies = new List<GameObject>();
+    [SerializeField] private byte spawnLimit = 5;
 
     private bool spawnCooldown;
     private void Update()
     {
-        if(spawnCooldown || spawnedEnemies.Count >= 5)
+        if(spawnCooldown || spawnedEnemies.Count >= spawnLimit)
         {
             return;
         }
