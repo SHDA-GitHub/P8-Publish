@@ -222,7 +222,7 @@ MonoBehaviour:
   groundDistance: 0.2
   groundMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
   fireRate: 0.15
   bulletPrefab: {fileID: 4250406073059423238, guid: 602304acda781354897f91f06d74e8d3, type: 3}
   firePoint: {fileID: 568651902412245064}

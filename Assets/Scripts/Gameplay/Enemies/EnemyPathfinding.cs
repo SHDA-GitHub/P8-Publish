@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -10,6 +8,7 @@ public class EnemyPathfinding : BaseEnemy
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        targetObject = GameObject.Find("Player").transform;
     }
     protected override void Update()
     {

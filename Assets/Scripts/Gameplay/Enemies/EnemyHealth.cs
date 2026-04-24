@@ -11,9 +11,12 @@ public class EnemyHealth : BaseEnemy
     {
         health = maxHealth;
     }
-
     protected override void Update()
     {
+        if (health <= 0)
+        {
+            Death();
+        }
         healthBarFill.fillAmount = health / maxHealth;
     }
 
