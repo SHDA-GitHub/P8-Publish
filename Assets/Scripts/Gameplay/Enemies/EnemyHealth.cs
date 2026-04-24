@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,8 +6,8 @@ public class EnemyHealth : BaseEnemy
 {
     [SerializeField] private Image healthBarFill;
 
-    public ushort health;
-    [SerializeField] private ushort maxHealth;
+    public int health;
+    [SerializeField] private int maxHealth;
     void Start()
     {
         health = maxHealth;
