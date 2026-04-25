@@ -13,8 +13,19 @@ public class EnemySpawner : MonoBehaviour
     private bool spawnCooldown;
     private void Update()
     {
-        if(spawnCooldown || spawnedEnemies.Count >= spawnLimit)
+        if (spawnCooldown || spawnedEnemies.Count >= spawnLimit)
         {
+            for (int i = 0; i < spawnedEnemies.Count; i++)
+            {
+                if (spawnedEnemies[i] == null)
+                {
+                    spawnedEnemies.RemoveAt(i);
+                }
+                if (i == spawnLimit)
+                {
+                    i = 0;
+                }
+            }
             return;
         }
         StartCoroutine(SpawnTimer());
