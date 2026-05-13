@@ -1,7 +1,8 @@
-using UnityEngine;
-using UnityEngine.InputSystem;
 using System.Collections;
 using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
@@ -135,11 +136,10 @@ public class Player : MonoBehaviour
 
             Vector3 moveOffset = moveDirection * speed * Time.fixedDeltaTime;
             rb.MovePosition(rb.position + moveOffset);
+
+            Quaternion targetRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
+            rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRotation, Time.fixedDeltaTime * 10f));
         }
-
-
-        Quaternion targetRotation = Quaternion.LookRotation(movement, Vector3.up);
-        rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRotation, Time.fixedDeltaTime * 10f));
 
         if (Time.time >= nextFireTime && AbleToShoot())
         {
