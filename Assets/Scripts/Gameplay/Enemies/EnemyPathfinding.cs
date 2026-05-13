@@ -10,12 +10,8 @@ public class EnemyPathfinding : BaseEnemy
         agent = GetComponent<NavMeshAgent>();
         targetObject = GameObject.Find("Player").transform;
     }
-    protected override void Update()
+    private void Update()
     {
-        if(currentState != EnemyState.Chasing)
-        {
-            return;
-        }
         agent.SetDestination(targetObject.position);
     }
 }
