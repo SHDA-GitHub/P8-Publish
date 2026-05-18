@@ -119,6 +119,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &385235011
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 385235012}
+  m_Layer: 0
+  m_Name: HeadArea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &385235012
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385235011}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.364, y: 0.881, z: 0.311}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2210598256011896352}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &564383929
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,14 +420,14 @@ MonoBehaviour:
   Orbits:
     Top:
       Radius: 2.38
-      Height: 5.63
+      Height: 4.31
     Center:
-      Radius: 7.18
-      Height: 2.83
+      Radius: 1.59
+      Height: -0.5
     Bottom:
-      Radius: 3.39
-      Height: 0.76
-    SplineCurvature: 0.5
+      Radius: 3.61
+      Height: 1.05
+    SplineCurvature: 0.489
   RecenteringTarget: 2
   HorizontalAxis:
     Value: 0
@@ -409,8 +440,8 @@ MonoBehaviour:
       Time: 2
     Restrictions: 0
   VerticalAxis:
-    Value: 17.5
-    Center: 17.5
+    Value: 23.3
+    Center: 19.5
     Range: {x: -10, y: 45}
     Wrap: 0
     Recentering:
@@ -448,7 +479,7 @@ MonoBehaviour:
   m_StreamingVersion: 20241001
   m_LegacyPriority: 0
   Target:
-    TrackingTarget: {fileID: 2210598256011896352}
+    TrackingTarget: {fileID: 385235012}
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
@@ -479,8 +510,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 740747620}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18662606, y: 0.000000033400667, z: 4.9149873e-10, w: 0.982431}
-  m_LocalPosition: {x: -0.12975, y: 3.1, z: -9.421869}
+  m_LocalRotation: {x: 0.07060149, y: 1.76949e-15, z: -1.33406366e-17, w: 0.99750465}
+  m_LocalPosition: {x: -0.38564926, y: 1.1109533, z: -3.5807934}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -573,8 +604,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 858174920}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18662608, y: 0.00000003474796, z: -0.000000006600845, w: 0.98243105}
-  m_LocalPosition: {x: -0.12975, y: 3.1, z: -9.421869}
+  m_LocalRotation: {x: 0.0706015, y: 1.7774504e-15, z: -1.2580458e-16, w: 0.99750465}
+  m_LocalPosition: {x: -0.38564926, y: 1.1109533, z: -3.5807934}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1031,10 +1062,13 @@ PrefabInstance:
     - target: {fileID: 6197524106315671214, guid: 4d8f9ae908718d642a25ad9a97820b41, type: 3}
       propertyPath: playerCamera
       value: 
-      objectReference: {fileID: 858174923}
+      objectReference: {fileID: 740747626}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5219519997033967044, guid: 4d8f9ae908718d642a25ad9a97820b41, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 385235012}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d8f9ae908718d642a25ad9a97820b41, type: 3}
 --- !u!4 &2210598256011896352 stripped

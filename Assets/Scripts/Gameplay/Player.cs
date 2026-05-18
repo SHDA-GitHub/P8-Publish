@@ -136,10 +136,14 @@ public class Player : MonoBehaviour
 
             Vector3 moveOffset = moveDirection * speed * Time.fixedDeltaTime;
             rb.MovePosition(rb.position + moveOffset);
-
-            Quaternion targetRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
-            rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRotation, Time.fixedDeltaTime * 10f));
         }
+
+        Vector3 lookDirection = playerCamera.forward;
+        lookDirection.y = 0f;
+        lookDirection.Normalize();
+
+        Quaternion targetRotation = Quaternion.LookRotation(lookDirection, Vector3.up);
+        rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRotation, Time.fixedDeltaTime * 10f));
 
         if (Time.time >= nextFireTime && AbleToShoot())
         {
