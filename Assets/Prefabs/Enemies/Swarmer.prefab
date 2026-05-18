@@ -289,6 +289,7 @@ MonoBehaviour:
   lookAtConstraint: {fileID: 7368707854042296065}
   health: 0
   maxHealth: 100
+  EXPReward: 25
 --- !u!1 &2247985268620273311
 GameObject:
   m_ObjectHideFlags: 0
