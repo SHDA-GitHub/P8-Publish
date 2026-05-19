@@ -4,16 +4,16 @@ public class SceneManaging : MonoBehaviour
 {
     public void StartMenu()
     {
-        SceneManager.LoadScene("Start Menu");
+        SceneManager.LoadScene("StartMenu");
     }
 
     public void PlayScene()
     {
-        SceneManager.LoadScene("Play Scene");
+        SceneManager.LoadScene("PlayScene");
     }
 
     public void EndMenu()
     {
-        SceneManager.LoadScene("End Menu");
+        SceneManager.LoadScene("EndMenu");
     }
 }
