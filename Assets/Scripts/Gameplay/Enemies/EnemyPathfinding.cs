@@ -3,15 +3,17 @@ using UnityEngine.AI;
 
 public class EnemyPathfinding : BaseEnemy
 {
-    [SerializeField] private NavMeshAgent agent;
+
+    [SerializeField] private NavMeshAgent _agent;
     public Transform targetObject;
-    void Start()
+    void Awake()
     {
-        agent = GetComponent<NavMeshAgent>();
-        targetObject = GameObject.Find("Player").transform;
+
+        _agent = GetComponent<NavMeshAgent>();
+        targetObject = Player.instance.transform;
     }
     private void Update()
     {
-        agent.SetDestination(targetObject.position);
+        _agent.SetDestination(targetObject.position);
     }
 }

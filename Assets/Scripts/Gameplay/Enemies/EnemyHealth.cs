@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class EnemyHealth : BaseEnemy
 {
     [SerializeField] private Image healthBarFill;
-    [SerializeField] private LookAtConstraint lookAtConstraint;
     private Camera _mainCam;
     private PlayerEXP playerEXP;
     public float health;
@@ -16,8 +15,6 @@ public class EnemyHealth : BaseEnemy
     {
         health = maxHealth;
         playerEXP = FindFirstObjectByType<PlayerEXP>();
-        _mainCam = GameObject.Find("Main Camera").GetComponent<Camera>();
-        lookAtConstraint.AddSource(new ConstraintSource { sourceTransform = _mainCam.gameObject.transform, weight = 1 });
     }
     private void Update()
     {

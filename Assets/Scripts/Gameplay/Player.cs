@@ -6,6 +6,9 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+
+    public static GameObject instance;
+
     [Header("Movement Settings")]
     [SerializeField] private Transform playerCamera;
     [SerializeField] private float speed = 5f;
@@ -36,6 +39,8 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        instance = this.gameObject;
+
         controls = new InputSystem_Actions();
         controls.Player.Enable();
 
