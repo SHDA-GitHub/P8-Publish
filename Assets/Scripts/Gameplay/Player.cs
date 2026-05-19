@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -12,6 +13,7 @@ public class Player : MonoBehaviour
     [Header("Movement Settings")]
     [SerializeField] private Transform playerCamera;
     [SerializeField] private float speed = 5f;
+    [SerializeField] private float jumpMultiplier = 5f;
     private float originalSpeed;
     public bool onGround = true;
     private Vector3 movement;
@@ -51,7 +53,7 @@ public class Player : MonoBehaviour
         controls.Player.Shoot.performed += OnShoot;
         controls.Player.Shoot.canceled += OnShootCancel;
         controls.Player.Slash.performed += OnSlash;
-        //controls.Player.Jump.performed += OnJump;
+        controls.Player.Jump.performed += OnJump;
 
         rb = GetComponent<Rigidbody>();
         originalSpeed = speed;
@@ -118,15 +120,42 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void OnJump(InputAction.CallbackContext context)
+    {
+        if (!context.performed) return;
+
+        float jumpForce = rb.mass * jumpMultiplier;
+
+        if (onGround)
+        {
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            onGround = false;
+        }
+    }
+
     private bool AbleToShoot()
     {
         return isShooting;
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            onGround = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            onGround = false;
+        }
+    }
+
     void FixedUpdate()
     {
-        onGround = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-
         if (movement != Vector3.zero)
         {
             Vector3 camForward = playerCamera.forward;
