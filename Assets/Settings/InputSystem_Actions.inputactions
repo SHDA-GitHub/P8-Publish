@@ -52,9 +52,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Slash",
+                    "name": "Toggle",
                     "type": "Button",
-                    "id": "e8ff125d-4d31-4c9f-bb99-84f237bced75",
+                    "id": "1ab46226-1405-4c8b-9c0e-88601b4de44f",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -163,12 +163,12 @@
                 },
                 {
                     "name": "",
-                    "id": "8bbc0dc6-0512-42e6-8d01-797b1471bced",
-                    "path": "<Mouse>/rightButton",
+                    "id": "07fa237d-4ac4-4939-921d-a6abd85a62d0",
+                    "path": "<Mouse>/middleButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Slash",
+                    "action": "Toggle",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
