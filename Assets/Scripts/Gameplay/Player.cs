@@ -1,8 +1,5 @@
 using System.Collections;
-using Unity.Cinemachine;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
@@ -19,11 +16,6 @@ public class Player : MonoBehaviour
     private Vector3 movement;
     private Vector2 aim;
     private Rigidbody rb;
-
-    [Header("Player groundcheck")]
-    [SerializeField] private Transform groundCheck;
-    [SerializeField] private float groundDistance = 0.2f;
-    [SerializeField] private LayerMask groundMask;
 
     [Header("Player Shoot")]
     [SerializeField] float fireRate = 0f;

@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1747198597313834214
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8938929858670726758}
+  m_Layer: 0
+  m_Name: HeadArea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8938929858670726758
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1747198597313834214}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.22, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5219519997033967044}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3881552752865974173
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,7 +75,8 @@ GameObject:
   - component: {fileID: 7762835034640974129}
   - component: {fileID: 264448010040193802}
   - component: {fileID: 6197524106315671214}
-  - component: {fileID: 7610390543746394527}
+  - component: {fileID: 232599516343195807}
+  - component: {fileID: 1197258191238659227}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -65,6 +97,7 @@ Transform:
   m_LocalScale: {x: 0.70302, y: 0.70302, z: 0.70302}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 8938929858670726758}
   - {fileID: 5707029333626668911}
   - {fileID: 568651902412245064}
   - {fileID: 3958030046099255427}
@@ -103,7 +136,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5046740647148227416}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -161,12 +194,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player
   playerCamera: {fileID: 0}
   speed: 5
+  jumpMultiplier: 5
   onGround: 1
-  groundCheck: {fileID: 5707029333626668911}
-  groundDistance: 0.2
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 0
   fireRate: 0.15
   bulletPrefab: {fileID: 4250406073059423238, guid: 602304acda781354897f91f06d74e8d3, type: 3}
   firePoint: {fileID: 568651902412245064}
@@ -174,22 +203,37 @@ MonoBehaviour:
   slashCollider: {fileID: 8376510290167088238}
   slashCooldown: 0.45
   slashActive: 0
---- !u!208 &7610390543746394527
-NavMeshObstacle:
+--- !u!114 &232599516343195807
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5046740647148227416}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 0
-  m_Extents: {x: 0.16, y: 0.92, z: 0.16}
-  m_MoveThreshold: 0.1
-  m_Carve: 1
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4d7d69f74036c64cbb2738d80d55576, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  healthBarFill: {fileID: 0}
+  health: 100
+  maxHealth: 100
+--- !u!114 &1197258191238659227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5046740647148227416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 282d49dc6622f804c958ed044305f170, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerEXP
+  EXPBarFill: {fileID: 0}
+  EXP: 0
+  maxEXP: 100
+  exponentialEXP: 25
 --- !u!1 &7221813130568789545
 GameObject:
   m_ObjectHideFlags: 0
