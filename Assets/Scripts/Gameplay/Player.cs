@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        Cursor.lockState = CursorLockMode.Locked; 
         instance = this.gameObject;
 
         controls = new InputSystem_Actions();

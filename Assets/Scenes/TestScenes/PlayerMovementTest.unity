@@ -238,7 +238,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 65222170}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3662404170786735898}
+        m_TargetAssemblyTypeName: LevelUpUI, Assembly-CSharp
+        m_MethodName: CloseLevelUpUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &385235012 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8938929858670726758, guid: 4d8f9ae908718d642a25ad9a97820b41, type: 3}
@@ -374,7 +386,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 531289948}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3662404170786735898}
+        m_TargetAssemblyTypeName: LevelUpUI, Assembly-CSharp
+        m_MethodName: CloseLevelUpUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &564383929
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,7 +645,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 599526222}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3662404170786735898}
+        m_TargetAssemblyTypeName: LevelUpUI, Assembly-CSharp
+        m_MethodName: CloseLevelUpUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &722320764
 GameObject:
   m_ObjectHideFlags: 0
@@ -1352,7 +1388,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.5529412}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.60784316}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1552,6 +1588,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08857a9defdb8054bbd2752ae1999543, type: 3}
+--- !u!1 &2047879414 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1696381777130304468, guid: 5c983cdf82e26714eaed146aceadcfdc, type: 3}
+  m_PrefabInstance: {fileID: 3662404170786735893}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2210598256011896351
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1755,13 +1796,30 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2630051280508151169, guid: 5c983cdf82e26714eaed146aceadcfdc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 722320765}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1696381777130304468, guid: 5c983cdf82e26714eaed146aceadcfdc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3662404170786735898}
   m_SourcePrefab: {fileID: 100100000, guid: 5c983cdf82e26714eaed146aceadcfdc, type: 3}
 --- !u!224 &3662404170786735894 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2630051280508151169, guid: 5c983cdf82e26714eaed146aceadcfdc, type: 3}
   m_PrefabInstance: {fileID: 3662404170786735893}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3662404170786735898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047879414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6dd6d00c12391249adfc0ed6a9e0853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelUpUI
+  levelUpPanel: {fileID: 722320764}
+  upgradeOptions: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
