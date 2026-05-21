@@ -1143,10 +1143,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6197524106315671214, guid: 4d8f9ae908718d642a25ad9a97820b41, type: 3}
-      propertyPath: gun
-      value: 
-      objectReference: {fileID: 2210598256011896352}
-    - target: {fileID: 6197524106315671214, guid: 4d8f9ae908718d642a25ad9a97820b41, type: 3}
       propertyPath: playerCamera
       value: 
       objectReference: {fileID: 740747626}
@@ -1166,20 +1162,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 1.3
       objectReference: {fileID: 0}
-    - target: {fileID: 8376510290167088238, guid: 4d8f9ae908718d642a25ad9a97820b41, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d8f9ae908718d642a25ad9a97820b41, type: 3}
---- !u!1 &2210598256011896352 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4442361191890807353, guid: 4d8f9ae908718d642a25ad9a97820b41, type: 3}
-  m_PrefabInstance: {fileID: 2210598256011896351}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3662404170786735893
 PrefabInstance:
   m_ObjectHideFlags: 0
