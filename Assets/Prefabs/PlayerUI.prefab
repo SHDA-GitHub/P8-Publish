@@ -245,10 +245,10 @@ RectTransform:
   - {fileID: 5519250657912267984}
   - {fileID: 6237544378894321396}
   - {fileID: 8690551877133893705}
-  - {fileID: 288745077196959086}
   - {fileID: 2865950754766021518}
   - {fileID: 5623624859299427324}
   - {fileID: 3896418698540387520}
+  - {fileID: 288745077196959086}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1763,7 +1763,7 @@ Transform:
   m_GameObject: {fileID: 7374269153457156062}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 223, y: -0, z: -0}
+  m_LocalPosition: {x: 223, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
