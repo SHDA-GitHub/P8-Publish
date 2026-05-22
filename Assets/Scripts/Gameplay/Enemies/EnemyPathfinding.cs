@@ -5,15 +5,16 @@ public class EnemyPathfinding : BaseEnemy
 {
 
     [SerializeField] private NavMeshAgent _agent;
-    public Transform targetObject;
-    void Awake()
+    private Transform _targetObject;
+    void Start()
     {
-
+        Transform target = Player.instance.transform;
+        print(target);
         _agent = GetComponent<NavMeshAgent>();
-        targetObject = Player.instance.transform;
+        _targetObject = target;
     }
     private void Update()
     {
-        _agent.SetDestination(targetObject.position);
+        _agent.SetDestination(_targetObject.position);
     }
 }

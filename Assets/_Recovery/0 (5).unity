@@ -404,7 +404,7 @@ MonoBehaviour:
   CurrentWave: 0
   _waveInterval: 10
   _spawnInterval: 1
-  _maxEnemies: 0
+  _maxEnemies: 1
   _spawnLimit: 25
   spawnedEnemies: []
   _enemyScaling: 1
@@ -743,10 +743,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2321060449947468506, guid: 6497b80fc02332849b3d9d30776ab355, type: 3}
-      propertyPath: targetObject
-      value: 
-      objectReference: {fileID: 319235395}
     - target: {fileID: 6065463569577355582, guid: 6497b80fc02332849b3d9d30776ab355, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.26
@@ -775,17 +771,13 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -0.328
       objectReference: {fileID: 0}
-    - target: {fileID: 7368707854042296065, guid: 6497b80fc02332849b3d9d30776ab355, type: 3}
-      propertyPath: m_Sources.Array.data[0].sourceTransform
-      value: 
-      objectReference: {fileID: 845098349}
     - target: {fileID: 7404491203173833990, guid: 6497b80fc02332849b3d9d30776ab355, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.999
+      value: 3.35
       objectReference: {fileID: 0}
     - target: {fileID: 7404491203173833990, guid: 6497b80fc02332849b3d9d30776ab355, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.252
+      value: 1.85
       objectReference: {fileID: 0}
     - target: {fileID: 7404491203173833990, guid: 6497b80fc02332849b3d9d30776ab355, type: 3}
       propertyPath: m_LocalPosition.z
@@ -819,65 +811,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8283329746861143069, guid: 6497b80fc02332849b3d9d30776ab355, type: 3}
-      propertyPath: _healthBarFill
-      value: 
-      objectReference: {fileID: 646053674}
-    - target: {fileID: 8283329746861143069, guid: 6497b80fc02332849b3d9d30776ab355, type: 3}
-      propertyPath: lookAtConstraint
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8283329746861143069, guid: 6497b80fc02332849b3d9d30776ab355, type: 3}
-      propertyPath: _lookAtConstraint
-      value: 
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7368707854042296065, guid: 6497b80fc02332849b3d9d30776ab355, type: 3}
-    - {fileID: 6361174280311361954, guid: 6497b80fc02332849b3d9d30776ab355, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1668765135169094032, guid: 6497b80fc02332849b3d9d30776ab355, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 646053676}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6497b80fc02332849b3d9d30776ab355, type: 3}
---- !u!1 &646053673 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1668765135169094032, guid: 6497b80fc02332849b3d9d30776ab355, type: 3}
-  m_PrefabInstance: {fileID: 646053672}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &646053674 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8528038494584297137, guid: 6497b80fc02332849b3d9d30776ab355, type: 3}
-  m_PrefabInstance: {fileID: 646053672}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
---- !u!65 &646053676
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 646053673}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2, y: 2, z: 1}
-  m_Center: {x: 0, y: -0.4103609, z: 0}
 --- !u!1 &845098348
 GameObject:
   m_ObjectHideFlags: 0

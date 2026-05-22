@@ -712,7 +712,7 @@ GameObject:
   - component: {fileID: 1469325223}
   - component: {fileID: 1469325222}
   - component: {fileID: 1469325221}
-  - component: {fileID: 1469325220}
+  - component: {fileID: 1469325224}
   m_Layer: 5
   m_Name: PlayButton
   m_TagString: Untagged
@@ -740,18 +740,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -108}
   m_SizeDelta: {x: 678.3733, y: 127.195}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1469325220
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1469325218}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9031a5100e1ddf54a91b76786c49cb7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SceneManaging
 --- !u!114 &1469325221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -796,7 +784,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1469325220}
+      - m_Target: {fileID: 1469325224}
         m_TargetAssemblyTypeName: SceneManaging, Assembly-CSharp
         m_MethodName: PlayScene
         m_Mode: 1
@@ -846,6 +834,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1469325218}
   m_CullTransparentMesh: 1
+--- !u!114 &1469325224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469325218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90e155df4fbfd23428c74965506b1e13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SceneManaging
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
