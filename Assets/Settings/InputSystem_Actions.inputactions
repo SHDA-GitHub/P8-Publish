@@ -53,12 +53,12 @@
                 },
                 {
                     "name": "Toggle",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "1ab46226-1405-4c8b-9c0e-88601b4de44f",
-                    "expectedControlType": "",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -162,15 +162,59 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "07fa237d-4ac4-4939-921d-a6abd85a62d0",
-                    "path": "<Mouse>/middleButton",
+                    "name": "2D Vector",
+                    "id": "06de5bed-2fd0-40ac-8187-01c087f9bef0",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Toggle",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Up",
+                    "id": "8baef901-0e41-4ec6-8f64-a62c2c941802",
+                    "path": "<Mouse>/scroll/up",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Toggle",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Down",
+                    "id": "b4bebbfb-c54d-4877-888d-658b86e50d6d",
+                    "path": "<Mouse>/scroll/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Toggle",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Left",
+                    "id": "ab2ab358-82c9-4708-8a8a-cb726e5d768c",
+                    "path": "<Mouse>/scroll/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Toggle",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Right",
+                    "id": "31d20854-5c43-4aea-b4fe-e7be789126a9",
+                    "path": "<Mouse>/scroll/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Toggle",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         },

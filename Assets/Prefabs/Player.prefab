@@ -196,7 +196,7 @@ MonoBehaviour:
   speed: 5
   jumpMultiplier: 5
   onGround: 1
-  WeaponToggle: 1
+  weaponToggle: 1
   fireRate: 0.15
   gun: {fileID: 4442361191890807353}
   bulletPrefab: {fileID: 4250406073059423238, guid: 602304acda781354897f91f06d74e8d3, type: 3}
@@ -235,7 +235,7 @@ MonoBehaviour:
   EXPBarFill: {fileID: 0}
   EXP: 0
   maxEXP: 100
-  exponentialEXP: 25
+  exponentialEXP: 30
 --- !u!1 &7221813130568789545
 GameObject:
   m_ObjectHideFlags: 0

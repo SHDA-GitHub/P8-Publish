@@ -1,6 +1,9 @@
 using System.Collections;
+using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -16,7 +19,7 @@ public class Player : MonoBehaviour
     private Vector3 movement;
     private Vector2 aim;
     private Rigidbody rb;
-    [SerializeField] private bool WeaponToggle = true;
+    [SerializeField] private bool weaponToggle = true;
     // true = gun
     // false = slash
 
@@ -37,7 +40,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        WeaponToggle = true;
+        weaponToggle = true;
         Cursor.lockState = CursorLockMode.Locked; 
         instance = this.gameObject;
 
@@ -50,8 +53,8 @@ public class Player : MonoBehaviour
         controls.Player.Sprint.canceled += OnSprintCancel;
         controls.Player.Shoot.performed += OnAttack;
         controls.Player.Shoot.canceled += OnAttackCancel;
-        controls.Player.Toggle.performed += OnToggleWeapon;
         controls.Player.Jump.performed += OnJump;
+        controls.Player.Toggle.performed += OnToggleWeapon;
 
         rb = GetComponent<Rigidbody>();
         originalSpeed = speed;
@@ -86,7 +89,7 @@ public class Player : MonoBehaviour
 
     private void OnAttack(InputAction.CallbackContext context)
     {
-        if (WeaponToggle)
+        if (weaponToggle)
         {
             isShooting = true;
         }
@@ -103,9 +106,11 @@ public class Player : MonoBehaviour
 
     private void OnToggleWeapon(InputAction.CallbackContext context)
     {
-        WeaponToggle = !WeaponToggle;
-
-        Debug.Log("Weapon Toggle: " + (WeaponToggle ? "Gun" : "Slash"));
+        Vector2 scroll = context.ReadValue<Vector2>();
+        if (Mathf.Abs(scroll.y) > 0.01f)
+        {
+            weaponToggle = !weaponToggle;
+        }
     }
 
     private void Shooting()
@@ -142,11 +147,6 @@ public class Player : MonoBehaviour
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             onGround = false;
         }
-    }
-
-    private bool AbleToShoot()
-    {
-        return isShooting;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -190,7 +190,7 @@ public class Player : MonoBehaviour
         Quaternion targetRotation = Quaternion.LookRotation(lookDirection, Vector3.up);
         rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRotation, Time.fixedDeltaTime * 10f));
 
-        if (WeaponToggle && isShooting)
+        if (weaponToggle && isShooting)
         {
             if (Time.time >= nextFireTime)
             {
@@ -200,7 +200,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (WeaponToggle == true)
+        if (weaponToggle == true)
         {
             gun.gameObject.SetActive(true);
         }
