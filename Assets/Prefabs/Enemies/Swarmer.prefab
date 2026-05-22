@@ -267,6 +267,7 @@ MonoBehaviour:
   health: 0
   maxHealth: 100
   EXPReward: 25
+  CurrencyReward: 5
 --- !u!114 &905258255530043595
 MonoBehaviour:
   m_ObjectHideFlags: 0

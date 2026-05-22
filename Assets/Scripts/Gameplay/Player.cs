@@ -1,6 +1,9 @@
 using System.Collections;
+using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -16,23 +19,29 @@ public class Player : MonoBehaviour
     private Vector3 movement;
     private Vector2 aim;
     private Rigidbody rb;
+    [SerializeField] private bool weaponToggle = true;
+    // true = gun
+    // false = slash
 
     [Header("Player Shoot")]
     [SerializeField] float fireRate = 0f;
     private float nextFireTime = 0f;
+    [SerializeField] private GameObject gun;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
     [SerializeField] private bool isShooting = false;
 
     [Header("Player Slash")]
     [SerializeField] private GameObject slashCollider;
-    [SerializeField] private float slashCooldown = 1f;
+    [SerializeField] private float slashDuration = 1f;
     [SerializeField] private bool slashActive = false;
 
     private InputSystem_Actions controls;
 
     private void Awake()
     {
+        weaponToggle = true;
+        Cursor.lockState = CursorLockMode.Locked; 
         instance = this.gameObject;
 
         controls = new InputSystem_Actions();
@@ -42,10 +51,10 @@ public class Player : MonoBehaviour
         controls.Player.Move.canceled += OnMoveCancel;
         controls.Player.Sprint.performed += OnSprint;
         controls.Player.Sprint.canceled += OnSprintCancel;
-        controls.Player.Shoot.performed += OnShoot;
-        controls.Player.Shoot.canceled += OnShootCancel;
-        controls.Player.Slash.performed += OnSlash;
+        controls.Player.Shoot.performed += OnAttack;
+        controls.Player.Shoot.canceled += OnAttackCancel;
         controls.Player.Jump.performed += OnJump;
+        controls.Player.Toggle.performed += OnToggleWeapon;
 
         rb = GetComponent<Rigidbody>();
         originalSpeed = speed;
@@ -78,14 +87,30 @@ public class Player : MonoBehaviour
         speed = originalSpeed;
     }
 
-    private void OnShoot(InputAction.CallbackContext context)
+    private void OnAttack(InputAction.CallbackContext context)
     {
-        isShooting = true;
+        if (weaponToggle)
+        {
+            isShooting = true;
+        }
+        else
+        {
+            StartCoroutine(Slash());
+        }
     }
 
-    private void OnShootCancel(InputAction.CallbackContext context)
+    private void OnAttackCancel(InputAction.CallbackContext context)
     {
         isShooting = false;
+    }
+
+    private void OnToggleWeapon(InputAction.CallbackContext context)
+    {
+        Vector2 scroll = context.ReadValue<Vector2>();
+        if (Mathf.Abs(scroll.y) > 0.01f)
+        {
+            weaponToggle = !weaponToggle;
+        }
     }
 
     private void Shooting()
@@ -95,21 +120,20 @@ public class Player : MonoBehaviour
         bullet.GetComponent<Bullet>().direction = direction;
     }
 
-    private void OnSlash(InputAction.CallbackContext context)
+    private IEnumerator Slash()
     {
-        StartCoroutine(Slash());
-    }
+        if (slashActive)
+            yield break;
 
-    IEnumerator Slash()
-    {
-        if (slashActive == false)
-        {
-            slashCollider.SetActive(true);
-            slashActive = true;
-            yield return new WaitForSeconds(slashCooldown);
-            slashCollider.SetActive(false);
-            slashActive = false;
-        }
+        slashActive = true;
+
+        slashCollider.SetActive(true);
+
+        yield return new WaitForSeconds(slashDuration);
+
+        slashCollider.SetActive(false);
+
+        slashActive = false;
     }
 
     private void OnJump(InputAction.CallbackContext context)
@@ -123,11 +147,6 @@ public class Player : MonoBehaviour
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             onGround = false;
         }
-    }
-
-    private bool AbleToShoot()
-    {
-        return isShooting;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -171,10 +190,23 @@ public class Player : MonoBehaviour
         Quaternion targetRotation = Quaternion.LookRotation(lookDirection, Vector3.up);
         rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRotation, Time.fixedDeltaTime * 10f));
 
-        if (Time.time >= nextFireTime && AbleToShoot())
+        if (weaponToggle && isShooting)
         {
-            Shooting();
-            nextFireTime = Time.time + fireRate;
+            if (Time.time >= nextFireTime)
+            {
+                Shooting();
+
+                nextFireTime = Time.time + fireRate;
+            }
+        }
+
+        if (weaponToggle == true)
+        {
+            gun.gameObject.SetActive(true);
+        }
+        else
+        {
+            gun.gameObject.SetActive(false);
         }
     }
 }

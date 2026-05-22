@@ -8,13 +8,17 @@ public class EnemyHealth : BaseEnemy
     [SerializeField] private Image healthBarFill;
     private Camera _mainCam;
     private PlayerEXP playerEXP;
+    private PlayerCurrency playerCurrency;
     public float health;
     [SerializeField] private float maxHealth;
     [SerializeField] private float EXPReward;
+    [SerializeField] private int CurrencyReward;
+
     void Start()
     {
         health = maxHealth;
         playerEXP = FindFirstObjectByType<PlayerEXP>();
+        playerCurrency = FindFirstObjectByType<PlayerCurrency>();
     }
     private void Update()
     {
@@ -28,6 +32,8 @@ public class EnemyHealth : BaseEnemy
 
     protected override void Death()
     {
+        playerCurrency.currency += CurrencyReward;
+        playerCurrency.kills += 1;
         playerEXP.EXP += EXPReward;
         Debug.Log("Enemy Dies");
         base.Death();
