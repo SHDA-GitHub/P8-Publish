@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class TouchDamage : BaseEnemy
 {
-    public float _attackDamage = 10f;
+    public float _attackDamage;
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.CompareTag("Player"))

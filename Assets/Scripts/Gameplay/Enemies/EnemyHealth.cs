@@ -10,7 +10,7 @@ public class EnemyHealth : BaseEnemy
     private PlayerEXP playerEXP;
     private PlayerCurrency playerCurrency;
     public float health;
-    [SerializeField] private float maxHealth;
+    public float maxHealth;
     [SerializeField] private float EXPReward;
     [SerializeField] private int CurrencyReward;
 

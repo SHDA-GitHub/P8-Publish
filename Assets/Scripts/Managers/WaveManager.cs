@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class WaveManager : MonoBehaviour
@@ -12,18 +11,16 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private float _waveInterval;
     [SerializeField] private float _spawnInterval;
     [SerializeField] private byte _maxEnemies;
-    [SerializeField] private byte _spawnLimit;
 
     [Header("Wave data")]
     public List<GameObject> spawnedEnemies = new List<GameObject>();
-    [SerializeField] private float _enemyScaling;
+    [SerializeField] private bool _waveCooldown = false;
+    [SerializeField] private bool _spawnCooldown = false;
 
     [Header("UI")]
     [SerializeField] private GameObject waveUI;
     [SerializeField] private GameObject enemyCountUI;
 
-    private bool _waveCooldown = true;
-    private bool _spawnCooldown = true;
 
     private void Update()
     {
@@ -48,17 +45,17 @@ public class WaveManager : MonoBehaviour
             print("spawning");
             for (int i = 0; i < _enemySpawners.Length; i++)
             {
-                StartCoroutine(SpawnTimer());
+                StartCoroutine(SpawnTimer(_enemySpawners[i]));
             }
         }
     }
 
-    private void SpawnEnemy()
+    private void SpawnEnemy(Transform targetPos)
     {
-        GameObject enemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
-        enemy.GetComponent<EnemyHealth>().health *= 1 + _enemyScaling;
-        enemy.GetComponent<TouchDamage>()._attackDamage *= 1 + _enemyScaling;
+        GameObject enemy = Instantiate(enemyPrefab, targetPos.position, Quaternion.identity);
         spawnedEnemies.Add(enemy);
+        enemy.GetComponent<EnemyHealth>().maxHealth *= (1 + CurrentWave);
+        enemy.GetComponent<TouchDamage>()._attackDamage *= (1 + CurrentWave);
     }
 
     private IEnumerator WaveTimer()
@@ -69,10 +66,10 @@ public class WaveManager : MonoBehaviour
         _waveCooldown = false;
     }
 
-    private IEnumerator SpawnTimer()
+    private IEnumerator SpawnTimer(Transform targetPos)
     {
         _spawnCooldown = true;
-        SpawnEnemy();
+        SpawnEnemy(targetPos);
         yield return new WaitForSeconds(_spawnInterval);
         _spawnCooldown = false;
     }

@@ -9,7 +9,6 @@ public class EnemyPathfinding : BaseEnemy
     void Start()
     {
         Transform target = Player.instance.transform;
-        print(target);
         _agent = GetComponent<NavMeshAgent>();
         _targetObject = target;
     }
