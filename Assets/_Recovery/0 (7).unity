@@ -401,11 +401,10 @@ MonoBehaviour:
   - {fileID: 244867088}
   - {fileID: 978772150}
   - {fileID: 1335386485}
-  CurrentWave: 1
-  _waveTimer: 1
-  _spawnTimer: 5
-  _maxEnemies: 20
-  CurrentEnemies: []
+  CurrentWave: 900
+  _waveInterval: 10
+  _spawnInterval: 1
+  _maxEnemies: 0
   _waveCooldown: 0
   _spawnCooldown: 0
   waveUI: {fileID: 0}
@@ -722,7 +721,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.5, y: 0.35, z: 0.5}
-  m_LocalScale: {x: 681.193, y: 0.92786914, z: 999.7162}
+  m_LocalScale: {x: 24.03136, y: 0.92786914, z: 22.14407}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

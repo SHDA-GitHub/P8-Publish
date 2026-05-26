@@ -8,12 +8,12 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private Transform[] _enemySpawners;
     [SerializeField] private float CurrentWave;
-    [SerializeField] private float _waveInterval;
-    [SerializeField] private float _spawnInterval;
+    [SerializeField] private float _waveTimer;
+    [SerializeField] private float _spawnTimer;
     [SerializeField] private byte _maxEnemies;
+    public List<GameObject> CurrentEnemies = new List<GameObject>();
 
     [Header("Wave data")]
-    public List<GameObject> spawnedEnemies = new List<GameObject>();
     [SerializeField] private bool _waveCooldown = false;
     [SerializeField] private bool _spawnCooldown = false;
 
@@ -28,32 +28,15 @@ public class WaveManager : MonoBehaviour
         {
             StartCoroutine(WaveTimer());
         }
-
-        if (_spawnCooldown)
+        if (!_spawnCooldown)
         {
-            for (int i = 0; i < spawnedEnemies.Count; i++)
-            {
-                if (spawnedEnemies[i] == null)
-                {
-                    spawnedEnemies.RemoveAt(i);
-                }
-            }
-            print("help");
-
-        }else if (!_spawnCooldown && spawnedEnemies.Count <= _maxEnemies)
-        {
-            print("spawning");
-            for (int i = 0; i < _enemySpawners.Length; i++)
-            {
-                StartCoroutine(SpawnTimer(_enemySpawners[i]));
-            }
+            StartCoroutine(SpawnTimer());
         }
     }
 
     private void SpawnEnemy(Transform targetPos)
     {
         GameObject enemy = Instantiate(enemyPrefab, targetPos.position, Quaternion.identity);
-        spawnedEnemies.Add(enemy);
         enemy.GetComponent<EnemyHealth>().maxHealth *= (1 + CurrentWave);
         enemy.GetComponent<TouchDamage>()._attackDamage *= (1 + CurrentWave);
     }
@@ -61,16 +44,23 @@ public class WaveManager : MonoBehaviour
     private IEnumerator WaveTimer()
     {
         _waveCooldown = true;
-        yield return new WaitForSeconds(_waveInterval);
+        yield return new WaitForSeconds(_waveTimer);
         CurrentWave++;
         _waveCooldown = false;
     }
 
-    private IEnumerator SpawnTimer(Transform targetPos)
+    private IEnumerator SpawnTimer()
     {
         _spawnCooldown = true;
-        SpawnEnemy(targetPos);
-        yield return new WaitForSeconds(_spawnInterval);
+        for (int i = 0; i < _enemySpawners.Length; i++)
+        {
+            if(CurrentEnemies.Count >= _maxEnemies)
+            {
+                break;
+            }
+            SpawnEnemy(_enemySpawners[i]);
+        }
+        yield return new WaitForSeconds(_spawnTimer);
         _spawnCooldown = false;
     }
 }

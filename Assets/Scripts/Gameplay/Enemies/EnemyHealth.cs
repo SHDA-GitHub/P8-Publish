@@ -14,6 +14,12 @@ public class EnemyHealth : BaseEnemy
     [SerializeField] private float EXPReward;
     [SerializeField] private int CurrencyReward;
 
+    private WaveManager waveManager;
+    private void Awake()
+    {
+        waveManager = FindFirstObjectByType<WaveManager>();
+        waveManager.CurrentEnemies.Add(gameObject);
+    }
     void Start()
     {
         health = maxHealth;
@@ -32,6 +38,7 @@ public class EnemyHealth : BaseEnemy
 
     protected override void Death()
     {
+        waveManager.CurrentEnemies.Remove(gameObject);
         playerCurrency.currency += CurrencyReward;
         playerCurrency.kills += 1;
         playerEXP.EXP += EXPReward;
