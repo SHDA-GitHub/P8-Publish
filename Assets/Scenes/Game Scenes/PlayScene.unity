@@ -1256,6 +1256,10 @@ PrefabInstance:
       propertyPath: EXPBarFill
       value: 
       objectReference: {fileID: 403002117}
+    - target: {fileID: 4614845805894304817, guid: 4d8f9ae908718d642a25ad9a97820b41, type: 3}
+      propertyPath: DamageToDeal
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 5046740647148227416, guid: 4d8f9ae908718d642a25ad9a97820b41, type: 3}
       propertyPath: m_Name
       value: Player

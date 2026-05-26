@@ -1,6 +1,4 @@
-using System.Runtime.CompilerServices;
 using UnityEngine;
-using UnityEngine.Animations;
 using UnityEngine.UI;
 
 public class PlayerHealth : BasePlayer

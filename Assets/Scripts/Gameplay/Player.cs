@@ -1,9 +1,6 @@
 using System.Collections;
-using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Networking;
-using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -19,7 +16,11 @@ public class Player : MonoBehaviour
     private Vector3 movement;
     private Vector2 aim;
     private Rigidbody rb;
+
+    [Header("Weapon Toggle")]
+    [SerializeField] private float toggleCooldown = 0.25f;
     [SerializeField] private bool weaponToggle = true;
+    private float nextToggleTime = 0f;
     // true = gun
     // false = slash
 
@@ -106,10 +107,16 @@ public class Player : MonoBehaviour
 
     private void OnToggleWeapon(InputAction.CallbackContext context)
     {
+        if (Time.time < nextToggleTime)
+            return;
+
         Vector2 scroll = context.ReadValue<Vector2>();
+
         if (Mathf.Abs(scroll.y) > 0.01f)
         {
             weaponToggle = !weaponToggle;
+
+            nextToggleTime = Time.time + toggleCooldown;
         }
     }
 
