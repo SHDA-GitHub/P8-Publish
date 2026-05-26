@@ -1098,6 +1098,10 @@ PrefabInstance:
       propertyPath: EXPBarFill
       value: 
       objectReference: {fileID: 403002117}
+    - target: {fileID: 1197258191238659227, guid: 4d8f9ae908718d642a25ad9a97820b41, type: 3}
+      propertyPath: exponentialEXP
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 5046740647148227416, guid: 4d8f9ae908718d642a25ad9a97820b41, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1143,43 +1147,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6197524106315671214, guid: 4d8f9ae908718d642a25ad9a97820b41, type: 3}
-      propertyPath: gun
-      value: 
-      objectReference: {fileID: 2210598256011896352}
-    - target: {fileID: 6197524106315671214, guid: 4d8f9ae908718d642a25ad9a97820b41, type: 3}
       propertyPath: playerCamera
       value: 
       objectReference: {fileID: 740747626}
-    - target: {fileID: 6554522449496023261, guid: 4d8f9ae908718d642a25ad9a97820b41, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 6554522449496023261, guid: 4d8f9ae908718d642a25ad9a97820b41, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 6554522449496023261, guid: 4d8f9ae908718d642a25ad9a97820b41, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 6554522449496023261, guid: 4d8f9ae908718d642a25ad9a97820b41, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8376510290167088238, guid: 4d8f9ae908718d642a25ad9a97820b41, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d8f9ae908718d642a25ad9a97820b41, type: 3}
---- !u!1 &2210598256011896352 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4442361191890807353, guid: 4d8f9ae908718d642a25ad9a97820b41, type: 3}
-  m_PrefabInstance: {fileID: 2210598256011896351}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3662404170786735893
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1270,10 +1245,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2630051280508151169, guid: 5c983cdf82e26714eaed146aceadcfdc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3194822746061816474, guid: 5c983cdf82e26714eaed146aceadcfdc, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4207870450230566378, guid: 5c983cdf82e26714eaed146aceadcfdc, type: 3}
