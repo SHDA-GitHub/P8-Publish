@@ -37,6 +37,18 @@ public class Player : MonoBehaviour
     [SerializeField] private float slashDuration = 1f;
     [SerializeField] private bool slashActive = false;
 
+    [Header("Gun Jam Settings")]
+    [SerializeField] private int bulletsBeforeJam = 10;
+    [SerializeField] private float jamDuration = 3f;
+
+    private int bulletsShot = 0;
+    private bool isJammed = false;
+
+    [Header("Shot Reset Settings")]
+    [SerializeField] private float resetShotTime = 2f;
+
+    private float lastShotTime;
+
     private InputSystem_Actions controls;
 
     private void Awake()
@@ -122,9 +134,41 @@ public class Player : MonoBehaviour
 
     private void Shooting()
     {
+        if (isJammed)
+            return;
+
         Vector3 direction = firePoint.forward;
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+
+        GameObject bullet = Instantiate(
+            bulletPrefab,
+            firePoint.position,
+            Quaternion.identity
+        );
+
         bullet.GetComponent<Bullet>().direction = direction;
+
+        bulletsShot++;
+
+        lastShotTime = Time.time;
+
+        if (bulletsShot >= bulletsBeforeJam)
+        {
+            StartCoroutine(JamGun());
+        }
+    }
+
+    private IEnumerator JamGun()
+    {
+        isJammed = true;
+
+        Debug.Log("Gun Jammed!");
+
+        yield return new WaitForSeconds(jamDuration);
+
+        bulletsShot = 0;
+        isJammed = false;
+
+        Debug.Log("Gun Unjammed!");
     }
 
     private IEnumerator Slash()
@@ -214,6 +258,15 @@ public class Player : MonoBehaviour
         else
         {
             gun.gameObject.SetActive(false);
+        }
+
+        if (!isJammed &&
+            bulletsShot > 0 &&
+            Time.time >= lastShotTime + resetShotTime)
+        {
+            bulletsShot = 0;
+
+            Debug.Log("Shot counter reset.");
         }
     }
 }
