@@ -156,10 +156,10 @@ MonoBehaviour:
   - {fileID: 1783618757}
   - {fileID: 904968044}
   CurrentWave: 1
-  _waveInterval: 10
-  _spawnInterval: 1
-  _maxEnemies: 3
-  spawnedEnemies: []
+  _waveTimer: 60
+  _spawnTimer: 1
+  _maxEnemies: 5
+  CurrentEnemies: []
   _waveCooldown: 0
   _spawnCooldown: 0
   waveUI: {fileID: 0}
@@ -977,19 +977,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WaveManager
   enemyPrefab: {fileID: 1668765135169094032, guid: 6497b80fc02332849b3d9d30776ab355, type: 3}
   _enemySpawners:
-  - {fileID: 1150067325}
-  - {fileID: 383084452}
-  - {fileID: 696323702}
-  - {fileID: 732592064}
-  - {fileID: 1709178431}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   CurrentWave: 1
-  _waveInterval: 10
-  _spawnInterval: 1
+  _waveTimer: 0
+  _spawnTimer: 0
   _maxEnemies: 0
-  spawnedEnemies: []
+  CurrentEnemies: []
   _waveCooldown: 0
   _spawnCooldown: 0
-  waveUI: {fileID: 761529441}
+  waveUI: {fileID: 0}
   enemyCountUI: {fileID: 0}
 --- !u!4 &1485469019
 Transform:
@@ -1579,17 +1579,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 2630051280508151169, guid: 5c983cdf82e26714eaed146aceadcfdc, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 761529444}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c983cdf82e26714eaed146aceadcfdc, type: 3}
---- !u!224 &3662404170786735894 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2630051280508151169, guid: 5c983cdf82e26714eaed146aceadcfdc, type: 3}
-  m_PrefabInstance: {fileID: 3662404170786735893}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1609,3 +1601,4 @@ SceneRoots:
   - {fileID: 564992040}
   - {fileID: 1783618757}
   - {fileID: 904968044}
+  - {fileID: 1485469019}
