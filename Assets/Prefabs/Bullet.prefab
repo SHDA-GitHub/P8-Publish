@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bullet
   direction: {x: 0, y: 0, z: 1}
-  DamageToDeal: 7
+  DamageToDeal: 10
   speed: 20
   desTime: 2
 --- !u!135 &8231103848795692907
