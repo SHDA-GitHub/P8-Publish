@@ -7,6 +7,7 @@ public class LevelUpUI : MonoBehaviour
     [SerializeField] private GameObject levelUpPanel;
 
     [SerializeField] private List<GameObject> upgradeOptions = new List<GameObject>();
+    [SerializeField] private PassiveUpgradeManager upgradeManager;
 
     private void OnEnable()
     {
@@ -28,14 +29,11 @@ public class LevelUpUI : MonoBehaviour
     private void OpenLevelUpUI()
     {
         Cursor.lockState = CursorLockMode.None;
+
         levelUpPanel.SetActive(true);
 
-        Debug.Log("LEVEL UP!");
+        upgradeManager.GenerateRandomUpgrades();
 
-        foreach (GameObject upgrade in upgradeOptions)
-        {
-            Debug.Log("Found Upgrade: " + upgrade.name);
-        }
         Time.timeScale = 0f;
     }
 
