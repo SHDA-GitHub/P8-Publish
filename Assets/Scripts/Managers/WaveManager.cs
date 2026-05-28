@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class WaveManager : MonoBehaviour
 {
@@ -18,8 +19,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private bool _spawnCooldown = false;
 
     [Header("UI")]
-    [SerializeField] private GameObject waveUI;
-    [SerializeField] private GameObject enemyCountUI;
+    [SerializeField] private TMP_Text waveUI;
 
 
     private void Update()
@@ -46,6 +46,7 @@ public class WaveManager : MonoBehaviour
         _waveCooldown = true;
         yield return new WaitForSeconds(_waveTimer);
         CurrentWave++;
+        waveUI.text = "Wave: " + CurrentWave;
         _waveCooldown = false;
     }
 
