@@ -9,9 +9,9 @@ public class Player : MonoBehaviour
 
     [Header("Movement Settings")]
     [SerializeField] private Transform playerCamera;
-    [SerializeField] private float speed = 5f;
-    [SerializeField] private float jumpMultiplier = 5f;
+    public float jumpMultiplier = 5f;
     private float originalSpeed;
+    public float speed = 5f;
     public bool onGround = true;
     private Vector3 movement;
     private Vector2 aim;
@@ -26,16 +26,19 @@ public class Player : MonoBehaviour
 
     [Header("Player Shoot")]
     [SerializeField] float fireRate = 0f;
-    private float nextFireTime = 0f;
     [SerializeField] private GameObject gun;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
     [SerializeField] private bool isShooting = false;
+    private float nextFireTime = 0f;
+    public float gunDMG;
 
     [Header("Player Slash")]
     [SerializeField] private GameObject slashCollider;
-    [SerializeField] private float slashDuration = 1f;
     [SerializeField] private bool slashActive = false;
+    public float slashDuration = 1f;
+    public float slashHitbox = 1f;
+    public float meleeDMG;
 
     [Header("Gun Jam Settings")]
     [SerializeField] private int bulletsBeforeJam = 10;

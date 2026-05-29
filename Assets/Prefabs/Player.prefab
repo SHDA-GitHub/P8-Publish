@@ -89,37 +89,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &4589719427644438037
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2947947195159424071}
-  m_Layer: 0
-  m_Name: HeadArea
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2947947195159424071
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4589719427644438037}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.22, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5219519997033967044}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5046740647148227416
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,7 +126,7 @@ Transform:
   m_Children:
   - {fileID: 1356819213517216520}
   - {fileID: 6916758772011032038}
-  - {fileID: 2947947195159424071}
+  - {fileID: 696890015040741944}
   - {fileID: 5707029333626668911}
   - {fileID: 3958030046099255427}
   - {fileID: 6554522449496023261}
@@ -231,7 +200,7 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 1
+  m_Height: 0.1
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
@@ -251,8 +220,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   playerCamera: {fileID: 0}
-  speed: 5
   jumpMultiplier: 5
+  speed: 5
   onGround: 1
   toggleCooldown: 0.25
   weaponToggle: 1
@@ -261,10 +230,13 @@ MonoBehaviour:
   bulletPrefab: {fileID: 4250406073059423238, guid: 602304acda781354897f91f06d74e8d3, type: 3}
   firePoint: {fileID: 0}
   isShooting: 0
+  gunDMG: 0
   slashCollider: {fileID: 8376510290167088238}
-  slashDuration: 1
   slashActive: 0
-  bulletsBeforeJam: 25
+  slashDuration: 1
+  slashHitbox: 1
+  meleeDMG: 0
+  bulletsBeforeJam: 35
   jamDuration: 1.5
   resetShotTime: 2
 --- !u!114 &232599516343195807
@@ -296,6 +268,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerEXP
   EXPBarFill: {fileID: 0}
   EXP: 0
+  EXPIncrease: 0
   maxEXP: 100
   exponentialEXP: 30
 --- !u!1 &5188750956879586973
@@ -423,6 +396,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &7068781602499997989
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 696890015040741944}
+  m_Layer: 0
+  m_Name: HeadArea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &696890015040741944
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7068781602499997989}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.22, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5219519997033967044}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7221813130568789545
 GameObject:
   m_ObjectHideFlags: 0

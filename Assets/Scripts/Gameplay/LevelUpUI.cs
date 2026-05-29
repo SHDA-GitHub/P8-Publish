@@ -37,7 +37,14 @@ public class LevelUpUI : MonoBehaviour
         Time.timeScale = 0f;
     }
 
-    public void CloseLevelUpUI()
+    public void ApplyUpgradesToPlayer(PassiveUpgrades selectedUpgrade)
+    {
+        upgradeManager.ApplyUpgrade(selectedUpgrade);
+
+        CloseLevelUpUI();
+    }
+
+    private void CloseLevelUpUI()
     {
         Cursor.lockState = CursorLockMode.Locked;
         levelUpPanel.SetActive(false);

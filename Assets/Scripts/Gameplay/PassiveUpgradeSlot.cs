@@ -7,8 +7,8 @@ public class PassiveUpgradeSlot : MonoBehaviour
     public Image passiveUpgradeImage;
     public TMP_Text nameText;
     public TMP_Text descriptionText;
-
-    private PassiveUpgrades currentUpgrade;
+    public PassiveUpgrades currentUpgrade;
+    [SerializeField] private LevelUpUI levelUpUI;
 
     public void SetUpgrade(PassiveUpgrades upgrade)
     {
@@ -22,5 +22,10 @@ public class PassiveUpgradeSlot : MonoBehaviour
     public PassiveUpgrades GetUpgrade()
     {
         return currentUpgrade;
+    }
+
+    public void SelectUpgrade()
+    {
+        levelUpUI.ApplyUpgradesToPlayer(currentUpgrade);
     }
 }
