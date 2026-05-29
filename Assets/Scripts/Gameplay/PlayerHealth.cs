@@ -5,9 +5,10 @@ public class PlayerHealth : BasePlayer
 {
     [SerializeField] private Image healthBarFill;
     public float health;
-    [SerializeField] private float maxHealth;
+    public float maxHealth;
     void Start()
     {
+        maxHealth = 100;
         health = maxHealth;
     }
     private void Update()

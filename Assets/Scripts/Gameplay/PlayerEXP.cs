@@ -6,7 +6,8 @@ public class PlayerEXP : MonoBehaviour
 {
     [Header("EXP")]
     [SerializeField] private Image EXPBarFill;
-    public float EXP = 0;
+    public float EXP;
+    public float EXPIncrease;
     [SerializeField] private float maxEXP = 100;
     [SerializeField] private float exponentialEXP = 50;
 
@@ -15,6 +16,7 @@ public class PlayerEXP : MonoBehaviour
     private void Start()
     {
         EXP = 0;
+        EXPIncrease = 0;
     }
 
     private void Update()
@@ -25,6 +27,11 @@ public class PlayerEXP : MonoBehaviour
         }
 
         EXPBarFill.fillAmount = EXP / maxEXP;
+    }
+
+    public void AddEXP(float expReward)
+    {
+        EXP = EXP + expReward + EXPIncrease;
     }
 
     private void LevelUp()

@@ -9,6 +9,20 @@ public class PassiveUpgradeManager : MonoBehaviour
     [Header("Upgrade Slots")]
     public List<PassiveUpgradeSlot> upgradeSlots = new List<PassiveUpgradeSlot>();
 
+    [Header("Reference to player")]
+    public Player player;
+    public PlayerHealth health;
+    public PlayerEXP experience;
+    public PlayerCurrency currency;
+
+    private void Start()
+    {
+        player = FindFirstObjectByType<Player>();
+        health = FindFirstObjectByType<PlayerHealth>();
+        experience = FindFirstObjectByType<PlayerEXP>();
+        currency = FindFirstObjectByType<PlayerCurrency>();
+    }
+
     public void GenerateRandomUpgrades()
     {
         List<PassiveUpgrades> availableUpgrades = new List<PassiveUpgrades>(allUpgrades);
@@ -26,5 +40,27 @@ public class PassiveUpgradeManager : MonoBehaviour
 
             availableUpgrades.RemoveAt(randomIndex);
         }
+    }
+
+    public void HealthUp(float effectAmount)
+    {
+    }
+    public void DamageUp(float effectAmount)
+    {
+    }
+    public void SpeedUp(float effectAmount)
+    {
+    }
+    public void JumpUp(float effectAmount)
+    {
+    }
+    public void CritUp(float effectAmount)
+    {
+    }
+    public void MeleeSpeedUp(float effectAmount)
+    {
+    }
+    public void MeleeRangeUp(float effectAmount)
+    {
     }
 }

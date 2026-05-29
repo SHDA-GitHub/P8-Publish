@@ -1,8 +1,10 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PassiveUpgradeSlot : MonoBehaviour
 {
+    public Image passiveUpgradeImage;
     public TMP_Text nameText;
     public TMP_Text descriptionText;
 
@@ -12,6 +14,7 @@ public class PassiveUpgradeSlot : MonoBehaviour
     {
         currentUpgrade = upgrade;
 
+        passiveUpgradeImage.sprite = upgrade.itemImage;
         nameText.text = upgrade.itemName;
         descriptionText.text = upgrade.description;
     }
