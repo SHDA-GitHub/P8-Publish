@@ -6,6 +6,8 @@ public class PlayerHealth : BasePlayer
     [SerializeField] private Image healthBarFill;
     public float health;
     public float maxHealth;
+    public float regenAmount = 0;
+
     void Start()
     {
         maxHealth = 100;
@@ -17,8 +19,14 @@ public class PlayerHealth : BasePlayer
         {
             Death();
         }
-        healthBarFill.fillAmount = health / maxHealth;
 
+        if (health < maxHealth)
+        {
+            health += regenAmount * Time.deltaTime;
+            health = Mathf.Min(health, maxHealth);
+        }
+
+        healthBarFill.fillAmount = health / maxHealth;
     }
 
     protected override void Death()

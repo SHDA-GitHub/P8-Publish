@@ -1357,7 +1357,7 @@ PrefabInstance:
       objectReference: {fileID: 1022348578323634820}
     - target: {fileID: 5256456133275902770, guid: 5c983cdf82e26714eaed146aceadcfdc, type: 3}
       propertyPath: allUpgrades.Array.size
-      value: 6
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5256456133275902770, guid: 5c983cdf82e26714eaed146aceadcfdc, type: 3}
       propertyPath: 'allUpgrades.Array.data[0]'
@@ -1383,6 +1383,26 @@ PrefabInstance:
       propertyPath: 'allUpgrades.Array.data[5]'
       value: 
       objectReference: {fileID: 11400000, guid: b094aca49c65f3e48924891cb277e997, type: 2}
+    - target: {fileID: 5256456133275902770, guid: 5c983cdf82e26714eaed146aceadcfdc, type: 3}
+      propertyPath: 'allUpgrades.Array.data[6]'
+      value: 
+      objectReference: {fileID: 11400000, guid: ec163b834e1a24940a900e4d4a8ce854, type: 2}
+    - target: {fileID: 5256456133275902770, guid: 5c983cdf82e26714eaed146aceadcfdc, type: 3}
+      propertyPath: 'allUpgrades.Array.data[7]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 08dd232bc57a458419849c8161c12019, type: 2}
+    - target: {fileID: 5256456133275902770, guid: 5c983cdf82e26714eaed146aceadcfdc, type: 3}
+      propertyPath: 'allUpgrades.Array.data[8]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 97f8b340e1366404299c22a5c3a28648, type: 2}
+    - target: {fileID: 5256456133275902770, guid: 5c983cdf82e26714eaed146aceadcfdc, type: 3}
+      propertyPath: 'allUpgrades.Array.data[9]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 6a5e0997cf3f3a44ca47f5723b39ab73, type: 2}
+    - target: {fileID: 5256456133275902770, guid: 5c983cdf82e26714eaed146aceadcfdc, type: 3}
+      propertyPath: 'allUpgrades.Array.data[10]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 019c3d22be99194499f323f3d25c2d8e, type: 2}
     - target: {fileID: 5256456133275902770, guid: 5c983cdf82e26714eaed146aceadcfdc, type: 3}
       propertyPath: 'upgradeSlots.Array.data[0]'
       value: 
@@ -1552,9 +1572,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6197524106315671214, guid: 4d8f9ae908718d642a25ad9a97820b41, type: 3}
+      propertyPath: gunDMG
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6197524106315671214, guid: 4d8f9ae908718d642a25ad9a97820b41, type: 3}
+      propertyPath: meleeDMG
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6197524106315671214, guid: 4d8f9ae908718d642a25ad9a97820b41, type: 3}
       propertyPath: firePoint
       value: 
       objectReference: {fileID: 1822232177305071191}
+    - target: {fileID: 6197524106315671214, guid: 4d8f9ae908718d642a25ad9a97820b41, type: 3}
+      propertyPath: regenAmount
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6197524106315671214, guid: 4d8f9ae908718d642a25ad9a97820b41, type: 3}
       propertyPath: playerCamera
       value: 

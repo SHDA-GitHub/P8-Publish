@@ -47,39 +47,51 @@ public class PassiveUpgradeManager : MonoBehaviour
         switch (upgrade.itemName)
         {
             case "HP Up":
-                HealthUp(upgrade.effectAmount);
+                HealthUp(upgrade.effectAmountFloat);
                 break;
 
             case "DMG Up":
-                DamageUp(upgrade.effectAmount);
+                DamageUp(upgrade.effectAmountFloat);
                 break;
 
             case "Speed Up":
-                SpeedUp(upgrade.effectAmount);
+                SpeedUp(upgrade.effectAmountFloat);
                 break;
 
             case "Jump Height Up":
-                JumpUp(upgrade.effectAmount);
+                JumpUp(upgrade.effectAmountFloat);
                 break;
 
             case "Critical Chance Up":
-                CritUp(upgrade.effectAmount);
+                CritUp(upgrade.effectAmountFloat);
                 break;
 
             case "Swing Speed Up":
-                MeleeSpeedUp(upgrade.effectAmount);
+                MeleeSpeedUp(upgrade.effectAmountFloat);
                 break;
 
             case "Range Up":
-                MeleeRangeUp(upgrade.effectAmount);
+                MeleeRangeUp(upgrade.effectAmountFloat);
                 break;
 
             case "EXP Up":
-                EXPUp(upgrade.effectAmount);
+                EXPUp(upgrade.effectAmountFloat);
                 break;
 
             case "Heal":
-                EXPUp(upgrade.effectAmount);
+                Heal(upgrade.effectAmountFloat);
+                break;
+
+            case "Bullet Speed Up":
+                BulletSpeed(upgrade.effectAmountFloat);
+                break;
+
+            case "Bullet Capacity Up":
+                BulletCapacity(upgrade.effectAmountInt);
+                break;
+
+            case "Regeneration":
+                Regeneration(upgrade.effectAmountInt);
                 break;
 
             default:
@@ -94,11 +106,15 @@ public class PassiveUpgradeManager : MonoBehaviour
     }
     public void DamageUp(float effectAmount)
     {
-
+        player.gunDMG = player.gunDMG + effectAmount;
+        player.meleeDMG = player.meleeDMG + effectAmount;
+        player.UpdateStats();
     }
     public void SpeedUp(float effectAmount)
     {
         player.speed = player.speed + effectAmount;
+        player.originalSpeed = player.originalSpeed + effectAmount;
+        player.UpdateStats();
     }
     public void JumpUp(float effectAmount)
     {
@@ -113,7 +129,10 @@ public class PassiveUpgradeManager : MonoBehaviour
     }
     public void MeleeRangeUp(float effectAmount)
     {
+        player.slashHitbox = player.slashHitbox + effectAmount;
+        player.UpdateStats();
     }
+
     public void EXPUp(float effectAmount)
     {
         experience.EXPIncrease = experience.EXPIncrease + effectAmount;
@@ -122,5 +141,20 @@ public class PassiveUpgradeManager : MonoBehaviour
     public void Heal(float effectAmount)
     {
         health.health = health.health + effectAmount;
+    }
+
+    public void Regeneration(float effectAmount)
+    {
+        health.regenAmount = health.regenAmount + effectAmount;
+    }
+
+    public void BulletSpeed(float effectAmount)
+    {
+        player.gunSpeed = player.gunSpeed + effectAmount;
+    }
+
+    public void BulletCapacity(int effectAmount)
+    {
+        player.bulletsBeforeJam = player.bulletsBeforeJam + effectAmount;
     }
 }

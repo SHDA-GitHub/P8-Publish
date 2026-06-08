@@ -6,7 +6,8 @@ public class PassiveUpgrades : ScriptableObject
 {
     public Sprite itemImage;
     public string itemName;
-    public float effectAmount;
+    public int effectAmountInt;
+    public float effectAmountFloat;
 
     [TextArea(3, 10)]
     public string description;

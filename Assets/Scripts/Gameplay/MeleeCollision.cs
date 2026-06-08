@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MeleeCollision : MonoBehaviour
 {
-    [SerializeField] ushort DamageToDeal = 1;
+    public ushort DamageToDeal = 1;
 
     private void OnTriggerEnter(Collider other)
     {

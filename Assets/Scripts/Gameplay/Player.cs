@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     [Header("Movement Settings")]
     [SerializeField] private Transform playerCamera;
     public float jumpMultiplier = 5f;
-    private float originalSpeed;
+    public float originalSpeed;
     public float speed = 5f;
     public bool onGround = true;
     private Vector3 movement;
@@ -25,25 +25,25 @@ public class Player : MonoBehaviour
     // false = slash
 
     [Header("Player Shoot")]
-    [SerializeField] float fireRate = 0f;
+    [SerializeField] private float fireRate = 0f;
     [SerializeField] private GameObject gun;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
     [SerializeField] private bool isShooting = false;
     private float nextFireTime = 0f;
-    public float gunDMG;
+    public float gunDMG = 7f;
+    public float gunSpeed = 10f;
 
     [Header("Player Slash")]
     [SerializeField] private GameObject slashCollider;
     [SerializeField] private bool slashActive = false;
     public float slashDuration = 1f;
     public float slashHitbox = 1f;
-    public float meleeDMG;
+    public float meleeDMG = 12f;
 
     [Header("Gun Jam Settings")]
-    [SerializeField] private int bulletsBeforeJam = 10;
+    public int bulletsBeforeJam = 35;
     [SerializeField] private float jamDuration = 3f;
-
     private int bulletsShot = 0;
     private bool isJammed = false;
 
@@ -57,7 +57,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         weaponToggle = true;
-        Cursor.lockState = CursorLockMode.Locked; 
+        Cursor.lockState = CursorLockMode.Locked;
         instance = this.gameObject;
 
         controls = new InputSystem_Actions();
@@ -74,6 +74,16 @@ public class Player : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
         originalSpeed = speed;
+
+        MeleeCollision melee = slashCollider.GetComponent<MeleeCollision>();
+
+        if (melee != null)
+        {
+            melee.DamageToDeal = (ushort)meleeDMG;
+        }
+
+        slashCollider.transform.localScale =
+            Vector3.one * slashHitbox;
     }
 
     private void OnMove(InputAction.CallbackContext context)
@@ -148,7 +158,11 @@ public class Player : MonoBehaviour
             Quaternion.identity
         );
 
-        bullet.GetComponent<Bullet>().direction = direction;
+        Bullet bulletScript = bullet.GetComponent<Bullet>();
+
+        bulletScript.direction = direction;
+        bulletScript.DamageToDeal = Mathf.RoundToInt(gunDMG);
+        bulletScript.speed = Mathf.RoundToInt(gunSpeed);
 
         bulletsShot++;
 
@@ -201,6 +215,17 @@ public class Player : MonoBehaviour
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             onGround = false;
         }
+    }
+
+    public void UpdateStats()
+    {
+        MeleeCollision melee = slashCollider.GetComponent<MeleeCollision>();
+        if (melee != null)
+        {
+            melee.DamageToDeal = (ushort)meleeDMG;
+        }
+        slashCollider.transform.localScale =
+            Vector3.one * slashHitbox;
     }
 
     private void OnCollisionEnter(Collision collision)
