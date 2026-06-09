@@ -16,6 +16,7 @@ MonoBehaviour:
   itemName: Critical Chance Up
   effectAmountInt: 0
   effectAmountFloat: 2.5
+  hasMaxCap: 1
   description: 'Increases crit chance by 2.5
 
 '

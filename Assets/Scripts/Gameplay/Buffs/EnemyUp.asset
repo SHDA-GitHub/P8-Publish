@@ -16,4 +16,5 @@ MonoBehaviour:
   itemName: Enemy Difficulty Up
   effectAmountInt: 0
   effectAmountFloat: 5
+  hasMaxCap: 1
   description: Increases Enemy HP and Damage by 5 for an EXP increase of 25

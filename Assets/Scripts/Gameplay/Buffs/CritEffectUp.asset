@@ -16,4 +16,5 @@ MonoBehaviour:
   itemName: Critical Effect Up
   effectAmountInt: 0
   effectAmountFloat: 2.5
+  hasMaxCap: 1
   description: Increases crit effect by 2,5

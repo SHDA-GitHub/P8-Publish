@@ -16,4 +16,5 @@ MonoBehaviour:
   itemName: EXP Up
   effectAmountInt: 0
   effectAmountFloat: 25
+  hasMaxCap: 1
   description: Increases EXP gain by 25

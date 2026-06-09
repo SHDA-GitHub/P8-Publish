@@ -16,4 +16,5 @@ MonoBehaviour:
   itemName: DMG Up
   effectAmountInt: 0
   effectAmountFloat: 25
+  hasMaxCap: 0
   description: Gives 25 flat DMG to all weapons

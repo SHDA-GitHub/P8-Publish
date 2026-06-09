@@ -1190,7 +1190,6 @@ MonoBehaviour:
   allUpgrades:
   - {fileID: 11400000, guid: df358e26729dab84e9b5a63daa3af547, type: 2}
   - {fileID: 11400000, guid: 981180303d6c15941b59c3cc68b00740, type: 2}
-  - {fileID: 11400000, guid: 99c2bf9007bf60848b31a901685f0def, type: 2}
   - {fileID: 11400000, guid: 813810382500f7b4eb96e56be706c8c1, type: 2}
   - {fileID: 11400000, guid: f24da5a6507b88043a670d148d5d603c, type: 2}
   - {fileID: 11400000, guid: b094aca49c65f3e48924891cb277e997, type: 2}
@@ -1206,6 +1205,7 @@ MonoBehaviour:
   - {fileID: 7570192307362357685}
   - {fileID: 8549182568010832312}
   - {fileID: 1265449311678784184}
+  MaxCappedSlots: []
   player: {fileID: 0}
   health: {fileID: 0}
   experience: {fileID: 0}
@@ -1643,7 +1643,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 776, y: 319}
+  m_AnchoredPosition: {x: 798, y: 344}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &828004192739039134
