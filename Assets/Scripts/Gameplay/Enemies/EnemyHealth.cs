@@ -41,7 +41,7 @@ public class EnemyHealth : BaseEnemy
         waveManager.CurrentEnemies.Remove(gameObject);
         playerCurrency.currency += CurrencyReward;
         playerCurrency.kills += 1;
-        playerEXP.EXP += EXPReward;
+        playerEXP.AddEXP(EXPReward);
         Debug.Log("Enemy Dies");
         base.Death();
     }

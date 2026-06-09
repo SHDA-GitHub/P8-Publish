@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c66383278bef0ca4ca1127e7c122d236, type: 3}
-  m_Name: EnemyUp
+  m_Name: DamageUp
   m_EditorClassIdentifier: Assembly-CSharp::PassiveUpgrades
   itemImage: {fileID: 21300000, guid: 153178a5037006f44bc46b252e3f71f3, type: 3}
-  itemName: Enemy Difficulty Up
+  itemName: DMG Up
   effectAmountInt: 0
-  effectAmountFloat: 5
-  description: Increases Enemy HP and Damage by 5 for an EXP increase of 25
+  effectAmountFloat: 25
+  description: Gives 25 flat DMG to all weapons

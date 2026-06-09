@@ -3,9 +3,9 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public Vector3 direction = Vector3.forward;
-    [SerializeField] int DamageToDeal = 1;
-    [SerializeField] float speed = 10f;
-    [SerializeField] float desTime = 0.1f;
+    public int DamageToDeal = 1;
+    public float speed = 10f;
+    [SerializeField] private float desTime = 0.1f;
 
     private void Start()
     {
@@ -35,3 +35,4 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject);
     }
 }
+    
