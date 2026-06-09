@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -20,6 +21,9 @@ public class Player : MonoBehaviour
     [Header("Weapon Toggle")]
     [SerializeField] private float toggleCooldown = 0.25f;
     [SerializeField] private bool weaponToggle = true;
+    [SerializeField] private Image toggleIcon;
+    [SerializeField] private Sprite gunSprite;
+    [SerializeField] private Sprite meleeSprite;
     private float nextToggleTime = 0f;
     // true = gun
     // false = slash
@@ -301,10 +305,12 @@ public class Player : MonoBehaviour
         if (weaponToggle == true)
         {
             gun.gameObject.SetActive(true);
+            toggleIcon.sprite = gunSprite;
         }
         else
         {
             gun.gameObject.SetActive(false);
+            toggleIcon.sprite = meleeSprite;
         }
 
         if (!isJammed &&

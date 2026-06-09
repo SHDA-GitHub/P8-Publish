@@ -9,6 +9,8 @@ public class PassiveUpgradeManager : MonoBehaviour
     [Header("Upgrade Slots")]
     public List<PassiveUpgradeSlot> upgradeSlots = new List<PassiveUpgradeSlot>();
 
+    [Header("Chosen Upgrades")]
+
     [Header("Reference to player")]
     public Player player;
     public PlayerHealth health;
@@ -95,7 +97,11 @@ public class PassiveUpgradeManager : MonoBehaviour
                 break;
 
             case "Regeneration":
-                Regeneration(upgrade.effectAmountInt);
+                Regeneration(upgrade.effectAmountFloat);
+                break;
+
+            case "Currency Increase":
+                CurrencyIncrease(upgrade.effectAmountInt);
                 break;
 
             default:
@@ -167,5 +173,10 @@ public class PassiveUpgradeManager : MonoBehaviour
     public void BulletCapacity(int effectAmount)
     {
         player.bulletsBeforeJam = player.bulletsBeforeJam + effectAmount;
+    }
+
+    public void CurrencyIncrease(int effectAmount)
+    {
+        currency.currencyIncrease = currency.currencyIncrease + effectAmount;
     }
 }
