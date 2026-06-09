@@ -63,7 +63,11 @@ public class PassiveUpgradeManager : MonoBehaviour
                 break;
 
             case "Critical Chance Up":
-                CritUp(upgrade.effectAmountFloat);
+                CritChanceUp(upgrade.effectAmountFloat);
+                break;
+
+            case "Critical Effect Up":
+                CritEffectUp(upgrade.effectAmountFloat);
                 break;
 
             case "Swing Speed Up":
@@ -120,9 +124,16 @@ public class PassiveUpgradeManager : MonoBehaviour
     {
         player.jumpMultiplier = player.jumpMultiplier + effectAmount;
     }
-    public void CritUp(float effectAmount)
+    public void CritChanceUp(float effectAmount)
     {
+        player.critChance = player.critChance + effectAmount;
     }
+
+    public void CritEffectUp(float effectAmount)
+    {
+        player.critEffect = player.critEffect + effectAmount;
+    }
+
     public void MeleeSpeedUp(float effectAmount)
     {
         player.slashDuration = player.slashDuration - effectAmount;

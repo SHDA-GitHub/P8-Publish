@@ -221,6 +221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player
   playerCamera: {fileID: 0}
   jumpMultiplier: 5
+  originalSpeed: 0
   speed: 5
   onGround: 1
   toggleCooldown: 0.25
@@ -230,15 +231,18 @@ MonoBehaviour:
   bulletPrefab: {fileID: 4250406073059423238, guid: 602304acda781354897f91f06d74e8d3, type: 3}
   firePoint: {fileID: 0}
   isShooting: 0
-  gunDMG: 0
+  gunDMG: 7
+  gunSpeed: 10
   slashCollider: {fileID: 8376510290167088238}
   slashActive: 0
   slashDuration: 1
   slashHitbox: 1
-  meleeDMG: 0
+  meleeDMG: 12
   bulletsBeforeJam: 35
   jamDuration: 1.5
   resetShotTime: 2
+  critChance: 2.5
+  critEffect: 1.5
 --- !u!114 &232599516343195807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,6 +258,7 @@ MonoBehaviour:
   healthBarFill: {fileID: 0}
   health: 100
   maxHealth: 100
+  regenAmount: 0
 --- !u!114 &1197258191238659227
 MonoBehaviour:
   m_ObjectHideFlags: 0

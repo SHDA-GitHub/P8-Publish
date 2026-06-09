@@ -49,10 +49,12 @@ public class Player : MonoBehaviour
 
     [Header("Shot Reset Settings")]
     [SerializeField] private float resetShotTime = 2f;
-
     private float lastShotTime;
-
     private InputSystem_Actions controls;
+
+    [Header("Critical Hit Settings")]
+    public float critChance = 1f;
+    public float critEffect = 1.5f;
 
     private void Awake()
     {
@@ -160,8 +162,18 @@ public class Player : MonoBehaviour
 
         Bullet bulletScript = bullet.GetComponent<Bullet>();
 
+        int roll = Random.Range(0, 100);
+
+        if (roll <= critChance)
+        {
+            bulletScript.DamageToDeal = Mathf.RoundToInt(gunDMG * critEffect);
+        }
+        else
+        {
+            bulletScript.DamageToDeal = Mathf.RoundToInt(gunDMG);
+        }
+
         bulletScript.direction = direction;
-        bulletScript.DamageToDeal = Mathf.RoundToInt(gunDMG);
         bulletScript.speed = Mathf.RoundToInt(gunSpeed);
 
         bulletsShot++;
@@ -277,6 +289,13 @@ public class Player : MonoBehaviour
 
                 nextFireTime = Time.time + fireRate;
             }
+        }
+
+        MeleeCollision melee = slashCollider.GetComponent<MeleeCollision>();
+
+        if (melee != null)
+        {
+            melee.DamageToDeal = (ushort)meleeDMG;
         }
 
         if (weaponToggle == true)

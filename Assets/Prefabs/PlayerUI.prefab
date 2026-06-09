@@ -74,8 +74,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294959243
+  m_fontColor: {r: 0.54509807, g: 0.8784314, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -248,8 +248,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294959243
+  m_fontColor: {r: 0.54509807, g: 0.8784314, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -714,8 +714,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294959243
+  m_fontColor: {r: 0.54509807, g: 0.8784314, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1186,15 +1186,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PassiveUpgradeManager
   allUpgrades:
+  - {fileID: 11400000, guid: df358e26729dab84e9b5a63daa3af547, type: 2}
+  - {fileID: 11400000, guid: 981180303d6c15941b59c3cc68b00740, type: 2}
+  - {fileID: 11400000, guid: 99c2bf9007bf60848b31a901685f0def, type: 2}
   - {fileID: 11400000, guid: 813810382500f7b4eb96e56be706c8c1, type: 2}
   - {fileID: 11400000, guid: f24da5a6507b88043a670d148d5d603c, type: 2}
-  - {fileID: 11400000, guid: 99c2bf9007bf60848b31a901685f0def, type: 2}
-  - {fileID: 11400000, guid: 981180303d6c15941b59c3cc68b00740, type: 2}
   - {fileID: 11400000, guid: b094aca49c65f3e48924891cb277e997, type: 2}
+  - {fileID: 11400000, guid: ec163b834e1a24940a900e4d4a8ce854, type: 2}
+  - {fileID: 11400000, guid: 08dd232bc57a458419849c8161c12019, type: 2}
+  - {fileID: 11400000, guid: 97f8b340e1366404299c22a5c3a28648, type: 2}
+  - {fileID: 11400000, guid: 6a5e0997cf3f3a44ca47f5723b39ab73, type: 2}
+  - {fileID: 11400000, guid: 019c3d22be99194499f323f3d25c2d8e, type: 2}
+  - {fileID: 11400000, guid: 3e8c33dd2e5cc6545a076b95da3fd060, type: 2}
+  - {fileID: 11400000, guid: da21d0c80a6bc8946872106ab2a9ff92, type: 2}
   upgradeSlots:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 7570192307362357685}
+  - {fileID: 8549182568010832312}
+  - {fileID: 1265449311678784184}
   player: {fileID: 0}
   health: {fileID: 0}
   experience: {fileID: 0}
@@ -1728,8 +1736,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294959243
+  m_fontColor: {r: 0.54509807, g: 0.8784314, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2103,8 +2111,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294959243
+  m_fontColor: {r: 0.54509807, g: 0.8784314, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2949,8 +2957,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294959243
+  m_fontColor: {r: 0.54509807, g: 0.8784314, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
