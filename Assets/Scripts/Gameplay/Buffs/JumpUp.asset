@@ -16,4 +16,5 @@ MonoBehaviour:
   itemName: Jump Height Up
   effectAmountInt: 0
   effectAmountFloat: 25
+  hasMaxCap: 1
   description: Increases jumping power by 25

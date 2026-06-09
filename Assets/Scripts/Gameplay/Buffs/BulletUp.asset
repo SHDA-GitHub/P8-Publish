@@ -16,4 +16,5 @@ MonoBehaviour:
   itemName: Bullet Capacity Up
   effectAmountInt: 25
   effectAmountFloat: 0
+  hasMaxCap: 1
   description: Increases bullet capacity by 25

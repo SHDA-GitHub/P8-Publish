@@ -16,4 +16,5 @@ MonoBehaviour:
   itemName: Currency Increase
   effectAmountInt: 2
   effectAmountFloat: 0
+  hasMaxCap: 1
   description: Multiplies gained currency by an additional 2

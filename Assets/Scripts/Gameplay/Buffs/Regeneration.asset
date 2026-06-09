@@ -16,6 +16,7 @@ MonoBehaviour:
   itemName: Regeneration
   effectAmountInt: 0
   effectAmountFloat: 1
+  hasMaxCap: 1
   description: 'Gives an additional 1 HP regeneration per second
 
 '

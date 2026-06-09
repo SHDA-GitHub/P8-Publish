@@ -10,6 +10,8 @@ public class PassiveUpgradeManager : MonoBehaviour
     public List<PassiveUpgradeSlot> upgradeSlots = new List<PassiveUpgradeSlot>();
 
     [Header("Chosen Upgrades")]
+    public List<PassiveUpgrades> MaxCappedSlots = new List<PassiveUpgrades>();
+    private const int maxCappedUpgrades = 4;
 
     [Header("Reference to player")]
     public Player player;
@@ -27,7 +29,26 @@ public class PassiveUpgradeManager : MonoBehaviour
 
     public void GenerateRandomUpgrades()
     {
-        List<PassiveUpgrades> availableUpgrades = new List<PassiveUpgrades>(allUpgrades);
+        List<PassiveUpgrades> availableUpgrades = new List<PassiveUpgrades>();
+
+        foreach (PassiveUpgrades upgrade in allUpgrades)
+        {
+            if (!upgrade.hasMaxCap)
+            {
+                availableUpgrades.Add(upgrade);
+            }
+            else
+            {
+                if (MaxCappedSlots.Count < maxCappedUpgrades)
+                {
+                    availableUpgrades.Add(upgrade);
+                }
+                else if (MaxCappedSlots.Contains(upgrade))
+                {
+                    availableUpgrades.Add(upgrade);
+                }
+            }
+        }
 
         for (int i = 0; i < upgradeSlots.Count; i++)
         {
@@ -46,6 +67,12 @@ public class PassiveUpgradeManager : MonoBehaviour
 
     public void ApplyUpgrade(PassiveUpgrades upgrade)
     {
+        if (upgrade.hasMaxCap &&
+            !MaxCappedSlots.Contains(upgrade) &&
+            MaxCappedSlots.Count < maxCappedUpgrades)
+        {
+            MaxCappedSlots.Add(upgrade);
+        }
         switch (upgrade.itemName)
         {
             case "HP Up":

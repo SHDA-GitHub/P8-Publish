@@ -16,4 +16,5 @@ MonoBehaviour:
   itemName: Swing Speed Up
   effectAmountInt: 0
   effectAmountFloat: 25
+  hasMaxCap: 1
   description: Increases melee attack speed by 25

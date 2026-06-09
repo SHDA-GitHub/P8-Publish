@@ -8,6 +8,7 @@ public class PassiveUpgrades : ScriptableObject
     public string itemName;
     public int effectAmountInt;
     public float effectAmountFloat;
+    public bool hasMaxCap = false;
 
     [TextArea(3, 10)]
     public string description;

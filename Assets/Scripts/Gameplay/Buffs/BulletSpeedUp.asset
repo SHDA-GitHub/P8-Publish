@@ -16,4 +16,5 @@ MonoBehaviour:
   itemName: Bullet Speed Up
   effectAmountInt: 0
   effectAmountFloat: 25
+  hasMaxCap: 1
   description: Increases bullet speed by 25

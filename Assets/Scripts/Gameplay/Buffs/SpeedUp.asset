@@ -16,4 +16,5 @@ MonoBehaviour:
   itemName: Speed Up
   effectAmountInt: 0
   effectAmountFloat: 25
+  hasMaxCap: 1
   description: Increases movement speed by 25

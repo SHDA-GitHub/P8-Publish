@@ -16,4 +16,5 @@ MonoBehaviour:
   itemName: Range Up
   effectAmountInt: 0
   effectAmountFloat: 25
+  hasMaxCap: 1
   description: Increases melee range by 25
