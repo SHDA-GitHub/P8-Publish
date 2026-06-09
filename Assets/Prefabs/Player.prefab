@@ -121,8 +121,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.12975, y: 0.27, z: -2.24187}
-  m_LocalScale: {x: 0.70302, y: 0.70302, z: 0.70302}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.80302, y: 0.80302, z: 0.80302}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1356819213517216520}
   - {fileID: 6916758772011032038}
@@ -226,6 +226,9 @@ MonoBehaviour:
   onGround: 1
   toggleCooldown: 0.25
   weaponToggle: 1
+  toggleIcon: {fileID: 0}
+  gunSprite: {fileID: 1216267208, guid: 908e866dc0c35664dbc172a7b3ddaf6e, type: 3}
+  meleeSprite: {fileID: 21300000, guid: 153178a5037006f44bc46b252e3f71f3, type: 3}
   fireRate: 0.15
   gun: {fileID: 4442361191890807353}
   bulletPrefab: {fileID: 4250406073059423238, guid: 602304acda781354897f91f06d74e8d3, type: 3}
@@ -236,8 +239,8 @@ MonoBehaviour:
   slashCollider: {fileID: 8376510290167088238}
   slashActive: 0
   slashDuration: 1
-  slashHitbox: 1
-  meleeDMG: 12
+  slashHitbox: 2
+  meleeDMG: 25
   bulletsBeforeJam: 35
   jamDuration: 1.5
   resetShotTime: 2
