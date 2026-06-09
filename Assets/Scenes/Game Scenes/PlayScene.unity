@@ -920,6 +920,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1237546719 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5879800497760315453, guid: 5c983cdf82e26714eaed146aceadcfdc, type: 3}
+  m_PrefabInstance: {fileID: 798604698551196445}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1 &1552407646
 GameObject:
   m_ObjectHideFlags: 0
@@ -1310,6 +1321,18 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 858174922}
+    - target: {fileID: 5108901196194620901, guid: 5c983cdf82e26714eaed146aceadcfdc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5108901196194620901, guid: 5c983cdf82e26714eaed146aceadcfdc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 798
+      objectReference: {fileID: 0}
+    - target: {fileID: 5108901196194620901, guid: 5c983cdf82e26714eaed146aceadcfdc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 344
+      objectReference: {fileID: 0}
     - target: {fileID: 5256456133275902770, guid: 5c983cdf82e26714eaed146aceadcfdc, type: 3}
       propertyPath: health
       value: 
@@ -1322,6 +1345,18 @@ PrefabInstance:
       propertyPath: experience
       value: 
       objectReference: {fileID: 1022348578323634820}
+    - target: {fileID: 5256456133275902770, guid: 5c983cdf82e26714eaed146aceadcfdc, type: 3}
+      propertyPath: allUpgrades.Array.size
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 5256456133275902770, guid: 5c983cdf82e26714eaed146aceadcfdc, type: 3}
+      propertyPath: 'allUpgrades.Array.data[13]'
+      value: 
+      objectReference: {fileID: 11400000, guid: d64ac0a3531b5e04993fb5c4ab4afee1, type: 2}
+    - target: {fileID: 7464775972230550128, guid: 5c983cdf82e26714eaed146aceadcfdc, type: 3}
+      propertyPath: currencyIncrease
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1479,13 +1514,37 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6197524106315671214, guid: 4d8f9ae908718d642a25ad9a97820b41, type: 3}
+      propertyPath: meleeDMG
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6197524106315671214, guid: 4d8f9ae908718d642a25ad9a97820b41, type: 3}
       propertyPath: firePoint
       value: 
       objectReference: {fileID: 1822232177305071191}
     - target: {fileID: 6197524106315671214, guid: 4d8f9ae908718d642a25ad9a97820b41, type: 3}
+      propertyPath: gunSprite
+      value: 
+      objectReference: {fileID: 1216267208, guid: 908e866dc0c35664dbc172a7b3ddaf6e, type: 3}
+    - target: {fileID: 6197524106315671214, guid: 4d8f9ae908718d642a25ad9a97820b41, type: 3}
+      propertyPath: toggleIcon
+      value: 
+      objectReference: {fileID: 1237546719}
+    - target: {fileID: 6197524106315671214, guid: 4d8f9ae908718d642a25ad9a97820b41, type: 3}
+      propertyPath: meleeSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 153178a5037006f44bc46b252e3f71f3, type: 3}
+    - target: {fileID: 6197524106315671214, guid: 4d8f9ae908718d642a25ad9a97820b41, type: 3}
+      propertyPath: slashHitbox
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6197524106315671214, guid: 4d8f9ae908718d642a25ad9a97820b41, type: 3}
       propertyPath: playerCamera
       value: 
       objectReference: {fileID: 740747626}
+    - target: {fileID: 8376510290167088238, guid: 4d8f9ae908718d642a25ad9a97820b41, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

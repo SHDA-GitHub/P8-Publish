@@ -39,8 +39,8 @@ public class EnemyHealth : BaseEnemy
     protected override void Death()
     {
         waveManager.CurrentEnemies.Remove(gameObject);
-        playerCurrency.currency += CurrencyReward;
         playerCurrency.kills += 1;
+        playerCurrency.AddEXP(CurrencyReward);
         playerEXP.AddEXP(EXPReward);
         Debug.Log("Enemy Dies");
         base.Death();
