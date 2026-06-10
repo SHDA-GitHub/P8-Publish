@@ -17,14 +17,14 @@ public class EnemyHealth : BaseEnemy
     private WaveManager waveManager;
     private void Awake()
     {
+        playerEXP = FindFirstObjectByType<PlayerEXP>();
+        playerCurrency = FindFirstObjectByType<PlayerCurrency>();
         waveManager = FindFirstObjectByType<WaveManager>();
         waveManager.CurrentEnemies.Add(gameObject);
     }
     void Start()
     {
         health = maxHealth;
-        playerEXP = FindFirstObjectByType<PlayerEXP>();
-        playerCurrency = FindFirstObjectByType<PlayerCurrency>();
     }
     private void Update()
     {
@@ -40,7 +40,7 @@ public class EnemyHealth : BaseEnemy
     {
         waveManager.CurrentEnemies.Remove(gameObject);
         playerCurrency.kills += 1;
-        playerCurrency.AddEXP(CurrencyReward);
+        playerCurrency.AddCurrency(CurrencyReward);
         playerEXP.AddEXP(EXPReward);
         Debug.Log("Enemy Dies");
         base.Death();

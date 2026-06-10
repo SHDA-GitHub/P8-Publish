@@ -13,11 +13,11 @@ public class PlayerCurrency : MonoBehaviour
     void Start()
     {
         currency = 0;
-        currencyIncrease = 0;
+        currencyIncrease = 1;
         kills = 0;
     }
 
-    public void AddEXP(int currencyReward)
+    public void AddCurrency(int currencyReward)
     {
         currency = currency + currencyReward * currencyIncrease;
     }
