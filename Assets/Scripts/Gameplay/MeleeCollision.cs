@@ -5,31 +5,62 @@ public class MeleeCollision : MonoBehaviour
     public ushort damageToDeal = 1;
     public float knockbackStrength = 1f;
     public float upwardKnockback = 1f;
+    public bool isEnemy = false;
 
     private void OnTriggerEnter(Collider other)
     {
-        GameObject otherObject = other.gameObject;
-
-        if (otherObject.CompareTag("Enemy"))
+        if (isEnemy == false)
         {
-            EnemyHealth enemyHealth = otherObject.GetComponent<EnemyHealth>();
+            GameObject otherObject = other.gameObject;
 
-            if (enemyHealth != null)
+            if (otherObject.CompareTag("Enemy"))
             {
-                enemyHealth.health -= damageToDeal;
+                EnemyHealth enemyHealth = otherObject.GetComponent<EnemyHealth>();
+
+                if (enemyHealth != null)
+                {
+                    enemyHealth.health -= damageToDeal;
+                }
+
+                Rigidbody enemyRb = otherObject.GetComponent<Rigidbody>();
+
+                if (enemyRb != null)
+                {
+                    Vector3 horizontalDirection =
+                        (otherObject.transform.position - transform.position).normalized;
+
+                    horizontalDirection.y = 0;
+                    horizontalDirection.Normalize();
+                    enemyRb.AddForce(Vector3.up * upwardKnockback, ForceMode.Impulse);
+                    enemyRb.AddForce(horizontalDirection * knockbackStrength, ForceMode.Impulse);
+                }
             }
+        }
+        else if (isEnemy == true)
+        {
+            GameObject otherObject = other.gameObject;
 
-            Rigidbody enemyRb = otherObject.GetComponent<Rigidbody>();
-
-            if (enemyRb != null)
+            if (otherObject.CompareTag("Player"))
             {
-                Vector3 horizontalDirection =
-                    (otherObject.transform.position - transform.position).normalized;
+                PlayerHealth playerHealth = otherObject.GetComponent<PlayerHealth>();
 
-                horizontalDirection.y = 0;
-                horizontalDirection.Normalize();
-                enemyRb.AddForce(Vector3.up * upwardKnockback, ForceMode.Impulse);
-                enemyRb.AddForce(horizontalDirection * knockbackStrength, ForceMode.Impulse);
+                if (playerHealth != null)
+                {
+                    playerHealth.health -= damageToDeal;
+                }
+
+                Rigidbody playerRb = otherObject.GetComponent<Rigidbody>();
+
+                if (playerRb != null)
+                {
+                    Vector3 horizontalDirection =
+                        (otherObject.transform.position - transform.position).normalized;
+
+                    horizontalDirection.y = 0;
+                    horizontalDirection.Normalize();
+                    playerRb.AddForce(Vector3.up * upwardKnockback, ForceMode.Impulse);
+                    playerRb.AddForce(horizontalDirection * knockbackStrength, ForceMode.Impulse);
+                }
             }
         }
     }
