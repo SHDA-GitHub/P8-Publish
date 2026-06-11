@@ -131,6 +131,14 @@ public class PassiveUpgradeManager : MonoBehaviour
                 CurrencyIncrease(upgrade.effectAmountInt);
                 break;
 
+            case "Free Money":
+                FreeMoney(upgrade.effectAmountInt);
+                break;
+
+            case "Knockback Up":
+                KnockbackUp(upgrade.effectAmountFloat);
+                break;
+
             default:
                 Debug.LogWarning("No upgrade function found for: " + upgrade.itemName);
                 break;
@@ -205,5 +213,16 @@ public class PassiveUpgradeManager : MonoBehaviour
     public void CurrencyIncrease(int effectAmount)
     {
         currency.currencyIncrease = currency.currencyIncrease + effectAmount;
+    }
+
+    public void FreeMoney(int effectAmount)
+    {
+        currency.currency = currency.currency + effectAmount;
+    }
+
+    public void KnockbackUp(float effectAmount)
+    {
+        player.knockbackStrength = player.knockbackStrength + effectAmount;
+        player.UpdateStats();
     }
 }

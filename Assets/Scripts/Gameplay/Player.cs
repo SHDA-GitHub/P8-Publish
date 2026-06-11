@@ -41,6 +41,7 @@ public class Player : MonoBehaviour
     [Header("Player Slash")]
     [SerializeField] private GameObject slashCollider;
     [SerializeField] private bool slashActive = false;
+    public float knockbackStrength = 1f;
     public float slashDuration = 1f;
     public float slashHitbox = 1f;
     public float meleeDMG = 12f;
@@ -85,7 +86,8 @@ public class Player : MonoBehaviour
 
         if (melee != null)
         {
-            melee.DamageToDeal = (ushort)meleeDMG;
+            melee.damageToDeal = (ushort)meleeDMG;
+            melee.knockbackStrength = knockbackStrength;
         }
 
         slashCollider.transform.localScale =
@@ -238,7 +240,8 @@ public class Player : MonoBehaviour
         MeleeCollision melee = slashCollider.GetComponent<MeleeCollision>();
         if (melee != null)
         {
-            melee.DamageToDeal = (ushort)meleeDMG;
+            melee.damageToDeal = (ushort)meleeDMG;
+            melee.knockbackStrength = knockbackStrength;
         }
         slashCollider.transform.localScale =
             Vector3.one * slashHitbox;
@@ -299,7 +302,8 @@ public class Player : MonoBehaviour
 
         if (melee != null)
         {
-            melee.DamageToDeal = (ushort)meleeDMG;
+            melee.damageToDeal = (ushort)meleeDMG;
+            melee.knockbackStrength = knockbackStrength;
         }
 
         if (weaponToggle == true)

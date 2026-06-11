@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class MeleeCollision : MonoBehaviour
 {
-    public ushort DamageToDeal = 1;
+    public ushort damageToDeal = 1;
+    public float knockbackStrength = 1f;
+    public float upwardKnockback = 1f;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -14,7 +16,20 @@ public class MeleeCollision : MonoBehaviour
 
             if (enemyHealth != null)
             {
-                enemyHealth.health -= DamageToDeal;
+                enemyHealth.health -= damageToDeal;
+            }
+
+            Rigidbody enemyRb = otherObject.GetComponent<Rigidbody>();
+
+            if (enemyRb != null)
+            {
+                Vector3 horizontalDirection =
+                    (otherObject.transform.position - transform.position).normalized;
+
+                horizontalDirection.y = 0;
+                horizontalDirection.Normalize();
+                enemyRb.AddForce(Vector3.up * upwardKnockback, ForceMode.Impulse);
+                enemyRb.AddForce(horizontalDirection * knockbackStrength, ForceMode.Impulse);
             }
         }
     }
