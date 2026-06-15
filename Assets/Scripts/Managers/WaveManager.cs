@@ -7,11 +7,11 @@ public class WaveManager : MonoBehaviour
     [Header("Wave Settings")]
     [SerializeField] private List<GameObject> enemyPrefab;
     [SerializeField] private Transform[] _enemySpawners;
-    [SerializeField] private float CurrentWave;
     [SerializeField] private float _waveTimer;
     [SerializeField] private float _spawnTimer;
     [SerializeField] private byte _maxEnemies;
     public List<GameObject> CurrentEnemies = new List<GameObject>();
+    public float CurrentWave;
 
     [Header("Wave data")]
     [SerializeField] private bool _waveCooldown = false;

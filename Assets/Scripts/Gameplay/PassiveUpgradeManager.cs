@@ -13,13 +13,17 @@ public class PassiveUpgradeManager : MonoBehaviour
     public List<PassiveUpgrades> MaxCappedSlots = new List<PassiveUpgrades>();
     private const int maxCappedUpgrades = 4;
 
+    [Header("Temporary Vending Upgrades")]
+    public List<PassiveUpgrades> temporaryVendingUpgrades = new();
+
+    private float lastWaveChecked;
+
     [Header("Reference to player")]
     public Player player;
     public PlayerHealth health;
     public PlayerEXP experience;
     public PlayerCurrency currency;
     public WaveManager waveManager;
-    public EnemyHealth enemyHealth;
 
     private void Start()
     {
@@ -28,6 +32,18 @@ public class PassiveUpgradeManager : MonoBehaviour
         experience = FindFirstObjectByType<PlayerEXP>();
         currency = FindFirstObjectByType<PlayerCurrency>();
         waveManager = FindFirstObjectByType<WaveManager>();
+
+        lastWaveChecked = waveManager.CurrentWave;
+    }
+
+    private void Update()
+    {
+        if (waveManager.CurrentWave > lastWaveChecked)
+        {
+            RemoveExpiredVendingUpgrades();
+
+            lastWaveChecked = waveManager.CurrentWave;
+        }
     }
 
     public void GenerateRandomUpgrades()
@@ -150,6 +166,80 @@ public class PassiveUpgradeManager : MonoBehaviour
                 Debug.LogWarning("No upgrade function found for: " + upgrade.itemName);
                 break;
         }
+    }
+
+    public void RemoveUpgrade(PassiveUpgrades upgrade)
+    {
+        switch (upgrade.itemName)
+        {
+            case "DMG Up":
+                player.gunDMG -= upgrade.effectAmountFloat;
+                player.meleeDMG -= upgrade.effectAmountFloat;
+                break;
+
+            case "Range Up":
+                player.slashHitbox -= upgrade.effectAmountFloat;
+                break;
+
+            case "Speed Up":
+                player.speed -= upgrade.effectAmountFloat;
+                player.originalSpeed -= upgrade.effectAmountFloat;
+                break;
+
+            case "Currency Increase":
+                currency.currencyIncrease -= upgrade.effectAmountInt;
+                break;
+
+            case "Knockback Up":
+                player.knockbackStrength -= upgrade.effectAmountFloat;
+                break;
+
+            case "Bullet Capacity Up":
+                player.bulletsBeforeJam -= upgrade.effectAmountInt;
+                break;
+
+            case "Bullet Speed Up":
+                player.gunSpeed -= upgrade.effectAmountFloat;
+                break;
+
+            case "Critical Chance Up":
+                player.critChance -= upgrade.effectAmountFloat;
+                break;
+
+            case "Critical Effect Up":
+                player.critEffect -= upgrade.effectAmountFloat;
+                break;
+
+            case "EXP Up":
+                experience.EXPIncrease -= upgrade.effectAmountFloat;
+                break;
+
+            case "Regeneration":
+                health.regenAmount -= upgrade.effectAmountFloat;
+                break;
+        }
+
+        player.UpdateStats();
+    }
+
+    public void ApplyTemporaryUpgrade(PassiveUpgrades upgrade)
+    {
+        ApplyUpgrade(upgrade);
+
+        if (upgrade.VendingOneRound)
+        {
+            temporaryVendingUpgrades.Add(upgrade);
+        }
+    }
+
+    private void RemoveExpiredVendingUpgrades()
+    {
+        foreach (PassiveUpgrades upgrade in temporaryVendingUpgrades)
+        {
+            RemoveUpgrade(upgrade);
+        }
+
+        temporaryVendingUpgrades.Clear();
     }
 
     public void HealthUp(float effectAmount)
