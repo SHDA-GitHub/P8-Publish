@@ -22,6 +22,13 @@ public class TankEnemy : BaseEnemy
         Transform target = Player.instance.transform;
         _agent = GetComponent<NavMeshAgent>();
         _targetObject = target;
+
+        MeleeCollision melee = slashCollider.GetComponent<MeleeCollision>();
+
+        if (melee != null)
+        {
+            melee.damageToDeal = (ushort)meleeDMG;
+        }
     }
 
     private void Update()

@@ -15,6 +15,7 @@ public class MeleeCollision : MonoBehaviour
 
             if (otherObject.CompareTag("Enemy"))
             {
+                Debug.Log($"{gameObject.name} hit {other.name}");
                 EnemyHealth enemyHealth = otherObject.GetComponent<EnemyHealth>();
 
                 if (enemyHealth != null)
@@ -42,6 +43,7 @@ public class MeleeCollision : MonoBehaviour
 
             if (otherObject.CompareTag("Player"))
             {
+                Debug.Log($"{gameObject.name} hit {other.name}");
                 PlayerHealth playerHealth = otherObject.GetComponent<PlayerHealth>();
 
                 if (playerHealth != null)
