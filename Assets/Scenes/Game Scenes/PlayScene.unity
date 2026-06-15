@@ -170,6 +170,12 @@ MonoBehaviour:
   enemyCountUI: {fileID: 0}
   _mortarSpawnWeight: 1
   _tankSpawnWeight: 1
+  swarmerEXPReward: 25
+  mortarEXPReward: 50
+  tankEXPReward: 100
+  swarmerCurrencyReward: 5
+  mortarCurrencyReward: 10
+  tankCurrencyReward: 15
 --- !u!4 &83387640
 Transform:
   m_ObjectHideFlags: 0
@@ -1387,6 +1393,14 @@ PrefabInstance:
       propertyPath: experience
       value: 
       objectReference: {fileID: 1022348578323634820}
+    - target: {fileID: 5256456133275902770, guid: 5c983cdf82e26714eaed146aceadcfdc, type: 3}
+      propertyPath: allUpgrades.Array.size
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 5256456133275902770, guid: 5c983cdf82e26714eaed146aceadcfdc, type: 3}
+      propertyPath: 'allUpgrades.Array.data[13]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 1b333b67e32e31449bc77d6f68c2da2d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

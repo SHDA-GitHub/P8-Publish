@@ -9,8 +9,8 @@ public class EnemyHealth : BaseEnemy
     private PlayerCurrency playerCurrency;
     public float health;
     public float maxHealth;
-    [SerializeField] private float EXPReward;
-    [SerializeField] private int CurrencyReward;
+    public float EXPReward;
+    public int CurrencyReward;
 
     private WaveManager waveManager;
     private void Awake()
