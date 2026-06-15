@@ -17,4 +17,5 @@ MonoBehaviour:
   effectAmountInt: 0
   effectAmountFloat: 25
   hasMaxCap: 0
+  VendingOneRound: 0
   description: Gives 25 HP

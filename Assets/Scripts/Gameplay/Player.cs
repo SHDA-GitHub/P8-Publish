@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject gun;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
-    [SerializeField] private bool isShooting = false;
+    public bool isShooting = false;
     private float nextFireTime = 0f;
     public float gunDMG = 7f;
     public float gunSpeed = 10f;
