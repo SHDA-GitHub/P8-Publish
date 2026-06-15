@@ -18,6 +18,8 @@ public class PassiveUpgradeManager : MonoBehaviour
     public PlayerHealth health;
     public PlayerEXP experience;
     public PlayerCurrency currency;
+    public WaveManager waveManager;
+    public EnemyHealth enemyHealth;
 
     private void Start()
     {
@@ -25,6 +27,7 @@ public class PassiveUpgradeManager : MonoBehaviour
         health = FindFirstObjectByType<PlayerHealth>();
         experience = FindFirstObjectByType<PlayerEXP>();
         currency = FindFirstObjectByType<PlayerCurrency>();
+        waveManager = FindFirstObjectByType<WaveManager>();
     }
 
     public void GenerateRandomUpgrades()
@@ -139,6 +142,10 @@ public class PassiveUpgradeManager : MonoBehaviour
                 KnockbackUp(upgrade.effectAmountFloat);
                 break;
 
+            case "Enemy Strength Up":
+                EnemyStrengthUp(upgrade.effectAmountInt, upgrade.effectAmountFloat);
+                break;
+
             default:
                 Debug.LogWarning("No upgrade function found for: " + upgrade.itemName);
                 break;
@@ -224,5 +231,16 @@ public class PassiveUpgradeManager : MonoBehaviour
     {
         player.knockbackStrength = player.knockbackStrength + effectAmount;
         player.UpdateStats();
+    }
+
+    public void EnemyStrengthUp(int effectAmountInt, float effectAmountFloat)
+    {
+        waveManager._waveStrength = waveManager._waveStrength + effectAmountFloat;
+        waveManager.swarmerCurrencyReward = waveManager.swarmerCurrencyReward * effectAmountInt;
+        waveManager.mortarCurrencyReward = waveManager.mortarCurrencyReward * effectAmountInt;
+        waveManager.tankCurrencyReward = waveManager.tankCurrencyReward * effectAmountInt;
+        waveManager.swarmerEXPReward = waveManager.swarmerEXPReward * effectAmountFloat;
+        waveManager.mortarEXPReward = waveManager.mortarEXPReward * effectAmountFloat;
+        waveManager.tankEXPReward = waveManager.tankEXPReward * effectAmountFloat;
     }
 }

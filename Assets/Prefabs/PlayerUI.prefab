@@ -1201,6 +1201,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3e8c33dd2e5cc6545a076b95da3fd060, type: 2}
   - {fileID: 11400000, guid: da21d0c80a6bc8946872106ab2a9ff92, type: 2}
   - {fileID: 11400000, guid: d64ac0a3531b5e04993fb5c4ab4afee1, type: 2}
+  - {fileID: 11400000, guid: 1b333b67e32e31449bc77d6f68c2da2d, type: 2}
   upgradeSlots:
   - {fileID: 7570192307362357685}
   - {fileID: 8549182568010832312}
@@ -1210,6 +1211,8 @@ MonoBehaviour:
   health: {fileID: 0}
   experience: {fileID: 0}
   currency: {fileID: 7464775972230550128}
+  waveManager: {fileID: 0}
+  enemyHealth: {fileID: 0}
 --- !u!1 &3236271953913240036
 GameObject:
   m_ObjectHideFlags: 0
