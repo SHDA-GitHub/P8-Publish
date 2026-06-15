@@ -5,7 +5,7 @@ using UnityEngine;
 public class WaveManager : MonoBehaviour
 {
     [Header("Wave Settings")]
-    [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private List<GameObject> enemyPrefab;
     [SerializeField] private Transform[] _enemySpawners;
     [SerializeField] private float CurrentWave;
     [SerializeField] private float _waveTimer;
@@ -16,11 +16,21 @@ public class WaveManager : MonoBehaviour
     [Header("Wave data")]
     [SerializeField] private bool _waveCooldown = false;
     [SerializeField] private bool _spawnCooldown = false;
+    [SerializeField] private float _waveStrength = 0f;
 
     [Header("UI")]
     [SerializeField] private GameObject waveUI;
     [SerializeField] private GameObject enemyCountUI;
 
+    [Header("SpawnWeight")]
+    [SerializeField] private float _mortarSpawnWeight = 1f;
+    [SerializeField] private float _tankSpawnWeight = 1f;
+
+    private void Awake()
+    {
+        if (enemyPrefab == null)
+        enemyPrefab = new List<GameObject>();
+    }
 
     private void Update()
     {
@@ -36,9 +46,40 @@ public class WaveManager : MonoBehaviour
 
     private void SpawnEnemy(Transform targetPos)
     {
-        GameObject enemy = Instantiate(enemyPrefab, targetPos.position, Quaternion.identity);
+        float roll = Random.Range(0f, 10f);
+
+        if (roll < _mortarSpawnWeight)
+        {
+            SpawnMortar(targetPos);
+        }
+        else if (roll < _mortarSpawnWeight + _tankSpawnWeight)
+        {
+            SpawnTank(targetPos);
+        }
+        else
+        {
+            SpawnSwarmer(targetPos);
+        }
+    }
+
+    private void SpawnSwarmer(Transform targetPos)
+    {
+        GameObject enemy = Instantiate(enemyPrefab[0], targetPos.position, Quaternion.identity);
         enemy.GetComponent<EnemyHealth>().maxHealth *= (1 + CurrentWave);
         enemy.GetComponent<TouchDamage>()._attackDamage *= (1 + CurrentWave);
+    }
+
+    private void SpawnMortar(Transform targetPos)
+    {
+        GameObject enemy = Instantiate(enemyPrefab[1], targetPos.position, Quaternion.identity);
+        enemy.GetComponent<EnemyHealth>().maxHealth *= (1 + CurrentWave);
+    }
+
+    private void SpawnTank(Transform targetPos)
+    {
+        GameObject enemy = Instantiate(enemyPrefab[2], targetPos.position, Quaternion.identity);
+        enemy.GetComponent<EnemyHealth>().maxHealth *= (1 + CurrentWave);
+        enemy.GetComponent<TankEnemy>().meleeDMG *= (1 + CurrentWave);
     }
 
     private IEnumerator WaveTimer()

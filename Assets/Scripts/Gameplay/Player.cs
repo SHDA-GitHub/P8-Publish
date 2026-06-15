@@ -92,7 +92,6 @@ public class Player : MonoBehaviour
 
         slashCollider.transform.localScale =
             Vector3.one * slashHitbox;
-        Debug.Log(FindObjectsOfType<Player>().Length);
     }
 
     private void OnMove(InputAction.CallbackContext context)

@@ -148,7 +148,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d5dee69bb22b2a469856f3a45135a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WaveManager
-  enemyPrefab: {fileID: 1668765135169094032, guid: 6497b80fc02332849b3d9d30776ab355, type: 3}
+  enemyPrefab:
+  - {fileID: 1668765135169094032, guid: 6497b80fc02332849b3d9d30776ab355, type: 3}
+  - {fileID: 7884893967394809495, guid: 513d115995b253a4db25ef0aa1505b17, type: 3}
+  - {fileID: 4587510762096637297, guid: e4f19b7ef5bf753428b11f55c614cbaa, type: 3}
   _enemySpawners:
   - {fileID: 760728240}
   - {fileID: 940375437}
@@ -162,8 +165,11 @@ MonoBehaviour:
   CurrentEnemies: []
   _waveCooldown: 0
   _spawnCooldown: 0
+  _waveStrength: 0
   waveUI: {fileID: 0}
   enemyCountUI: {fileID: 0}
+  _mortarSpawnWeight: 1
+  _tankSpawnWeight: 1
 --- !u!4 &83387640
 Transform:
   m_ObjectHideFlags: 0
