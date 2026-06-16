@@ -13694,25 +13694,49 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1277944739607259932, guid: 7927e9fc40012434987c42f3f5fcc83c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 63c6a6689081a8748857061f1f17ed17, type: 2}
     - target: {fileID: 1748032111674640376, guid: 7927e9fc40012434987c42f3f5fcc83c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e8a8c55b570a59c49823459abdb3d05e, type: 2}
+    - target: {fileID: 4302707251735670559, guid: 7927e9fc40012434987c42f3f5fcc83c, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: cb9c378be9eed544190b835800d3a61b, type: 2}
+    - target: {fileID: 7248949058316482226, guid: 7927e9fc40012434987c42f3f5fcc83c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2a6b316d7fea05c4a84ae41905e2ca57, type: 2}
     - target: {fileID: 7358236425042407391, guid: 7927e9fc40012434987c42f3f5fcc83c, type: 3}
       propertyPath: m_Name
       value: player model + animation (w.i.p)
       objectReference: {fileID: 0}
     - target: {fileID: 7878596363469878629, guid: 7927e9fc40012434987c42f3f5fcc83c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.22218
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878596363469878629, guid: 7927e9fc40012434987c42f3f5fcc83c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.22218
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878596363469878629, guid: 7927e9fc40012434987c42f3f5fcc83c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.22218
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878596363469878629, guid: 7927e9fc40012434987c42f3f5fcc83c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 20.68451
+      value: 20.747
       objectReference: {fileID: 0}
     - target: {fileID: 7878596363469878629, guid: 7927e9fc40012434987c42f3f5fcc83c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2.2076
       objectReference: {fileID: 0}
     - target: {fileID: 7878596363469878629, guid: 7927e9fc40012434987c42f3f5fcc83c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.2056627
+      value: 2.1819
       objectReference: {fileID: 0}
     - target: {fileID: 7878596363469878629, guid: 7927e9fc40012434987c42f3f5fcc83c, type: 3}
       propertyPath: m_LocalRotation.w
