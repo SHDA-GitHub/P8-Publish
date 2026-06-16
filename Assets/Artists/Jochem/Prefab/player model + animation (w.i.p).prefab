@@ -13,16 +13,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: fee819a03cd6f5d479f627cdcd94ea57, type: 2}
     - target: {fileID: -8679921383154817045, guid: ef433e53d3f389e44867ec37e713f4df, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.22218
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ef433e53d3f389e44867ec37e713f4df, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.22218
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ef433e53d3f389e44867ec37e713f4df, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.22218
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ef433e53d3f389e44867ec37e713f4df, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 20.68451
+      value: 20.747
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ef433e53d3f389e44867ec37e713f4df, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2.2076
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ef433e53d3f389e44867ec37e713f4df, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.2056627
+      value: 2.1819
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ef433e53d3f389e44867ec37e713f4df, type: 3}
       propertyPath: m_LocalRotation.w
@@ -68,10 +80,18 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 606d788aa590d0b47b7572bf906b67fe, type: 2}
+    - target: {fileID: -332994641166222958, guid: ef433e53d3f389e44867ec37e713f4df, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 63c6a6689081a8748857061f1f17ed17, type: 2}
     - target: {fileID: 919132149155446097, guid: ef433e53d3f389e44867ec37e713f4df, type: 3}
       propertyPath: m_Name
       value: player model + animation (w.i.p)
       objectReference: {fileID: 0}
+    - target: {fileID: 1028417309341393980, guid: ef433e53d3f389e44867ec37e713f4df, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2a6b316d7fea05c4a84ae41905e2ca57, type: 2}
     - target: {fileID: 1907772811076478630, guid: ef433e53d3f389e44867ec37e713f4df, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -92,6 +112,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 606d788aa590d0b47b7572bf906b67fe, type: 2}
+    - target: {fileID: 8259211573237962102, guid: ef433e53d3f389e44867ec37e713f4df, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e8a8c55b570a59c49823459abdb3d05e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
