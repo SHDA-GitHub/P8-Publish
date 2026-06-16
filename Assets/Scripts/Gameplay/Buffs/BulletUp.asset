@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PassiveUpgrades
   itemImage: {fileID: 21300000, guid: 153178a5037006f44bc46b252e3f71f3, type: 3}
   itemName: Bullet Capacity Up
-  effectAmountInt: 25
+  effectAmountInt: 6
   effectAmountFloat: 0
   hasMaxCap: 1
-  description: Increases bullet capacity by 25
+  VendingOneRound: 1
+  description: Increases bullet capacity by 6
