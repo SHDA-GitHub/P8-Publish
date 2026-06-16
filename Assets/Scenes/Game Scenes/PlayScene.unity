@@ -158,9 +158,9 @@ MonoBehaviour:
   - {fileID: 564992040}
   - {fileID: 1783618757}
   - {fileID: 904968044}
-  _waveTimer: 60
-  _spawnTimer: 1
-  _maxEnemies: 5
+  _waveTimer: 20
+  _spawnTimer: 2.5
+  _maxEnemies: 20
   CurrentEnemies: []
   CurrentWave: 1
   _waveCooldown: 0
