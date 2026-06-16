@@ -17,4 +17,5 @@ MonoBehaviour:
   effectAmountInt: 20
   effectAmountFloat: 0
   hasMaxCap: 0
-  description: Get 250 currency
+  VendingOneRound: 0
+  description: Get 20 coins

@@ -494,6 +494,7 @@ GameObject:
   - component: {fileID: 3192885555635691351}
   - component: {fileID: 7464775972230550128}
   - component: {fileID: 4740582819716103276}
+  - component: {fileID: 7501733701757977625}
   m_Layer: 5
   m_Name: PlayerUI
   m_TagString: Untagged
@@ -609,7 +610,7 @@ MonoBehaviour:
   - {fileID: 6660071979125829729}
   - {fileID: 8207794374308828205}
   - {fileID: 3621638438830344575}
-  upgradeManager: {fileID: 5256456133275902770}
+  upgradeManager: {fileID: 7501733701757977625}
 --- !u!114 &7464775972230550128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -642,6 +643,44 @@ MonoBehaviour:
   startMinutes: 0
   startSeconds: 0
   timerText: {fileID: 7493812000801089361}
+--- !u!114 &7501733701757977625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1696381777130304468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a32ffc8a983efd54d96e4a633c795b64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PassiveUpgradeManager
+  allUpgrades:
+  - {fileID: 11400000, guid: df358e26729dab84e9b5a63daa3af547, type: 2}
+  - {fileID: 11400000, guid: 981180303d6c15941b59c3cc68b00740, type: 2}
+  - {fileID: 11400000, guid: 813810382500f7b4eb96e56be706c8c1, type: 2}
+  - {fileID: 11400000, guid: f24da5a6507b88043a670d148d5d603c, type: 2}
+  - {fileID: 11400000, guid: b094aca49c65f3e48924891cb277e997, type: 2}
+  - {fileID: 11400000, guid: ec163b834e1a24940a900e4d4a8ce854, type: 2}
+  - {fileID: 11400000, guid: 08dd232bc57a458419849c8161c12019, type: 2}
+  - {fileID: 11400000, guid: 97f8b340e1366404299c22a5c3a28648, type: 2}
+  - {fileID: 11400000, guid: 6a5e0997cf3f3a44ca47f5723b39ab73, type: 2}
+  - {fileID: 11400000, guid: 019c3d22be99194499f323f3d25c2d8e, type: 2}
+  - {fileID: 11400000, guid: 3e8c33dd2e5cc6545a076b95da3fd060, type: 2}
+  - {fileID: 11400000, guid: da21d0c80a6bc8946872106ab2a9ff92, type: 2}
+  - {fileID: 11400000, guid: d64ac0a3531b5e04993fb5c4ab4afee1, type: 2}
+  - {fileID: 11400000, guid: 1b333b67e32e31449bc77d6f68c2da2d, type: 2}
+  upgradeSlots:
+  - {fileID: 7570192307362357685}
+  - {fileID: 8549182568010832312}
+  - {fileID: 1265449311678784184}
+  MaxCappedSlots: []
+  temporaryVendingUpgrades: []
+  player: {fileID: 0}
+  health: {fileID: 0}
+  experience: {fileID: 0}
+  currency: {fileID: 7464775972230550128}
+  waveManager: {fileID: 0}
 --- !u!1 &1789738114561618905
 GameObject:
   m_ObjectHideFlags: 0
@@ -1148,7 +1187,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 288745077196959086}
-  - component: {fileID: 5256456133275902770}
   m_Layer: 0
   m_Name: LevelUpUI
   m_TagString: Untagged
@@ -1175,44 +1213,6 @@ Transform:
   - {fileID: 1930882050118695416}
   m_Father: {fileID: 2630051280508151169}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5256456133275902770
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3194822746061816474}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a32ffc8a983efd54d96e4a633c795b64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PassiveUpgradeManager
-  allUpgrades:
-  - {fileID: 11400000, guid: df358e26729dab84e9b5a63daa3af547, type: 2}
-  - {fileID: 11400000, guid: 981180303d6c15941b59c3cc68b00740, type: 2}
-  - {fileID: 11400000, guid: 813810382500f7b4eb96e56be706c8c1, type: 2}
-  - {fileID: 11400000, guid: f24da5a6507b88043a670d148d5d603c, type: 2}
-  - {fileID: 11400000, guid: b094aca49c65f3e48924891cb277e997, type: 2}
-  - {fileID: 11400000, guid: ec163b834e1a24940a900e4d4a8ce854, type: 2}
-  - {fileID: 11400000, guid: 08dd232bc57a458419849c8161c12019, type: 2}
-  - {fileID: 11400000, guid: 97f8b340e1366404299c22a5c3a28648, type: 2}
-  - {fileID: 11400000, guid: 6a5e0997cf3f3a44ca47f5723b39ab73, type: 2}
-  - {fileID: 11400000, guid: 019c3d22be99194499f323f3d25c2d8e, type: 2}
-  - {fileID: 11400000, guid: 3e8c33dd2e5cc6545a076b95da3fd060, type: 2}
-  - {fileID: 11400000, guid: da21d0c80a6bc8946872106ab2a9ff92, type: 2}
-  - {fileID: 11400000, guid: d64ac0a3531b5e04993fb5c4ab4afee1, type: 2}
-  - {fileID: 11400000, guid: 1b333b67e32e31449bc77d6f68c2da2d, type: 2}
-  upgradeSlots:
-  - {fileID: 7570192307362357685}
-  - {fileID: 8549182568010832312}
-  - {fileID: 1265449311678784184}
-  MaxCappedSlots: []
-  player: {fileID: 0}
-  health: {fileID: 0}
-  experience: {fileID: 0}
-  currency: {fileID: 7464775972230550128}
-  waveManager: {fileID: 0}
-  enemyHealth: {fileID: 0}
 --- !u!1 &3236271953913240036
 GameObject:
   m_ObjectHideFlags: 0

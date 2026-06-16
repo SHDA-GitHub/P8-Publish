@@ -10,9 +10,12 @@ public class UpgradeVendingMachine : MonoBehaviour
 
     private bool usedThisRound;
 
-    private PlayerCurrency playerCurrency;
-    private PassiveUpgradeManager upgradeManager;
-    private WaveManager waveManager;
+    [SerializeField ]private PlayerCurrency playerCurrency;
+    [SerializeField] private PassiveUpgradeManager upgradeManager;
+    [SerializeField] private WaveManager waveManager;
+    [SerializeField] private AudioClip purchaseSuccess;
+    [SerializeField] private AudioClip purchaseFailure;
+    [SerializeField] private AudioSource audioSource;
 
     private float lastWave;
 
@@ -21,6 +24,7 @@ public class UpgradeVendingMachine : MonoBehaviour
         playerCurrency = FindFirstObjectByType<PlayerCurrency>();
         upgradeManager = FindFirstObjectByType<PassiveUpgradeManager>();
         waveManager = FindFirstObjectByType<WaveManager>();
+        audioSource = GetComponent<AudioSource>();
 
         lastWave = waveManager.CurrentWave;
     }
@@ -38,18 +42,24 @@ public class UpgradeVendingMachine : MonoBehaviour
     {
         if (usedThisRound)
         {
+            audioSource.clip = purchaseFailure;
+            audioSource.Play();
             Debug.Log("Already used this vending machine this round.");
             return;
         }
 
         if (playerCurrency.currency < cost)
         {
+            audioSource.clip = purchaseFailure;
+            audioSource.Play();
             Debug.Log("Not enough money.");
             return;
         }
 
         if (possibleUpgrades.Count == 0)
         {
+            audioSource.clip = purchaseSuccess;
+            audioSource.Play();
             Debug.Log("No upgrades assigned.");
             return;
         }

@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 2451634571590883631}
   - component: {fileID: 5039557928997587339}
   - component: {fileID: 6614362045789643211}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RangedEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -242,6 +242,8 @@ MonoBehaviour:
   _target: {fileID: 0}
   _attackSpline: {fileID: 5039557928997587339}
   _projectilePrefab: {fileID: 0}
+  pointA: {fileID: 0}
+  pointB: {fileID: 0}
   _attackDamage: 0
   _attackRange: 0
   _attackCooldown: 0

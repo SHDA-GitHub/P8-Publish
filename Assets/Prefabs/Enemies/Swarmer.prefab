@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 8283329746861143069}
   - component: {fileID: 905258255530043595}
   - component: {fileID: 4777161524804348535}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Swarmer
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -265,7 +265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   healthBarFill: {fileID: 8528038494584297137}
   health: 0
-  maxHealth: 100
+  maxHealth: 75
   EXPReward: 25
   CurrencyReward: 5
 --- !u!114 &905258255530043595
@@ -614,10 +614,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7642349597316185248, guid: 811b71a90429ed64f941ecb136f825d5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8b974c42a1dc2db45ac226841c7b770d, type: 2}
+    - target: {fileID: -5994479361073708598, guid: 811b71a90429ed64f941ecb136f825d5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8b974c42a1dc2db45ac226841c7b770d, type: 2}
+    - target: {fileID: -3541887686757351556, guid: 811b71a90429ed64f941ecb136f825d5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8b974c42a1dc2db45ac226841c7b770d, type: 2}
     - target: {fileID: 919132149155446097, guid: 811b71a90429ed64f941ecb136f825d5, type: 3}
       propertyPath: m_Name
       value: lil_crab(1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1313477013201959022, guid: 811b71a90429ed64f941ecb136f825d5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8b974c42a1dc2db45ac226841c7b770d, type: 2}
+    - target: {fileID: 6097259087755240652, guid: 811b71a90429ed64f941ecb136f825d5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8b974c42a1dc2db45ac226841c7b770d, type: 2}
+    - target: {fileID: 6813757229583525300, guid: 811b71a90429ed64f941ecb136f825d5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8b974c42a1dc2db45ac226841c7b770d, type: 2}
+    - target: {fileID: 6982529609439930299, guid: 811b71a90429ed64f941ecb136f825d5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8b974c42a1dc2db45ac226841c7b770d, type: 2}
+    - target: {fileID: 8962492446495559923, guid: 811b71a90429ed64f941ecb136f825d5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8b974c42a1dc2db45ac226841c7b770d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
