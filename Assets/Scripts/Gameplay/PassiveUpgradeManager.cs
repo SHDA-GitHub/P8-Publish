@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 
 public class PassiveUpgradeManager : MonoBehaviour
@@ -15,6 +16,9 @@ public class PassiveUpgradeManager : MonoBehaviour
 
     [Header("Temporary Vending Upgrades")]
     public List<PassiveUpgrades> temporaryVendingUpgrades = new();
+
+    [Header("Passive Upgrade Images")]
+    public List<Image> Upgrades;
 
     private float lastWaveChecked;
 
