@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
 
     [Header("Movement Settings")]
     [SerializeField] private Transform playerCamera;
+    [SerializeField] private GameObject playerRig;
+    [SerializeField] private Animator animator;
     public float jumpMultiplier = 5f;
     public float originalSpeed;
     public float speed = 5f;
@@ -30,7 +32,6 @@ public class Player : MonoBehaviour
 
     [Header("Player Shoot")]
     [SerializeField] private float fireRate = 0f;
-    [SerializeField] private GameObject gun;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
     public bool isShooting = false;
@@ -80,6 +81,12 @@ public class Player : MonoBehaviour
         controls.Player.Toggle.performed += OnToggleWeapon;
 
         rb = GetComponent<Rigidbody>();
+
+        if (animator == null)
+        {
+            animator = playerRig.GetComponent<Animator>();
+        }
+
         originalSpeed = speed;
 
         MeleeCollision melee = slashCollider.GetComponent<MeleeCollision>();
@@ -96,12 +103,14 @@ public class Player : MonoBehaviour
 
     private void OnMove(InputAction.CallbackContext context)
     {
+        animator.SetBool("IsWalking", true);
         Vector2 input = context.ReadValue<Vector2>();
         movement = new Vector3(input.x, 0, input.y);
     }
 
     private void OnMoveCancel(InputAction.CallbackContext context)
     {
+        animator.SetBool("IsWalking", false);
         movement = Vector3.zero;
     }
 
@@ -126,6 +135,7 @@ public class Player : MonoBehaviour
         if (weaponToggle)
         {
             isShooting = true;
+            animator.SetBool("IsShooting", true);
         }
         else
         {
@@ -135,6 +145,7 @@ public class Player : MonoBehaviour
 
     private void OnAttackCancel(InputAction.CallbackContext context)
     {
+        animator.SetBool("IsShooting", false);
         isShooting = false;
     }
 
@@ -208,6 +219,8 @@ public class Player : MonoBehaviour
 
     private IEnumerator Slash()
     {
+        animator.SetTrigger("Stab");
+
         if (slashActive)
             yield break;
 
@@ -224,6 +237,7 @@ public class Player : MonoBehaviour
 
     private void OnJump(InputAction.CallbackContext context)
     {
+        animator.SetTrigger("Jump");
         if (!context.performed) return;
 
         float jumpForce = rb.mass * jumpMultiplier;
@@ -298,23 +312,23 @@ public class Player : MonoBehaviour
             }
         }
 
+        if (weaponToggle == true)
+        {
+            toggleIcon.sprite = gunSprite;
+            animator.SetBool("HasGun", true);
+        }
+        else if (weaponToggle == false)
+        {
+            toggleIcon.sprite = meleeSprite;
+            animator.SetBool("HasGun", false);
+        }
+
         MeleeCollision melee = slashCollider.GetComponent<MeleeCollision>();
 
         if (melee != null)
         {
             melee.damageToDeal = (ushort)meleeDMG;
             melee.knockbackStrength = knockbackStrength;
-        }
-
-        if (weaponToggle == true)
-        {
-            gun.gameObject.SetActive(true);
-            toggleIcon.sprite = gunSprite;
-        }
-        else
-        {
-            gun.gameObject.SetActive(false);
-            toggleIcon.sprite = meleeSprite;
         }
 
         if (!isJammed &&
