@@ -64,7 +64,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: bone|walk with da knoife F
-  m_Speed: 1.5
+  m_Speed: 1.8
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 2499830465361907628}
@@ -154,7 +154,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: bone|walk with gun
-  m_Speed: 1.5
+  m_Speed: 1.8
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 909828076111019021}
