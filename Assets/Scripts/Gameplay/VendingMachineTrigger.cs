@@ -7,6 +7,7 @@ public class VendingMachineTrigger : MonoBehaviour
 
     private bool playerInside;
     private bool previousShootState;
+    private bool previousSlashState;
 
     private void Awake()
     {
@@ -15,14 +16,18 @@ public class VendingMachineTrigger : MonoBehaviour
     }
     private void Update()
     {
-        if (playerInside &&
-            player.isShooting &&
-            !previousShootState)
+        if (playerInside && player.isShooting && !previousShootState)
+        {
+            vendingMachine.PurchaseUpgrade();
+        }
+
+        if (playerInside && player.slashActive && !previousSlashState)
         {
             vendingMachine.PurchaseUpgrade();
         }
 
         previousShootState = player.isShooting;
+        previousSlashState = player.slashActive;
     }
 
     private void OnTriggerEnter(Collider other)

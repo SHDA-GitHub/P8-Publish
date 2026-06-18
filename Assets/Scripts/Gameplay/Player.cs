@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
 
     [Header("Player Slash")]
     [SerializeField] private GameObject slashCollider;
-    [SerializeField] private bool slashActive = false;
+    public bool slashActive = false;
     public float knockbackStrength = 1f;
     public float slashDuration = 1f;
     public float slashHitbox = 1f;

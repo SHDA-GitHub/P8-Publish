@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PassiveUpgradeManager : MonoBehaviour
 {
@@ -17,8 +17,9 @@ public class PassiveUpgradeManager : MonoBehaviour
     [Header("Temporary Vending Upgrades")]
     public List<PassiveUpgrades> temporaryVendingUpgrades = new();
 
-    [Header("Passive Upgrade Images")]
-    public List<Image> Upgrades;
+    [Header("Upgrade Images")]
+    public List<GameObject> passiveUpgrades;
+    public List<GameObject> tempUpgrades;
 
     private float lastWaveChecked;
 
@@ -47,6 +48,56 @@ public class PassiveUpgradeManager : MonoBehaviour
             RemoveExpiredVendingUpgrades();
 
             lastWaveChecked = waveManager.CurrentWave;
+        }
+    }
+
+    public void RefreshPassiveUpgradeImages()
+    {
+        for (int i = 0; i < passiveUpgrades.Count; i++)
+        {
+            Image img = passiveUpgrades[i].GetComponent<Image>();
+
+            if (i < MaxCappedSlots.Count)
+            {
+                img.sprite = MaxCappedSlots[i].itemImage;
+
+                Color c = img.color;
+                c.a = 1f;
+                img.color = c;
+            }
+            else
+            {
+                img.sprite = null;
+
+                Color c = img.color;
+                c.a = 0.2f;
+                img.color = c;
+            }
+        }
+    }
+
+    public void RefreshTempUpgradeImages()
+    {
+        for (int i = 0; i < tempUpgrades.Count; i++)
+        {
+            Image img = tempUpgrades[i].GetComponent<Image>();
+
+            if (i < temporaryVendingUpgrades.Count)
+            {
+                img.sprite = temporaryVendingUpgrades[i].itemImage;
+
+                Color c = img.color;
+                c.a = 1f;
+                img.color = c;
+            }
+            else
+            {
+                img.sprite = null;
+
+                Color c = img.color;
+                c.a = 0.2f;
+                img.color = c;
+            }
         }
     }
 
@@ -95,6 +146,7 @@ public class PassiveUpgradeManager : MonoBehaviour
             MaxCappedSlots.Count < maxCappedUpgrades)
         {
             MaxCappedSlots.Add(upgrade);
+            RefreshPassiveUpgradeImages();
         }
         switch (upgrade.itemName)
         {
@@ -234,6 +286,8 @@ public class PassiveUpgradeManager : MonoBehaviour
         {
             temporaryVendingUpgrades.Add(upgrade);
         }
+
+        RefreshTempUpgradeImages();
     }
 
     private void RemoveExpiredVendingUpgrades()
@@ -244,6 +298,8 @@ public class PassiveUpgradeManager : MonoBehaviour
         }
 
         temporaryVendingUpgrades.Clear();
+
+        RefreshTempUpgradeImages();
     }
 
     public void HealthUp(float effectAmount)
