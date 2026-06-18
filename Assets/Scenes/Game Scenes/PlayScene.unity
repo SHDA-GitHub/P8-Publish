@@ -46077,6 +46077,10 @@ PrefabInstance:
       propertyPath: EXPBarFill
       value: 
       objectReference: {fileID: 2860346178563565517}
+    - target: {fileID: 1197258191238659227, guid: 4d8f9ae908718d642a25ad9a97820b41, type: 3}
+      propertyPath: exponentialEXP
+      value: 1.4
+      objectReference: {fileID: 0}
     - target: {fileID: 4614845805894304817, guid: 4d8f9ae908718d642a25ad9a97820b41, type: 3}
       propertyPath: upwardKnockback
       value: 1

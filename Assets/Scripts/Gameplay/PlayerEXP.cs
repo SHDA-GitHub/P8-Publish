@@ -9,7 +9,7 @@ public class PlayerEXP : MonoBehaviour
     public float EXP;
     public float EXPIncrease;
     [SerializeField] private float maxEXP = 100;
-    [SerializeField] private float exponentialEXP = 50;
+    [SerializeField] private float exponentialEXP = 1.5f;
 
     public static Action OnLevelUp;
 
@@ -37,7 +37,7 @@ public class PlayerEXP : MonoBehaviour
     private void LevelUp()
     {
         EXP -= maxEXP;
-        maxEXP += exponentialEXP;
+        maxEXP *= exponentialEXP;
         OnLevelUp?.Invoke();
     }
 }
