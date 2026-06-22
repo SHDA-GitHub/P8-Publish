@@ -1,4 +1,6 @@
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,6 +23,13 @@ public class PassiveUpgradeManager : MonoBehaviour
     public List<GameObject> passiveUpgrades;
     public List<GameObject> tempUpgrades;
 
+    [Header("Upgrade Updating UI")]
+    public TextMeshProUGUI upgradeText;
+    [SerializeField] private float visibleDuration = 1f;
+    [SerializeField] private float fadeDuration = 2f;
+
+    private Coroutine fadeCoroutine;
+
     private float lastWaveChecked;
 
     [Header("Reference to player")]
@@ -39,6 +48,8 @@ public class PassiveUpgradeManager : MonoBehaviour
         waveManager = FindFirstObjectByType<WaveManager>();
 
         lastWaveChecked = waveManager.CurrentWave;
+        upgradeText.text = "";
+        upgradeText.alpha = 0f;
     }
 
     private void Update()
@@ -281,7 +292,7 @@ public class PassiveUpgradeManager : MonoBehaviour
     public void ApplyTemporaryUpgrade(PassiveUpgrades upgrade)
     {
         ApplyUpgrade(upgrade);
-
+        ShowUpgradeText($"+ {upgrade.name}");
         if (upgrade.VendingOneRound)
         {
             temporaryVendingUpgrades.Add(upgrade);
@@ -294,12 +305,42 @@ public class PassiveUpgradeManager : MonoBehaviour
     {
         foreach (PassiveUpgrades upgrade in temporaryVendingUpgrades)
         {
-            RemoveUpgrade(upgrade);
+            ShowUpgradeText($"- {upgrade.name}");
         }
 
         temporaryVendingUpgrades.Clear();
 
         RefreshTempUpgradeImages();
+    }
+
+    private void ShowUpgradeText(string message)
+    {
+        if (fadeCoroutine != null)
+        {
+            StopCoroutine(fadeCoroutine);
+        }
+
+        fadeCoroutine = StartCoroutine(FadeUpgradeText(message));
+    }
+
+    private IEnumerator FadeUpgradeText(string message)
+    {
+        upgradeText.text = message;
+
+        upgradeText.alpha = 1f;
+
+        yield return new WaitForSeconds(visibleDuration);
+
+        float elapsed = 0f;
+
+        while (elapsed < fadeDuration)
+        {
+            elapsed += Time.deltaTime;
+            upgradeText.alpha = Mathf.Lerp(1f, 0f, elapsed / fadeDuration);
+            yield return null;
+        }
+
+        upgradeText.alpha = 0f;
     }
 
     public void HealthUp(float effectAmount)
