@@ -23209,8 +23209,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 286494940837906853, guid: 18b41eb5259befc45ab35a3d232eebd3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 967100620126372223, guid: 18b41eb5259befc45ab35a3d232eebd3, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -6373289049634577903, guid: 61b7553d5a576864bb754ef4d67fd2bb, type: 3}
     - target: {fileID: 1294925978514568575, guid: 18b41eb5259befc45ab35a3d232eebd3, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.1412938
@@ -23275,6 +23279,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7596219903419411525, guid: 18b41eb5259befc45ab35a3d232eebd3, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ab8998625f0f5b84f8241b992d749f3d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
