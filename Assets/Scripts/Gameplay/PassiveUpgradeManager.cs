@@ -292,7 +292,7 @@ public class PassiveUpgradeManager : MonoBehaviour
     public void ApplyTemporaryUpgrade(PassiveUpgrades upgrade)
     {
         ApplyUpgrade(upgrade);
-        ShowUpgradeText($"+ {upgrade.name}");
+        ShowUpgradeText($"+ {upgrade.itemName}");
         if (upgrade.VendingOneRound)
         {
             temporaryVendingUpgrades.Add(upgrade);
@@ -305,7 +305,7 @@ public class PassiveUpgradeManager : MonoBehaviour
     {
         foreach (PassiveUpgrades upgrade in temporaryVendingUpgrades)
         {
-            ShowUpgradeText($"- {upgrade.name}");
+            ShowUpgradeText($"- {upgrade.itemName}");
         }
 
         temporaryVendingUpgrades.Clear();
