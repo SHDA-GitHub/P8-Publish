@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8257162062651398270}
   - component: {fileID: 1466638826300817416}
   - component: {fileID: 2810983657160805064}
+  - component: {fileID: 9169477382181620243}
   m_Layer: 0
   m_Name: Vending Machine (Green)
   m_TagString: Untagged
@@ -302,7 +303,7 @@ Light:
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0, g: 1, b: 0.12190795, a: 1}
-  m_Intensity: 2.04
+  m_Intensity: 5.2
   m_Range: 2.55
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -385,6 +386,27 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!65 &9169477382181620243
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410840931495436919}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2310603520772537035
 GameObject:
   m_ObjectHideFlags: 0
