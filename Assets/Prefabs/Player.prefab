@@ -84,7 +84,6 @@ GameObject:
   - component: {fileID: 6197524106315671214}
   - component: {fileID: 232599516343195807}
   - component: {fileID: 1197258191238659227}
-  - component: {fileID: 4978346387183849401}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -236,23 +235,7 @@ MonoBehaviour:
   EXP: 0
   EXPIncrease: 0
   maxEXP: 100
-  exponentialEXP: 30
---- !u!114 &4978346387183849401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5046740647148227416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4d7d69f74036c64cbb2738d80d55576, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
-  healthBarFill: {fileID: 0}
-  health: 0
-  maxHealth: 100
-  regenAmount: 0
+  exponentialEXP: 1.4
 --- !u!1 &5188750956879586973
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,7 +261,7 @@ Transform:
   m_GameObject: {fileID: 5188750956879586973}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.22, z: 0}
+  m_LocalPosition: {x: 0.476, y: 0.782, z: -0.437}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

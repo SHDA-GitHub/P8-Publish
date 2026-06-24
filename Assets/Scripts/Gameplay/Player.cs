@@ -77,7 +77,6 @@ public class Player : MonoBehaviour
         controls.Player.Sprint.canceled += OnSprintCancel;
         controls.Player.Shoot.performed += OnAttack;
         controls.Player.Shoot.canceled += OnAttackCancel;
-        controls.Player.Jump.performed += OnJump;
         controls.Player.Toggle.performed += OnToggleWeapon;
 
         rb = GetComponent<Rigidbody>();
