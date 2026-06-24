@@ -7,40 +7,59 @@ public class RangedDamage : BaseEnemy
     [Header("References")]
     [SerializeField] private Transform _target;
     [SerializeField] private MeshRenderer _renderer;
-    [SerializeField] private SphereCollider _hitCollider;
-    [SerializeField] private SphereCollider _attackCollider;
+    [SerializeField] private GameObject _attackExplosion;
+
+    [SerializeField] private Vector3 _lowestPosition;
 
     [Header("Stats")]
-    [SerializeField] private float _attackDamage;
+    [SerializeField] private float _destroyTime;
+    [SerializeField] private float _explosionTime;
+    public float _attackDamage;
 
     private void Awake()
     {
-        _target = Player.instance.transform;
+        _target = Player.instance.transform; 
         StartCoroutine(DestroyProjectile());
+        _attackExplosion.SetActive(false);
     }
+
+    private void Update()
+    {
+        if (transform.position.y <= _lowestPosition.y)
+        {
+            StartCoroutine(AttackCoroutine());
+
+        }
+    }
+
     protected override void Attack(float damage, PlayerHealth playerHealth)
     {
+
         base.Attack(damage, playerHealth);
+
     }
-    private void OnTriggerEnter(Collider collision)
+
+    private void DestroySpline()
     {
-
-        _renderer.enabled = false;
-        _hitCollider.enabled = false;
-        _attackCollider.enabled = true;
-        print("touched");
-
-        
-        if (collision.CompareTag("Player"))
-        {
-            Attack(_attackDamage, collision.gameObject.GetComponent<PlayerHealth>());
-        }
+        Destroy(gameObject.GetComponent<SplineAnimate>().Container);
+        Destroy(gameObject.GetComponent<SplineAnimate>());
     }
 
     private IEnumerator DestroyProjectile()
     {
-        yield return new WaitForSeconds(3);
-        Destroy(gameObject.GetComponent<SplineAnimate>().Container);
+        yield return new WaitForSeconds(_destroyTime);
         Destroy(gameObject);
+    }
+
+    private IEnumerator AttackCoroutine()
+    {
+        yield return new WaitForSeconds(0.1f);
+        _renderer.enabled = false;
+        _attackExplosion.SetActive(true);;
+    }
+
+    private void OnDestroy()
+    {
+        DestroySpline();
     }
 }
