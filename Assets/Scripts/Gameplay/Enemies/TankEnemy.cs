@@ -10,6 +10,7 @@ public class TankEnemy : BaseEnemy
     [Header("Tank Attack")]
     [SerializeField] private GameObject slashCollider;
     [SerializeField] private bool slashActive = false;
+    [SerializeField] private Animator animator; 
     public bool attacking = false;
     public float knockbackStrength = 1f;
     public float slashDuration = 1f;

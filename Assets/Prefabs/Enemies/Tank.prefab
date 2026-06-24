@@ -2451,8 +2451,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   healthBarFill: {fileID: 8126357703730602853}
-  health: 250
-  maxHealth: 250
+  health: 175
+  maxHealth: 175
   EXPReward: 100
   CurrencyReward: 15
 --- !u!65 &940213684672625570
