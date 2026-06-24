@@ -122,8 +122,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2451634571590883631}
-  - component: {fileID: 5039557928997587339}
   - component: {fileID: 6614362045789643211}
+  - component: {fileID: 3600081034227063360}
   m_Layer: 3
   m_Name: RangedEnemy
   m_TagString: Untagged
@@ -147,86 +147,6 @@ Transform:
   - {fileID: 6344506855457707501}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5039557928997587339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7884893967394809495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dab5c7d4c32e743048dfca98e2d5914f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Splines::UnityEngine.Splines.SplineContainer
-  m_Spline:
-    m_EditModeType: 1
-    m_Knots: []
-    m_MetaData: []
-    m_Closed: 0
-    m_IntData:
-      m_Data: []
-    m_FloatData:
-      m_Data: []
-    m_Float4Data:
-      m_Data: []
-    m_ObjectData:
-      m_Data: []
-  m_Splines:
-  - m_EditModeType: 1
-    m_Knots:
-    - Position:
-        x: 0
-        y: 0
-        z: 0
-      TangentIn:
-        x: 0
-        y: 0
-        z: -20
-      TangentOut:
-        x: 0
-        y: 0
-        z: 20
-      Rotation:
-        value:
-          x: -0.70710677
-          y: 0
-          z: -0
-          w: 0.70710677
-    - Position:
-        x: 1
-        y: -5
-        z: 3
-      TangentIn:
-        x: 0
-        y: 0
-        z: -1
-      TangentOut:
-        x: 0
-        y: 0
-        z: 1
-      Rotation:
-        value:
-          x: 0
-          y: 0
-          z: 0
-          w: 1
-    m_MetaData:
-    - Mode: 2
-      Tension: 0.5
-    - Mode: 2
-      Tension: 0.5
-    m_Closed: 0
-    m_IntData:
-      m_Data: []
-    m_FloatData:
-      m_Data: []
-    m_Float4Data:
-      m_Data: []
-    m_ObjectData:
-      m_Data: []
-  m_Knots:
-    m_KnotsLink: []
 --- !u!114 &6614362045789643211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,12 +159,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84edc18999fbf7e41b052e9a296e58ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RangedEnemy
+  currentState: 0
   _target: {fileID: 0}
-  _attackSpline: {fileID: 5039557928997587339}
-  _projectilePrefab: {fileID: 0}
-  pointA: {fileID: 0}
-  pointB: {fileID: 0}
+  _projectilePrefab: {fileID: 2350961229085217339, guid: 9fd19d1ab60f159439721f8a2185ce2e, type: 3}
+  pointA: {fileID: 2451634571590883631}
+  _navMeshAgent: {fileID: 3600081034227063360}
+  _projectiles: []
   _attackDamage: 0
-  _attackRange: 0
-  _attackCooldown: 0
+  _attackRange: 20
+  _attackCooldown: 2
   _canAttack: 0
+--- !u!195 &3600081034227063360
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7884893967394809495}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 0
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
