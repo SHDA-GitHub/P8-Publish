@@ -5,30 +5,22 @@ using UnityEngine.Splines;
 public class RangedDamage : BaseEnemy
 {
     [Header("References")]
-    [SerializeField] private Transform _target;
-    [SerializeField] private MeshRenderer _renderer;
-    [SerializeField] private GameObject _attackExplosion;
-
-    [SerializeField] private Vector3 _lowestPosition;
+    [SerializeField] private RangedProjectile _rangedProjectileScript;
 
     [Header("Stats")]
-    [SerializeField] private float _destroyTime;
-    [SerializeField] private float _explosionTime;
-    public float _attackDamage;
+    [SerializeField] private float _attackDamage;
 
     private void Awake()
     {
-        _target = Player.instance.transform; 
-        StartCoroutine(DestroyProjectile());
-        _attackExplosion.SetActive(false);
+        _attackDamage = _rangedProjectileScript._attackDamage;
     }
 
-    private void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        if (transform.position.y <= _lowestPosition.y)
+        if(other.CompareTag("Player"))
         {
-            StartCoroutine(AttackCoroutine());
-
+            PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+            Attack(_attackDamage, playerHealth);
         }
     }
 
@@ -39,27 +31,5 @@ public class RangedDamage : BaseEnemy
 
     }
 
-    private void DestroySpline()
-    {
-        Destroy(gameObject.GetComponent<SplineAnimate>().Container);
-        Destroy(gameObject.GetComponent<SplineAnimate>());
-    }
 
-    private IEnumerator DestroyProjectile()
-    {
-        yield return new WaitForSeconds(_destroyTime);
-        Destroy(gameObject);
-    }
-
-    private IEnumerator AttackCoroutine()
-    {
-        yield return new WaitForSeconds(0.1f);
-        _renderer.enabled = false;
-        _attackExplosion.SetActive(true);;
-    }
-
-    private void OnDestroy()
-    {
-        DestroySpline();
-    }
 }

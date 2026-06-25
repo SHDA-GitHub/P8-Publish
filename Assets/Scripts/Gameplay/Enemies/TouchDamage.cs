@@ -14,6 +14,6 @@ public class TouchDamage : BaseEnemy
     protected override void Attack(float damage, PlayerHealth enemyHealth)
     {
         base.Attack(damage, enemyHealth);
-        enemyHealth.health -= damage;
+        //enemyHealth.health -= damage;
     }
 }

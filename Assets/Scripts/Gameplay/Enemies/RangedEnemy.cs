@@ -26,7 +26,7 @@ public class RangedEnemy : BaseEnemy
     [SerializeField] private List<GameObject> _projectiles;
 
     [Header("Stats")]
-    [SerializeField] private float _attackDamage;
+    public float _attackDamage;
     [SerializeField] private float _attackRange;
     [SerializeField] private float _attackCooldown;
 
@@ -98,7 +98,7 @@ public class RangedEnemy : BaseEnemy
         knot1.Position.x = pointA.position.x - _target.position.x;
         knot1.Position.z = pointA.position.z - _target.position.z;
         knot1.Position *= -1;
-        knot1.Position.y = 0;
+        knot1.Position.y = -1f;
 
         attackSplineCopy.Spline[0] = knot0;
         attackSplineCopy.Spline[1] = knot1;
@@ -106,6 +106,8 @@ public class RangedEnemy : BaseEnemy
         _canAttack = false;
         GameObject projectile = Instantiate(_projectilePrefab, transform.position, transform.rotation);
         SplineAnimate splineAnimate = projectile.GetComponent<SplineAnimate>();
+        RangedProjectile rangedProjectile = projectile.GetComponent<RangedProjectile>();
+        rangedProjectile._attackDamage = _attackDamage;
         splineAnimate.Container = attackSplineCopy;
         splineAnimate.Play();
 
