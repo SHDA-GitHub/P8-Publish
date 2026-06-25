@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Image toggleIcon;
     [SerializeField] private Sprite gunSprite;
     [SerializeField] private Sprite meleeSprite;
+    [SerializeField] private AudioSource audioSource;
     private float nextToggleTime = 0f;
     // true = gun
     // false = slash
@@ -62,6 +63,17 @@ public class Player : MonoBehaviour
     public float critChance = 1f;
     public float critEffect = 1.5f;
 
+    [Header("Sound Effects")]
+    [SerializeField] private AudioClip shoot;
+    [SerializeField] private AudioClip reload;
+    [SerializeField] private AudioClip cockingGun;
+    [SerializeField] private AudioClip meleeSlash;
+    [SerializeField] private AudioClip switchToGun;
+    [SerializeField] private AudioClip switchToMelee;
+    [SerializeField] private AudioClip equip;
+    [SerializeField] private AudioClip walk;
+    [SerializeField] private AudioClip hurt;
+
     private void Awake()
     {
         weaponToggle = true;
@@ -80,6 +92,11 @@ public class Player : MonoBehaviour
         controls.Player.Toggle.performed += OnToggleWeapon;
 
         rb = GetComponent<Rigidbody>();
+
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
 
         if (animator == null)
         {
@@ -103,6 +120,9 @@ public class Player : MonoBehaviour
     private void OnMove(InputAction.CallbackContext context)
     {
         animator.SetBool("IsWalking", true);
+        //audioSource.clip = walk;
+        //audioSource.loop = true;
+        //audioSource.Play();
         Vector2 input = context.ReadValue<Vector2>();
         movement = new Vector3(input.x, 0, input.y);
     }
@@ -110,6 +130,8 @@ public class Player : MonoBehaviour
     private void OnMoveCancel(InputAction.CallbackContext context)
     {
         animator.SetBool("IsWalking", false);
+        //audioSource.loop = false;
+        //audioSource.Stop();
         movement = Vector3.zero;
     }
 
@@ -207,18 +229,23 @@ public class Player : MonoBehaviour
         isJammed = true;
 
         Debug.Log("Gun Jammed!");
-
+        audioSource.clip = reload;
+        audioSource.Play();
         yield return new WaitForSeconds(jamDuration);
 
         bulletsShot = 0;
         isJammed = false;
 
         Debug.Log("Gun Unjammed!");
+        audioSource.clip = cockingGun;
+        audioSource.Play();
     }
 
     private IEnumerator Slash()
     {
         animator.SetTrigger("Stab");
+        audioSource.clip = meleeSlash;
+        audioSource.Play();
 
         if (slashActive)
             yield break;
@@ -314,11 +341,15 @@ public class Player : MonoBehaviour
         if (weaponToggle == true)
         {
             toggleIcon.sprite = gunSprite;
+            audioSource.clip = switchToGun;
+            audioSource.Play();
             animator.SetBool("HasGun", true);
         }
         else if (weaponToggle == false)
         {
             toggleIcon.sprite = meleeSprite;
+            audioSource.clip = switchToMelee;
+            audioSource.Play();
             animator.SetBool("HasGun", false);
         }
 
