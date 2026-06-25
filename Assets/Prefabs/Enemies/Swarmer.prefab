@@ -264,6 +264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   healthBarFill: {fileID: 8528038494584297137}
+  deathParticles: {fileID: 5323880428648729346, guid: 485e242e6f2832d4bb58a96b7d81f0d3, type: 3}
   health: 0
   maxHealth: 75
   EXPReward: 25
@@ -584,11 +585,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 940d66b5a68dd9446900c497ddab9f21, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.492
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 940d66b5a68dd9446900c497ddab9f21, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.261
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 940d66b5a68dd9446900c497ddab9f21, type: 3}
       propertyPath: m_LocalRotation.w

@@ -100144,6 +100144,63 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5143855380805151479, guid: f6a78f1e835ee814bbabba438ea718d4, type: 3}
+--- !u!1001 &1940684468
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3039523457791745912, guid: 30fd31aa508d0714b980c5ff2ac9f272, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.552
+      objectReference: {fileID: 0}
+    - target: {fileID: 3039523457791745912, guid: 30fd31aa508d0714b980c5ff2ac9f272, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 3039523457791745912, guid: 30fd31aa508d0714b980c5ff2ac9f272, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 19.042
+      objectReference: {fileID: 0}
+    - target: {fileID: 3039523457791745912, guid: 30fd31aa508d0714b980c5ff2ac9f272, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3039523457791745912, guid: 30fd31aa508d0714b980c5ff2ac9f272, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3039523457791745912, guid: 30fd31aa508d0714b980c5ff2ac9f272, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3039523457791745912, guid: 30fd31aa508d0714b980c5ff2ac9f272, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3039523457791745912, guid: 30fd31aa508d0714b980c5ff2ac9f272, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3039523457791745912, guid: 30fd31aa508d0714b980c5ff2ac9f272, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3039523457791745912, guid: 30fd31aa508d0714b980c5ff2ac9f272, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7394709864897566854, guid: 30fd31aa508d0714b980c5ff2ac9f272, type: 3}
+      propertyPath: m_Name
+      value: Vending Machine (White)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 30fd31aa508d0714b980c5ff2ac9f272, type: 3}
 --- !u!64 &1942473654
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -115135,83 +115192,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a016836e8107b594e82d0e2378da09b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
---- !u!1001 &5571987210195259430
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3039523457791745912, guid: 30fd31aa508d0714b980c5ff2ac9f272, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.552
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039523457791745912, guid: 30fd31aa508d0714b980c5ff2ac9f272, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.17
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039523457791745912, guid: 30fd31aa508d0714b980c5ff2ac9f272, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 19.042
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039523457791745912, guid: 30fd31aa508d0714b980c5ff2ac9f272, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039523457791745912, guid: 30fd31aa508d0714b980c5ff2ac9f272, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039523457791745912, guid: 30fd31aa508d0714b980c5ff2ac9f272, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039523457791745912, guid: 30fd31aa508d0714b980c5ff2ac9f272, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039523457791745912, guid: 30fd31aa508d0714b980c5ff2ac9f272, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039523457791745912, guid: 30fd31aa508d0714b980c5ff2ac9f272, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039523457791745912, guid: 30fd31aa508d0714b980c5ff2ac9f272, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6597258717742039021, guid: 30fd31aa508d0714b980c5ff2ac9f272, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 5237572225551450289}
-    - target: {fileID: 7394709864897566854, guid: 30fd31aa508d0714b980c5ff2ac9f272, type: 3}
-      propertyPath: m_Name
-      value: Vending Machine (White)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8233882603110362805, guid: 30fd31aa508d0714b980c5ff2ac9f272, type: 3}
-      propertyPath: possibleUpgrades.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8233882603110362805, guid: 30fd31aa508d0714b980c5ff2ac9f272, type: 3}
-      propertyPath: 'possibleUpgrades.Array.data[0]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 6a5e0997cf3f3a44ca47f5723b39ab73, type: 2}
-    - target: {fileID: 8233882603110362805, guid: 30fd31aa508d0714b980c5ff2ac9f272, type: 3}
-      propertyPath: 'possibleUpgrades.Array.data[1]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 97f8b340e1366404299c22a5c3a28648, type: 2}
-    - target: {fileID: 8233882603110362805, guid: 30fd31aa508d0714b980c5ff2ac9f272, type: 3}
-      propertyPath: 'possibleUpgrades.Array.data[2]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 08dd232bc57a458419849c8161c12019, type: 2}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 30fd31aa508d0714b980c5ff2ac9f272, type: 3}
 --- !u!1001 &5770114705492048546
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -115495,7 +115475,7 @@ SceneRoots:
   - {fileID: 904968044}
   - {fileID: 1505922513}
   - {fileID: 1844305011}
-  - {fileID: 5571987210195259430}
+  - {fileID: 1940684468}
   - {fileID: 566385716}
   - {fileID: 1961804434}
   - {fileID: 1104487250}

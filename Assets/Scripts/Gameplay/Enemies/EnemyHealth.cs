@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class EnemyHealth : BaseEnemy
 {
     [SerializeField] private Image healthBarFill;
+    [SerializeField] private GameObject deathParticles;
     private Camera _mainCam;
     private PlayerEXP playerEXP;
     private PlayerCurrency playerCurrency;
@@ -36,6 +37,7 @@ public class EnemyHealth : BaseEnemy
 
     protected override void Death()
     {
+        Instantiate(deathParticles, gameObject.transform.position, Quaternion.identity);
         waveManager.CurrentEnemies.Remove(gameObject);
         playerCurrency.kills += 1;
         playerCurrency.AddCurrency(CurrencyReward);

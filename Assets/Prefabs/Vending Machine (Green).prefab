@@ -75,7 +75,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VendingMachine
   cost: 50
-  possibleUpgrades: []
+  possibleUpgrades:
+  - {fileID: 11400000, guid: df358e26729dab84e9b5a63daa3af547, type: 2}
+  - {fileID: 11400000, guid: 813810382500f7b4eb96e56be706c8c1, type: 2}
+  - {fileID: 11400000, guid: 019c3d22be99194499f323f3d25c2d8e, type: 2}
   playerCurrency: {fileID: 0}
   upgradeManager: {fileID: 0}
   waveManager: {fileID: 0}

@@ -21,6 +21,7 @@ public class UpgradeVendingMachine : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log($"{name} upgrades count = {possibleUpgrades.Count}");
         playerCurrency = FindFirstObjectByType<PlayerCurrency>();
         upgradeManager = FindFirstObjectByType<PassiveUpgradeManager>();
         waveManager = FindFirstObjectByType<WaveManager>();
@@ -58,7 +59,7 @@ public class UpgradeVendingMachine : MonoBehaviour
 
         if (possibleUpgrades.Count == 0)
         {
-            audioSource.clip = purchaseSuccess;
+            audioSource.clip = purchaseFailure;
             audioSource.Play();
             Debug.Log("No upgrades assigned.");
             return;
