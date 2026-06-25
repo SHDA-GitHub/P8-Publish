@@ -9,5 +9,6 @@ public abstract class BaseEnemy : MonoBehaviour
 
     protected virtual void Attack(float damage, PlayerHealth playerHealth)
     {
+        playerHealth.health -= damage;
     }
 }

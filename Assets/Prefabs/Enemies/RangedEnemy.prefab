@@ -165,7 +165,7 @@ MonoBehaviour:
   pointA: {fileID: 2451634571590883631}
   _navMeshAgent: {fileID: 3600081034227063360}
   _projectiles: []
-  _attackDamage: 0
+  _attackDamage: 7.66
   _attackRange: 20
   _attackCooldown: 2
   _canAttack: 0
@@ -188,6 +188,6 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0
+  m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
