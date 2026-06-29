@@ -2452,10 +2452,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   healthBarFill: {fileID: 8126357703730602853}
   deathParticles: {fileID: 349159698880492589, guid: 0f2ce4480a718b34ca1b4070cc908e93, type: 3}
-  health: 175
-  maxHealth: 175
-  EXPReward: 100
-  CurrencyReward: 15
+  health: 125
+  maxHealth: 125
+  EXPReward: 65
+  CurrencyReward: 25
 --- !u!65 &940213684672625570
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2498,7 +2498,7 @@ MonoBehaviour:
   slashDuration: 1
   introDuration: 1
   slashHitbox: 3
-  meleeDMG: 50
+  meleeDMG: 25
 --- !u!1 &4595715360938581750
 GameObject:
   m_ObjectHideFlags: 0

@@ -26,6 +26,13 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private float _mortarSpawnWeight = 1f;
     [SerializeField] private float _tankSpawnWeight = 1f;
 
+    [Header("Boss")]
+    [SerializeField] private GameObject bossPrefab;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip bossSpawnClip;
+
+    private bool bossSpawned = false;
+
     [Header("EnemyRewards")]
     public float swarmerEXPReward = 25f;
     public float mortarEXPReward = 50f;
@@ -123,15 +130,40 @@ public class WaveManager : MonoBehaviour
     private IEnumerator SpawnTimer()
     {
         _spawnCooldown = true;
+
+        if (CurrentWave >= 20 && !bossSpawned)
+        {
+            bossSpawned = true;
+
+            Transform spawnPoint = _enemySpawners[Random.Range(0, _enemySpawners.Length)];
+            SpawnBoss(spawnPoint);
+
+            yield return new WaitForSeconds(_spawnTimer);
+            _spawnCooldown = false;
+            yield break;
+        }
+
         for (int i = 0; i < _enemySpawners.Length; i++)
         {
-            if(CurrentEnemies.Count >= _maxEnemies)
-            {
+            if (CurrentEnemies.Count >= _maxEnemies)
                 break;
-            }
+
             SpawnEnemy(_enemySpawners[i]);
         }
+
         yield return new WaitForSeconds(_spawnTimer);
         _spawnCooldown = false;
+    }
+
+    private void SpawnBoss(Transform targetPos)
+    {
+        GameObject boss = Instantiate(bossPrefab, targetPos.position, Quaternion.identity);
+
+        CurrentEnemies.Add(boss);
+
+        if (audioSource != null && bossSpawnClip != null)
+        {
+            audioSource.PlayOneShot(bossSpawnClip);
+        }
     }
 }
