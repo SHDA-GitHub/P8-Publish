@@ -9800,7 +9800,7 @@ GameObject:
   - component: {fileID: 8708348948143283063}
   - component: {fileID: -7449741096384493542}
   m_Layer: 3
-  m_Name: Gore
+  m_Name: Gore (Swarmer)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
