@@ -73,6 +73,9 @@ public class WaveManager : MonoBehaviour
     private void SpawnSwarmer(Transform targetPos)
     {
         GameObject enemy = Instantiate(enemyPrefab[0], targetPos.position, Quaternion.identity);
+
+        ApplyWaveScale(enemy);
+
         enemy.GetComponent<EnemyHealth>().maxHealth *= (1 + _waveStrength);
         enemy.GetComponent<TouchDamage>()._attackDamage *= (1 + _waveStrength);
         enemy.GetComponent<EnemyHealth>().CurrencyReward = swarmerCurrencyReward;
@@ -82,6 +85,9 @@ public class WaveManager : MonoBehaviour
     private void SpawnMortar(Transform targetPos)
     {
         GameObject enemy = Instantiate(enemyPrefab[1], targetPos.position, Quaternion.identity);
+
+        ApplyWaveScale(enemy);
+
         enemy.GetComponent<EnemyHealth>().maxHealth *= (1 + _waveStrength);
         enemy.GetComponent<EnemyHealth>().CurrencyReward = mortarCurrencyReward;
         enemy.GetComponent<EnemyHealth>().EXPReward = mortarEXPReward;
@@ -90,10 +96,19 @@ public class WaveManager : MonoBehaviour
     private void SpawnTank(Transform targetPos)
     {
         GameObject enemy = Instantiate(enemyPrefab[2], targetPos.position, Quaternion.identity);
+
+        ApplyWaveScale(enemy);
+
         enemy.GetComponent<EnemyHealth>().maxHealth *= (1 + _waveStrength);
         enemy.GetComponent<TankEnemy>().meleeDMG *= (1 + _waveStrength);
         enemy.GetComponent<EnemyHealth>().CurrencyReward = tankCurrencyReward;
         enemy.GetComponent<EnemyHealth>().EXPReward = tankEXPReward;
+    }
+
+    private void ApplyWaveScale(GameObject enemy)
+    {
+        float scaleIncrease = _waveStrength / 100f;
+        enemy.transform.localScale += Vector3.one * scaleIncrease;
     }
 
     private IEnumerator WaveTimer()

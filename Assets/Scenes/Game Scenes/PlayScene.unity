@@ -115383,6 +115383,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: bee328967b44113458dba9731be60bfa, type: 3}
     - target: {fileID: 6197524106315671214, guid: 4d8f9ae908718d642a25ad9a97820b41, type: 3}
+      propertyPath: equip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0c651e0a1a5f92e4bb1911773dee10a4, type: 3}
+    - target: {fileID: 6197524106315671214, guid: 4d8f9ae908718d642a25ad9a97820b41, type: 3}
+      propertyPath: shoot
+      value: 
+      objectReference: {fileID: 8300000, guid: 0f35d259dd49d1d4f8d9dd235e131cf9, type: 3}
+    - target: {fileID: 6197524106315671214, guid: 4d8f9ae908718d642a25ad9a97820b41, type: 3}
       propertyPath: reload
       value: 
       objectReference: {fileID: 8300000, guid: 16ea3371d1ed25a458ae539ef1c7d398, type: 3}
