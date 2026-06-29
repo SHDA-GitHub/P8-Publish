@@ -7005,8 +7005,8 @@ MonoBehaviour:
   _waveStrength: 0
   waveUI: {fileID: 0}
   enemyCountUI: {fileID: 0}
-  _mortarSpawnWeight: 0
-  _tankSpawnWeight: 0.1
+  _mortarSpawnWeight: 0.3
+  _tankSpawnWeight: 0.15
   swarmerEXPReward: 25
   mortarEXPReward: 50
   tankEXPReward: 100
