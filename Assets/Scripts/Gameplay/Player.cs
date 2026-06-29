@@ -229,22 +229,35 @@ public class Player : MonoBehaviour
         isJammed = true;
 
         Debug.Log("Gun Jammed!");
-        audioSource.clip = reload;
+
+        if (audioSource.clip != reload)
+        {
+            audioSource.clip = reload;
+        }
         audioSource.Play();
+
         yield return new WaitForSeconds(jamDuration);
 
         bulletsShot = 0;
         isJammed = false;
 
         Debug.Log("Gun Unjammed!");
-        audioSource.clip = cockingGun;
+
+        if (audioSource.clip != cockingGun)
+        {
+            audioSource.clip = cockingGun;
+        }
         audioSource.Play();
     }
 
     private IEnumerator Slash()
     {
         animator.SetTrigger("Stab");
-        audioSource.clip = meleeSlash;
+
+        if (audioSource.clip != meleeSlash)
+        {
+            audioSource.clip = meleeSlash;
+        }
         audioSource.Play();
 
         if (slashActive)
@@ -338,20 +351,30 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (weaponToggle == true)
+    if (weaponToggle == true)
+    {
+       toggleIcon.sprite = gunSprite;
+
+        if (audioSource.clip != switchToGun)
         {
-            toggleIcon.sprite = gunSprite;
             audioSource.clip = switchToGun;
             audioSource.Play();
-            animator.SetBool("HasGun", true);
         }
-        else if (weaponToggle == false)
+
+        animator.SetBool("HasGun", true);
+    }
+    else
+    {
+        toggleIcon.sprite = meleeSprite;
+
+        if (audioSource.clip != switchToMelee)
         {
-            toggleIcon.sprite = meleeSprite;
             audioSource.clip = switchToMelee;
             audioSource.Play();
-            animator.SetBool("HasGun", false);
         }
+
+        animator.SetBool("HasGun", false);
+    }
 
         MeleeCollision melee = slashCollider.GetComponent<MeleeCollision>();
 

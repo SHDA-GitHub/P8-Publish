@@ -17,7 +17,8 @@ public class RangedEnemy : BaseEnemy
     private Player player;
     [SerializeField] private Transform _target;
     [SerializeField] private GameObject _projectilePrefab;
-
+    [SerializeField] private GameObject enemyRig;
+    [SerializeField] private Animator animator;
     [SerializeField] private Transform pointA;
 
 
@@ -37,7 +38,12 @@ public class RangedEnemy : BaseEnemy
         player = FindFirstObjectByType<Player>();
         _target = player.transform;
         _canAttack = true;
+        if (animator == null)
+        {
+            animator = enemyRig.GetComponent<Animator>();
+        }
     }
+
     private void Update()
     {
 
@@ -74,11 +80,14 @@ public class RangedEnemy : BaseEnemy
         if (Vector3.Distance(_target.position, transform.position) <= _attackRange)
         {
             currentState = State.Attacking;
+            animator.SetBool("isWalking", false);
+            animator.SetTrigger("Attack");
         }
 
         if(Vector3.Distance(_target.position, transform.position) >= _attackRange)
         {
             currentState = State.Chasing;
+            animator.SetBool("isWalking", true);
         }
 
     }

@@ -65,15 +65,21 @@ public class UpgradeVendingMachine : MonoBehaviour
             return;
         }
 
-        playerCurrency.currency -= cost;
+        else
+        {
+            audioSource.clip = purchaseSuccess;
+            audioSource.Play();
 
-        PassiveUpgrades chosenUpgrade =
-            possibleUpgrades[Random.Range(0, possibleUpgrades.Count)];
+            playerCurrency.currency -= cost;
 
-        upgradeManager.ApplyTemporaryUpgrade(chosenUpgrade);
+            PassiveUpgrades chosenUpgrade =
+                possibleUpgrades[Random.Range(0, possibleUpgrades.Count)];
 
-        usedThisRound = true;
+            upgradeManager.ApplyTemporaryUpgrade(chosenUpgrade);
 
-        Debug.Log("Received: " + chosenUpgrade.itemName);
+            usedThisRound = true;
+
+            Debug.Log("Received: " + chosenUpgrade.itemName);
+        }
     }
 }

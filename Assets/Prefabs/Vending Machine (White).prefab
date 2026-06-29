@@ -240,7 +240,7 @@ MonoBehaviour:
   upgradeManager: {fileID: 0}
   waveManager: {fileID: 0}
   purchaseSuccess: {fileID: 8300000, guid: 699aeb0c22ac2dd43937047323460756, type: 3}
-  purchaseFailure: {fileID: 8300000, guid: bd7be765fbe7ffc4eadbda17c7ae8029, type: 3}
+  purchaseFailure: {fileID: 8300000, guid: 8297ec85237035a439a8e06eaeaad041, type: 3}
   audioSource: {fileID: 3344310044535424480}
 --- !u!82 &3344310044535424480
 AudioSource:
