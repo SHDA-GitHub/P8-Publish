@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class WaveManager : MonoBehaviour
@@ -19,7 +20,7 @@ public class WaveManager : MonoBehaviour
     public float _waveStrength = 0f;
 
     [Header("UI")]
-    [SerializeField] private GameObject waveUI;
+    [SerializeField] private TextMeshProUGUI waveUI;
     [SerializeField] private GameObject enemyCountUI;
 
     [Header("SpawnWeight")]
@@ -49,6 +50,11 @@ public class WaveManager : MonoBehaviour
 
     private void Update()
     {
+        if (waveUI != null)
+        {
+            waveUI.text = CurrentWave.ToString();
+        }
+
         if(!_waveCooldown)
         {
             StartCoroutine(WaveTimer());
