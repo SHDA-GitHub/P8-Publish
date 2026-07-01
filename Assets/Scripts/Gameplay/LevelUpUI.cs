@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class LevelUpUI : MonoBehaviour
 {
+    public bool levelUpUIOpen = false;
+
     [Header("UI")]
     [SerializeField] private GameObject levelUpPanel;
 
@@ -28,6 +30,8 @@ public class LevelUpUI : MonoBehaviour
 
     private void OpenLevelUpUI()
     {
+        levelUpUIOpen = true;
+
         Cursor.lockState = CursorLockMode.None;
 
         levelUpPanel.SetActive(true);
@@ -46,8 +50,12 @@ public class LevelUpUI : MonoBehaviour
 
     private void CloseLevelUpUI()
     {
+        levelUpUIOpen = false;
+
         Cursor.lockState = CursorLockMode.Locked;
+
         levelUpPanel.SetActive(false);
+
         Time.timeScale = 1f;
     }
 

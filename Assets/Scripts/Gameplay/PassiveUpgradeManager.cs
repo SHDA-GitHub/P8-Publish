@@ -301,6 +301,16 @@ public class PassiveUpgradeManager : MonoBehaviour
         RefreshTempUpgradeImages();
     }
 
+    public void NotEnoughMoney()
+    {
+        ShowUpgradeText("Not enough money. You need 50$ to buy something from the vending machine.");
+    }
+
+    public void AlreadyUsed()
+    {
+        ShowUpgradeText("You already used this vending machine during this round.");
+    }
+
     private void RemoveExpiredVendingUpgrades()
     {
         foreach (PassiveUpgrades upgrade in temporaryVendingUpgrades)

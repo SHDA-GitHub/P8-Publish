@@ -10,7 +10,7 @@ public class UpgradeVendingMachine : MonoBehaviour
 
     private bool usedThisRound;
 
-    [SerializeField ]private PlayerCurrency playerCurrency;
+    [SerializeField] private PlayerCurrency playerCurrency;
     [SerializeField] private PassiveUpgradeManager upgradeManager;
     [SerializeField] private WaveManager waveManager;
     [SerializeField] private AudioClip purchaseSuccess;
@@ -43,6 +43,7 @@ public class UpgradeVendingMachine : MonoBehaviour
     {
         if (usedThisRound)
         {
+            upgradeManager.AlreadyUsed();
             audioSource.clip = purchaseFailure;
             audioSource.Play();
             Debug.Log("Already used this vending machine this round.");
@@ -51,6 +52,7 @@ public class UpgradeVendingMachine : MonoBehaviour
 
         if (playerCurrency.currency < cost)
         {
+            upgradeManager.NotEnoughMoney();
             audioSource.clip = purchaseFailure;
             audioSource.Play();
             Debug.Log("Not enough money.");
