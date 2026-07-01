@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Sprite gunSprite;
     [SerializeField] private Sprite meleeSprite;
     [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource walkAudio;
     private float nextToggleTime = 0f;
     // true = gun
     // false = slash
@@ -120,9 +121,9 @@ public class Player : MonoBehaviour
     private void OnMove(InputAction.CallbackContext context)
     {
         animator.SetBool("IsWalking", true);
-        //audioSource.clip = walk;
-        //audioSource.loop = true;
-        //audioSource.Play();
+        walkAudio.clip = walk;
+        walkAudio.loop = true;
+        walkAudio.Play();
         Vector2 input = context.ReadValue<Vector2>();
         movement = new Vector3(input.x, 0, input.y);
     }
@@ -130,8 +131,7 @@ public class Player : MonoBehaviour
     private void OnMoveCancel(InputAction.CallbackContext context)
     {
         animator.SetBool("IsWalking", false);
-        //audioSource.loop = false;
-        //audioSource.Stop();
+        walkAudio.Stop();
         movement = Vector3.zero;
     }
 
@@ -180,8 +180,12 @@ public class Player : MonoBehaviour
         if (Mathf.Abs(scroll.y) > 0.01f)
         {
             weaponToggle = !weaponToggle;
-
             nextToggleTime = Time.time + toggleCooldown;
+
+            toggleIcon.sprite = weaponToggle ? gunSprite : meleeSprite;
+            animator.SetBool("HasGun", weaponToggle);
+
+            audioSource.PlayOneShot(weaponToggle ? switchToGun : switchToMelee);
         }
     }
 
@@ -189,6 +193,8 @@ public class Player : MonoBehaviour
     {
         if (isJammed)
             return;
+
+        audioSource.PlayOneShot(shoot);
 
         Vector3 direction = firePoint.forward;
 
@@ -230,11 +236,7 @@ public class Player : MonoBehaviour
 
         Debug.Log("Gun Jammed!");
 
-        if (audioSource.clip != reload)
-        {
-            audioSource.clip = reload;
-        }
-        audioSource.Play();
+        audioSource.PlayOneShot(reload);
 
         yield return new WaitForSeconds(jamDuration);
 
@@ -243,22 +245,14 @@ public class Player : MonoBehaviour
 
         Debug.Log("Gun Unjammed!");
 
-        if (audioSource.clip != cockingGun)
-        {
-            audioSource.clip = cockingGun;
-        }
-        audioSource.Play();
+        audioSource.PlayOneShot(cockingGun);
     }
 
     private IEnumerator Slash()
     {
         animator.SetTrigger("Stab");
 
-        if (audioSource.clip != meleeSlash)
-        {
-            audioSource.clip = meleeSlash;
-        }
-        audioSource.Play();
+        audioSource.PlayOneShot(meleeSlash);
 
         if (slashActive)
             yield break;
@@ -354,25 +348,11 @@ public class Player : MonoBehaviour
     if (weaponToggle == true)
     {
        toggleIcon.sprite = gunSprite;
-
-        if (audioSource.clip != switchToGun)
-        {
-            audioSource.clip = switchToGun;
-            audioSource.Play();
-        }
-
-        animator.SetBool("HasGun", true);
+       animator.SetBool("HasGun", true);
     }
     else
     {
         toggleIcon.sprite = meleeSprite;
-
-        if (audioSource.clip != switchToMelee)
-        {
-            audioSource.clip = switchToMelee;
-            audioSource.Play();
-        }
-
         animator.SetBool("HasGun", false);
     }
 
