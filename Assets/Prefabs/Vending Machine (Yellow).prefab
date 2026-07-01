@@ -166,14 +166,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2146198110503226268}
-  - component: {fileID: 6401047749259292612}
   - component: {fileID: 6909650193129162358}
   - component: {fileID: 1382948201286165090}
   - component: {fileID: 2839351033333353428}
   - component: {fileID: 4328713870070752710}
   - component: {fileID: 1409978681670557230}
   - component: {fileID: 6057816278030270750}
-  - component: {fileID: -1008598986111246493}
   m_Layer: 0
   m_Name: Vending Machine (Yellow)
   m_TagString: Untagged
@@ -198,27 +196,6 @@ Transform:
   - {fileID: 2416931835823964522}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!65 &6401047749259292612
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8014644639996732366}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1.6, z: 0.47}
-  m_Center: {x: 0, y: 0, z: -0.17}
 --- !u!114 &6909650193129162358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -546,24 +523,3 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
---- !u!65 &-1008598986111246493
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8014644639996732366}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
