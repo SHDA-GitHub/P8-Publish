@@ -8157,9 +8157,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -118204,13 +118204,13 @@ PrefabInstance:
       addedObject: {fileID: 1079545619}
     - targetCorrespondingSourceObject: {fileID: 2630051280508151169, guid: 5c983cdf82e26714eaed146aceadcfdc, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 134097075}
+    - targetCorrespondingSourceObject: {fileID: 2630051280508151169, guid: 5c983cdf82e26714eaed146aceadcfdc, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 107695639}
     - targetCorrespondingSourceObject: {fileID: 2630051280508151169, guid: 5c983cdf82e26714eaed146aceadcfdc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 160170813}
-    - targetCorrespondingSourceObject: {fileID: 2630051280508151169, guid: 5c983cdf82e26714eaed146aceadcfdc, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 134097075}
     - targetCorrespondingSourceObject: {fileID: 2056187368934841246, guid: 5c983cdf82e26714eaed146aceadcfdc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 627970627}
