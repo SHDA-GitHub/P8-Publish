@@ -89,8 +89,8 @@ public class WaveManager : MonoBehaviour
 
         ApplyWaveScale(enemy);
 
-        enemy.GetComponent<EnemyHealth>().maxHealth *= (1 + _waveStrength);
-        enemy.GetComponent<TouchDamage>()._attackDamage *= (1 + _waveStrength);
+        enemy.GetComponent<EnemyHealth>().maxHealth += (1 + _waveStrength);
+        enemy.GetComponent<TouchDamage>()._attackDamage += (1 + _waveStrength);
         enemy.GetComponent<EnemyHealth>().CurrencyReward = swarmerCurrencyReward;
         enemy.GetComponent<EnemyHealth>().EXPReward = swarmerEXPReward;
     }
