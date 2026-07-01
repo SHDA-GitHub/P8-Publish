@@ -8,14 +8,25 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private LevelUpUI lvlUpUI;
     [SerializeField] private GameObject pausePanel;
 
+    private void OnEnable()
+    {
+        controls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.Disable();
+    }
+
     private void Awake()
     {
+        controls = new InputSystem_Actions();
+        controls.UI.Enable();
+
         if (lvlUpUI == null)
         {
             lvlUpUI = FindFirstObjectByType<LevelUpUI>();
         }
-
-        controls = new InputSystem_Actions();
 
         controls.UI.Submit.performed += Pause;
     }
@@ -29,18 +40,20 @@ public class PauseMenu : MonoBehaviour
     {
         if (currentlyPaused == true && lvlUpUI.levelUpUIOpen == false)
         {
-            Debug.Log("Paused");
             OpenPauseUI();
         }
         else if (currentlyPaused == false && lvlUpUI.levelUpUIOpen == false)
         {
-            Debug.Log("Unpaused");
             ClosePauseUI();
         }
     }
 
     public void OpenPauseUI()
     {
+        currentlyPaused = true;
+
+        Debug.Log("Paused");
+
         Cursor.lockState = CursorLockMode.None;
 
         pausePanel.SetActive(true);
@@ -50,6 +63,10 @@ public class PauseMenu : MonoBehaviour
 
     public void ClosePauseUI()
     {
+        currentlyPaused = false;
+
+        Debug.Log("Unpaused");
+
         Cursor.lockState = CursorLockMode.Locked;
 
         pausePanel.SetActive(false);
