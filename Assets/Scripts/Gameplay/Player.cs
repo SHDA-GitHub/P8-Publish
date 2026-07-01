@@ -77,6 +77,10 @@ public class Player : MonoBehaviour
     [SerializeField] private AudioClip walk;
     [SerializeField] private AudioClip hurt;
 
+    [Header("Health Referneces")]
+    [SerializeField] private Image HPVignette;
+    [SerializeField] private PlayerHealth playerHealth;
+
     private void Awake()
     {
         weaponToggle = true;
@@ -95,6 +99,7 @@ public class Player : MonoBehaviour
         controls.Player.Toggle.performed += OnToggleWeapon;
 
         rb = GetComponent<Rigidbody>();
+        playerHealth = GetComponent<PlayerHealth>();
 
         if (audioSource == null)
         {
@@ -307,6 +312,15 @@ public class Player : MonoBehaviour
             Vector3.one * slashHitbox;
     }
 
+    private void UpdateHPVignette(float currentHP)
+    {
+        Color color = HPVignette.color;
+
+        color.a = Mathf.InverseLerp(50f, 0f, currentHP);
+
+        HPVignette.color = color;
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
@@ -386,5 +400,6 @@ public class Player : MonoBehaviour
 
             Debug.Log("Shot counter reset.");
         }
+        UpdateHPVignette(playerHealth.health);
     }
 }
