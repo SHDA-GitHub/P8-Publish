@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.InputSystem;
 
 public class PauseMenu : MonoBehaviour
@@ -7,6 +8,8 @@ public class PauseMenu : MonoBehaviour
     private InputSystem_Actions controls;
     [SerializeField] private LevelUpUI lvlUpUI;
     [SerializeField] private GameObject pausePanel;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip Click;
 
     private void OnEnable()
     {
@@ -34,10 +37,7 @@ public class PauseMenu : MonoBehaviour
     private void Pause(InputAction.CallbackContext context)
     {
         currentlyPaused = !currentlyPaused;
-    }
 
-    void Update()
-    {
         if (currentlyPaused == true && lvlUpUI.levelUpUIOpen == false)
         {
             OpenPauseUI();
@@ -58,6 +58,8 @@ public class PauseMenu : MonoBehaviour
 
         pausePanel.SetActive(true);
 
+        audioSource.PlayOneShot(Click);
+
         Time.timeScale = 0f;
     }
 
@@ -70,6 +72,8 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         pausePanel.SetActive(false);
+
+        audioSource.PlayOneShot(Click);
 
         Time.timeScale = 1f;
     }

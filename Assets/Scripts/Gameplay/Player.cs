@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -28,6 +29,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Sprite meleeSprite;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioSource walkAudio;
+    [SerializeField] private TextMeshProUGUI bulletCounter;
     private float nextToggleTime = 0f;
     // true = gun
     // false = slash
@@ -116,6 +118,8 @@ public class Player : MonoBehaviour
 
         slashCollider.transform.localScale =
             Vector3.one * slashHitbox;
+
+        UpdateBulletCounter();
     }
 
     private void OnMove(InputAction.CallbackContext context)
@@ -222,6 +226,8 @@ public class Player : MonoBehaviour
 
         bulletsShot++;
 
+        UpdateBulletCounter();
+
         lastShotTime = Time.time;
 
         if (bulletsShot >= bulletsBeforeJam)
@@ -241,11 +247,18 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(jamDuration);
 
         bulletsShot = 0;
+        UpdateBulletCounter();
         isJammed = false;
 
         Debug.Log("Gun Unjammed!");
 
         audioSource.PlayOneShot(cockingGun);
+    }
+
+    private void UpdateBulletCounter()
+    {
+        int currentBullets = bulletsBeforeJam - bulletsShot;
+        bulletCounter.text = $"Bullets: {currentBullets:00}/{bulletsBeforeJam:00}";
     }
 
     private IEnumerator Slash()
@@ -369,6 +382,7 @@ public class Player : MonoBehaviour
             Time.time >= lastShotTime + resetShotTime)
         {
             bulletsShot = 0;
+            UpdateBulletCounter();
 
             Debug.Log("Shot counter reset.");
         }

@@ -12,7 +12,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private float _spawnTimer;
     [SerializeField] private byte _maxEnemies;
     public List<GameObject> CurrentEnemies = new List<GameObject>();
-    public float CurrentWave;
+    public int CurrentWave;
 
     [Header("Wave data")]
     [SerializeField] private bool _waveCooldown = false;
@@ -32,7 +32,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip bossSpawnClip;
 
-    private bool bossSpawned = false;
+    private int lastBossWave = 0;
 
     [Header("EnemyRewards")]
     public float swarmerEXPReward = 25f;
@@ -137,9 +137,11 @@ public class WaveManager : MonoBehaviour
     {
         _spawnCooldown = true;
 
-        if (CurrentWave >= 20 && !bossSpawned)
+        if (CurrentWave >= 20 &&
+            CurrentWave % 20 == 0 &&
+            lastBossWave != CurrentWave)
         {
-            bossSpawned = true;
+            lastBossWave = (int)CurrentWave;
 
             Transform spawnPoint = _enemySpawners[Random.Range(0, _enemySpawners.Length)];
             SpawnBoss(spawnPoint);
