@@ -2492,7 +2492,7 @@ MonoBehaviour:
   _agent: {fileID: 1108138230209242346}
   slashCollider: {fileID: 2017670103638490928}
   slashActive: 0
-  animator: {fileID: 0}
+  animator: {fileID: 3736443726530089305}
   attacking: 0
   knockbackStrength: 4
   slashDuration: 1
