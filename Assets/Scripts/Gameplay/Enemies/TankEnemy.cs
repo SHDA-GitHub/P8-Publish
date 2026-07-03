@@ -37,11 +37,14 @@ public class TankEnemy : BaseEnemy
         if (attacking == false)
         {
             _agent.isStopped = false;
+            animator.SetBool("isWalking", true);
             _agent.SetDestination(_targetObject.position);
         }
         else if (attacking == true)
         {
             _agent.isStopped = true;
+            animator.SetBool("isWalking", false);
+            animator.SetTrigger("Attack");
             StartCoroutine(Attack());
         }
     }
