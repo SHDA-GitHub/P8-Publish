@@ -22,9 +22,15 @@ public class SceneManaging : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
-    public void EndMenu()
+    public void CreditsMenu()
     {
         audioSource.PlayOneShot(Click);
         SceneManager.LoadScene(2);
+    }
+
+    public void EndMenu()
+    {
+        audioSource.PlayOneShot(Click);
+        SceneManager.LoadScene(3);
     }
 }
