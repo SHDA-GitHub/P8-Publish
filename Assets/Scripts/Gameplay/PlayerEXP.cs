@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class PlayerEXP : MonoBehaviour
 {
+    private DataCarrying data;
+
     [Header("EXP")]
     [SerializeField] private Image EXPBarFill;
     public float EXP;
@@ -17,6 +19,8 @@ public class PlayerEXP : MonoBehaviour
     {
         EXP = 0;
         EXPIncrease = 0;
+
+        data = FindFirstObjectByType<DataCarrying>();
     }
 
     private void Update()
@@ -31,7 +35,12 @@ public class PlayerEXP : MonoBehaviour
 
     public void AddEXP(float expReward)
     {
-        EXP = EXP + expReward + EXPIncrease;
+        float gained = expReward + EXPIncrease;
+
+        EXP += gained;
+
+        if (data != null)
+            data.AddEXPGained(gained);
     }
 
     private void LevelUp()

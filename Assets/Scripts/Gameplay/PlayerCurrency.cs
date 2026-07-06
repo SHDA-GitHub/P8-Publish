@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class PlayerCurrency : MonoBehaviour
 {
+    private DataCarrying data;
+
     [Header("Currency")]
     [SerializeField] private TextMeshProUGUI currencyText;
     [SerializeField] private TextMeshProUGUI killsText;
@@ -15,11 +17,18 @@ public class PlayerCurrency : MonoBehaviour
         currency = 0;
         currencyIncrease = 1;
         kills = 0;
+
+        data = FindFirstObjectByType<DataCarrying>();
     }
 
     public void AddCurrency(int currencyReward)
     {
-        currency = currency + currencyReward * currencyIncrease;
+        int gained = currencyReward * currencyIncrease;
+
+        currency += gained;
+
+        if (data != null)
+            data.AddCurrencyGained(gained);
     }
 
     void Update()

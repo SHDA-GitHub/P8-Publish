@@ -159,6 +159,14 @@ public class PassiveUpgradeManager : MonoBehaviour
             MaxCappedSlots.Add(upgrade);
             RefreshPassiveUpgradeImages();
         }
+
+        DataCarrying data = FindFirstObjectByType<DataCarrying>();
+
+        if (upgrade.hasMaxCap && data != null)
+        {
+            data.RecordCappedUpgrade(upgrade.itemName);
+        }
+
         switch (upgrade.itemName)
         {
             case "HP Up":

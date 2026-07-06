@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c66383278bef0ca4ca1127e7c122d236, type: 3}
   m_Name: Currency Increase
   m_EditorClassIdentifier: Assembly-CSharp::PassiveUpgrades
-  itemImage: {fileID: 21300000, guid: 153178a5037006f44bc46b252e3f71f3, type: 3}
+  itemImage: {fileID: 21300000, guid: 50ac59606d0113446ad740c4e655bd28, type: 3}
   itemName: Currency Increase
   effectAmountInt: 2
   effectAmountFloat: 0
   hasMaxCap: 1
+  VendingOneRound: 1
   description: Multiplies gained currency by an additional 2
