@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c66383278bef0ca4ca1127e7c122d236, type: 3}
   m_Name: EXPUp
   m_EditorClassIdentifier: Assembly-CSharp::PassiveUpgrades
-  itemImage: {fileID: 21300000, guid: 153178a5037006f44bc46b252e3f71f3, type: 3}
+  itemImage: {fileID: 21300000, guid: 376528ecc2cb17f4db5836ba66f426f0, type: 3}
   itemName: EXP Up
   effectAmountInt: 0
   effectAmountFloat: 25
   hasMaxCap: 1
+  VendingOneRound: 1
   description: Increases EXP gain by 25

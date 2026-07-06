@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c66383278bef0ca4ca1127e7c122d236, type: 3}
   m_Name: SpeedUp
   m_EditorClassIdentifier: Assembly-CSharp::PassiveUpgrades
-  itemImage: {fileID: 21300000, guid: 153178a5037006f44bc46b252e3f71f3, type: 3}
+  itemImage: {fileID: 21300000, guid: 3472762992213224c8270382be4c8bc1, type: 3}
   itemName: Speed Up
   effectAmountInt: 0
   effectAmountFloat: 1.5
   hasMaxCap: 1
+  VendingOneRound: 1
   description: Increases movement speed by 1,5
