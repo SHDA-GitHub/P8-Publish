@@ -169,6 +169,16 @@ public class WaveManager : MonoBehaviour
 
         CurrentEnemies.Add(boss);
 
+        float bossStrength = _waveStrength * 2f;
+
+        ApplyWaveScale(boss);
+
+        EnemyHealth health = boss.GetComponent<EnemyHealth>();
+        TankEnemy tank = boss.GetComponent<TankEnemy>();
+
+        health.maxHealth *= (1 + bossStrength);
+        tank.meleeDMG *= (1 + bossStrength);
+
         if (audioSource != null && bossSpawnClip != null)
         {
             audioSource.PlayOneShot(bossSpawnClip);
