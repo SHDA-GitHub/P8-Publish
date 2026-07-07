@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c66383278bef0ca4ca1127e7c122d236, type: 3}
   m_Name: DamageUp
   m_EditorClassIdentifier: Assembly-CSharp::PassiveUpgrades
-  itemImage: {fileID: 21300000, guid: 153178a5037006f44bc46b252e3f71f3, type: 3}
+  itemImage: {fileID: 21300000, guid: 984997d20c50d894b911ad9bce8b05bd, type: 3}
   itemName: DMG Up
   effectAmountInt: 0
   effectAmountFloat: 10
