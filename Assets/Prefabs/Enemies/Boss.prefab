@@ -2717,8 +2717,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   healthBarFill: {fileID: 8250132711755436400}
   deathParticles: {fileID: 744886326567318412, guid: f58011eafbe7e094db9fbad7b36d22f8, type: 3}
-  health: 200
-  maxHealth: 200
+  health: 225
+  maxHealth: 225
   EXPReward: 100
   CurrencyReward: 50
 --- !u!65 &4168654689407622047

@@ -1410,7 +1410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e0503113c95e8f45b65e3a7a51a85c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MeleeCollision
-  damageToDeal: 50
+  damageToDeal: 25
   knockbackStrength: 1
   upwardKnockback: 5
   isEnemy: 1
