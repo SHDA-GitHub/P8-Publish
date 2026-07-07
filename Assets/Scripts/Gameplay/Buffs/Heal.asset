@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c66383278bef0ca4ca1127e7c122d236, type: 3}
   m_Name: Heal
   m_EditorClassIdentifier: Assembly-CSharp::PassiveUpgrades
-  itemImage: {fileID: 21300000, guid: 153178a5037006f44bc46b252e3f71f3, type: 3}
+  itemImage: {fileID: 21300000, guid: 683a799f394a35e43bd4c5c806745210, type: 3}
   itemName: Heal
   effectAmountInt: 0
   effectAmountFloat: 25
