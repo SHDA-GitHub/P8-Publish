@@ -8,17 +8,18 @@ public class RangedProjectile : MonoBehaviour
     [SerializeField] private Transform _target;
     [SerializeField] private MeshRenderer _renderer;
     [SerializeField] private GameObject _attackExplosion;
+    [SerializeField] private GameObject _particles;
 
     [SerializeField] private Vector3 _lowestPosition;
 
     [Header("Stats")]
     [SerializeField] private float _destroyTime;
     public float _attackDamage;
+    private bool isExploding = false;
 
     private void Awake()
     {
         _target = Player.instance.transform;
-        StartCoroutine(DestroyProjectile());
         _attackExplosion.SetActive(false);
     }
 
@@ -27,7 +28,7 @@ public class RangedProjectile : MonoBehaviour
         if (transform.position.y <= _lowestPosition.y)
         {
             StartCoroutine(AttackCoroutine());
-
+            _attackExplosion.SetActive(true);
         }
     }
 
@@ -37,17 +38,21 @@ public class RangedProjectile : MonoBehaviour
         Destroy(gameObject.GetComponent<SplineAnimate>());
     }
 
-    private IEnumerator DestroyProjectile()
-    {
-        yield return new WaitForSeconds(_destroyTime);
-        Destroy(gameObject);
-    }
-
     private IEnumerator AttackCoroutine()
     {
-        yield return new WaitForSeconds(0.1f);
         _renderer.enabled = false;
-        _attackExplosion.SetActive(true); ;
+
+        GameObject _newParticles = Instantiate(_particles, gameObject.transform);
+        _newParticles.AddComponent<RangedExplosionParticle>();
+
+        yield return new WaitForSeconds(0.1f);
+
+        _attackExplosion.SetActive(false);
+        _newParticles.SetActive(false);
+
+        yield return new WaitForSeconds(0.5f);
+
+        Destroy(gameObject);
     }
 
     private void OnDestroy()

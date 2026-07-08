@@ -26,6 +26,8 @@ public class RangedEnemy : BaseEnemy
 
     [SerializeField] private List<GameObject> _projectiles;
 
+    [SerializeField] private GameObject enemyModel;
+
     [Header("Stats")]
     public float _attackDamage;
     [SerializeField] private float _attackRange;
@@ -46,6 +48,7 @@ public class RangedEnemy : BaseEnemy
 
     private void Update()
     {
+        enemyModel.transform.LookAt(_target.position);
 
         _navMeshAgent.SetDestination(_target.position);
 

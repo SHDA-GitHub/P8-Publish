@@ -326,6 +326,7 @@ MonoBehaviour:
   pointA: {fileID: 2451634571590883631}
   _navMeshAgent: {fileID: 3600081034227063360}
   _projectiles: []
+  enemyModel: {fileID: 2874937710828110092}
   _attackDamage: 7.66
   _attackRange: 20
   _attackCooldown: 2
