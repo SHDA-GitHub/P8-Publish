@@ -7480,6 +7480,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WaveManager
   enemyPrefab:
   - {fileID: 1668765135169094032, guid: 6497b80fc02332849b3d9d30776ab355, type: 3}
+  - {fileID: 574587255740029282, guid: 1570177791b8aa44ebf5282f0fee69f6, type: 3}
   - {fileID: 7884893967394809495, guid: 513d115995b253a4db25ef0aa1505b17, type: 3}
   - {fileID: 4587510762096637297, guid: e4f19b7ef5bf753428b11f55c614cbaa, type: 3}
   _enemySpawners:
@@ -7499,16 +7500,19 @@ MonoBehaviour:
   waveUI: {fileID: 1889497966}
   enemyCountUI: {fileID: 0}
   _mortarSpawnWeight: 0.3
+  _rangedSpawnWeight: 0.45
   _tankSpawnWeight: 0.15
   bossPrefab: {fileID: 4428705452896648750, guid: 25e585cfe55e64e4390959be2e28ac75, type: 3}
   audioSource: {fileID: 83387641}
   bossSpawnClip: {fileID: 8300000, guid: 8a29a7269f18a7743b56816bfb607421, type: 3}
   swarmerEXPReward: 25
-  mortarEXPReward: 50
-  tankEXPReward: 100
+  rangedEXPReward: 30
+  mortarEXPReward: 45
+  tankEXPReward: 65
   swarmerCurrencyReward: 5
-  mortarCurrencyReward: 10
-  tankCurrencyReward: 15
+  rangedCurrencyReward: 10
+  mortarCurrencyReward: 15
+  tankCurrencyReward: 25
 --- !u!4 &83387640
 Transform:
   m_ObjectHideFlags: 0

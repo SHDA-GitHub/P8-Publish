@@ -25,6 +25,7 @@ public class WaveManager : MonoBehaviour
 
     [Header("SpawnWeight")]
     [SerializeField] private float _mortarSpawnWeight = 1f;
+    [SerializeField] private float _rangedSpawnWeight = 1f;
     [SerializeField] private float _tankSpawnWeight = 1f;
 
     [Header("Boss")]
@@ -36,11 +37,13 @@ public class WaveManager : MonoBehaviour
 
     [Header("EnemyRewards")]
     public float swarmerEXPReward = 25f;
-    public float mortarEXPReward = 50f;
-    public float tankEXPReward = 100f;
+    public float rangedEXPReward = 30f;
+    public float mortarEXPReward = 45f;
+    public float tankEXPReward = 65f;
     public int swarmerCurrencyReward = 5;
-    public int mortarCurrencyReward = 10;
-    public int tankCurrencyReward = 15;
+    public int rangedCurrencyReward = 10;
+    public int mortarCurrencyReward = 15;
+    public int tankCurrencyReward = 25;
 
     private void Awake()
     {
@@ -69,11 +72,15 @@ public class WaveManager : MonoBehaviour
     {
         float roll = Random.Range(0f, 10f);
 
-        if (roll < _mortarSpawnWeight)
+        if (roll < _rangedSpawnWeight)
+        {
+            SpawnRanged(targetPos);
+        }
+        if (roll < _rangedSpawnWeight + _mortarSpawnWeight)
         {
             SpawnMortar(targetPos);
         }
-        else if (roll < _mortarSpawnWeight + _tankSpawnWeight)
+        else if (roll < _rangedSpawnWeight + _mortarSpawnWeight + _tankSpawnWeight)
         {
             SpawnTank(targetPos);
         }
@@ -95,9 +102,20 @@ public class WaveManager : MonoBehaviour
         enemy.GetComponent<EnemyHealth>().EXPReward = swarmerEXPReward;
     }
 
-    private void SpawnMortar(Transform targetPos)
+    private void SpawnRanged(Transform targetPos)
     {
         GameObject enemy = Instantiate(enemyPrefab[1], targetPos.position, Quaternion.identity);
+
+        ApplyWaveScale(enemy);
+
+        enemy.GetComponent<EnemyHealth>().maxHealth *= (1 + _waveStrength);
+        enemy.GetComponent<EnemyHealth>().CurrencyReward = rangedCurrencyReward;
+        enemy.GetComponent<EnemyHealth>().EXPReward = rangedEXPReward;
+    }
+
+    private void SpawnMortar(Transform targetPos)
+    {
+        GameObject enemy = Instantiate(enemyPrefab[2], targetPos.position, Quaternion.identity);
 
         ApplyWaveScale(enemy);
 
@@ -108,7 +126,7 @@ public class WaveManager : MonoBehaviour
 
     private void SpawnTank(Transform targetPos)
     {
-        GameObject enemy = Instantiate(enemyPrefab[2], targetPos.position, Quaternion.identity);
+        GameObject enemy = Instantiate(enemyPrefab[3], targetPos.position, Quaternion.identity);
 
         ApplyWaveScale(enemy);
 
